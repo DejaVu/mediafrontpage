@@ -55,6 +55,10 @@ $arrLayout = array(
 				"title" => "XBMC Message",
 				"display" => ""
 			),
+			"wWatched" => array(
+				"title" => "Site Widgets",
+				"display" => ""
+			),			
 			"wTrakt" => array(
 				"title" => "trakt.tv",
 				"display" => ""

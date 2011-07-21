@@ -84,6 +84,7 @@ if(!empty($_GET)){
 	        <li><a href="#PROGRAMS">Programs</a></li>
 	        <li><a href="#SEARCH">Search Widget</a></li>
 	        <li><a href="#TRAKT">Trakt.tv</a></li>
+	        <li><a href="#SHARETHETV">ShareThe.tv</a></li>			
 	        <li><a href="#NAVBAR">Nav Bar</a></li>
 	        <li><a href="#SUBNAV">Sub Nav</a></li>
 	        <li><a href="#HDD">Hard Drives</a></li>
@@ -749,6 +750,27 @@ if(!empty($_GET)){
 			        </table>
 			        <input type="button" value="Save" onclick="updateSettings('TRAKT');" />
 			      </div>
+			      <div id="SHARETHETV" class="panel"><br><br>
+			        <h3>ShareThe.TV Settings</h3><br><img src="media/nav/ShareTheTV.png">
+			        <table>
+			          <tr>
+			            <td align="right">
+			              <p>Username:
+			            </td>
+			            <td align="left"><input name="SHARETHETV_USERNAME" size="20" value="<?php echo $config->get('SHARETHETV_USERNAME','SHARETHETV')?>" />&nbsp;&nbsp;<font size='1'>Must be all lowercase.</font></td>
+			          </tr>
+			          <tr>
+			            <td align="right">
+			              <p>Password:</p>
+			            </td>
+			            <td align="left">
+			              <input name="SHARETHETV_PASSWORD" type="password" size="20" value="<?php echo $config->get('SHARETHETV_PASSWORD','SHARETHETV')?>" />
+			            </td>
+			          </tr>
+			        </table>
+			        <input type="button" value="Save" onclick="updateSettings('SHARETHETV');" />
+			      </div>				  
+				  
 			      <div id="NAVBAR" class="panel"><br><br>
 			        <h3>Navigation Links</h3>
 			        <table id='table_nav'>

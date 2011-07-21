@@ -158,6 +158,8 @@ while(!$found){
      $TRAKT_API             = $Config->get('TRAKT_API','TRAKT');
      $TRAKT_USERNAME        = $Config->get('TRAKT_USERNAME','TRAKT');
      $TRAKT_PASSWORD        = $Config->get('TRAKT_PASSWORD','TRAKT');
+     $SHARETHETV_USERNAME    = $Config->get('SHARETHETV_USERNAME','SHARETHETV');
+     $SHARETHETV_PASSWORD    = $Config->get('SHARETHETV_PASSWORD','SHARETHETV'); //NOT IMPLEMENTED YET, ADD FOR WHEN NEEDED.
 
                               // NavBar Section //
 
