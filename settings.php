@@ -68,6 +68,10 @@ if(!empty($_GET)){
   <script src="js/jquery.scrollTo-1.3.3-min.js" type="text/javascript"></script>
   <script src="js/jquery.localscroll-1.2.5-min.js" type="text/javascript"></script>
   <script src="js/jquery.serialScroll-1.2.1-min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>  
+  <link rel="stylesheet" type="text/css" href="css/jquery.pnotify.default.css">
+  <link rel="stylesheet" type="text/css" href="css/UI/jquery-ui-1.8.14.custom.css">
+  <script src="js/jquery.pnotify.js" type="text/javascript"></script> 
 </head>
 
 <body style="overflow: hidden;">
@@ -207,7 +211,7 @@ if(!empty($_GET)){
 			            <td><div class="zoom"><a href="#UTORRENT" title="uTorrent"><img src="media/nav/uTorrent.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 			            <td><div class="zoom"><a href="#JDOWNLOADER" title="jDownloader"><img src="media/nav/JDownloader.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 			          </tr>
-			          <tr><td colspan="9"><input type="button" value="REVERSE PROXIES" onclick="window.location.href='#WEBROOT'" /></td></tr>
+			          <tr><td colspan="9"><input type="button" 			        <input type="button" value="Save" onclick="updateSettings('GLOBAL');" /></td></tr>
 			        </table>
 			      </div>
 			      <div id="WEBROOT" class="panel"><br><br>
@@ -295,7 +299,7 @@ if(!empty($_GET)){
 			            </td>
 			          </tr>
 			        </table>
-					    <input type=button value="Back" onClick="history.go(-1)">
+					    <input type="button" value="Back" onClick="history.go(-1)">
 			        <input type="button" value="Save" onclick="updateSettings('WEBROOT');" />
 			      </div>
 			      <div id="XBMC" class="panel"><br><br>
@@ -334,7 +338,7 @@ if(!empty($_GET)){
 			            </td>
 			          </tr>
 			        </table>
-					    <input type=button value="Back" onClick="history.go(-1)">
+					    <input type="button" value="Back" onClick="history.go(-1)">
 			        <input type="button" value="Save" onclick="updateSettings('XBMC');" />
 			      </div>
 			      <div id="SICKBEARD" class="panel"><br><br>
@@ -373,7 +377,7 @@ if(!empty($_GET)){
 			            </td>
 			          </tr>
 			        </table>
-					    <input type=button value="Back" onClick="history.go(-1)">
+					    <input type="button" value="Back" onClick="history.go(-1)">
 			        <input type="button" value="Save" onclick="updateSettings('SICKBEARD');" />
 			      </div>
 			      <div id="COUCHPOTATO" class="panel"><br><br>
@@ -412,7 +416,7 @@ if(!empty($_GET)){
 			            </td>
 			          </tr>
 			        </table>
-					    <input type=button value="Back" onClick="history.go(-1)">
+					    <input type="button"  value="Back" onClick="history.go(-1)">
 			        <input type="button" value="Save" onclick="updateSettings('COUCHPOTATO');" />
 			      </div>
 			      <div id="SABNZBD" class="panel"><br><br>
@@ -459,7 +463,7 @@ if(!empty($_GET)){
 			            </td>
 			          </tr>
 			        </table>
-					    <input type=button value="Back" onClick="history.go(-1)">
+					    <input type="button" value="Back" onClick="history.go(-1)">
 			        <input type="button" value="Save" onclick="updateSettings('SABNZBD');" />
 			      </div>
 			      <div id="TRANSMISSION" class="panel"><br><br>
@@ -498,7 +502,7 @@ if(!empty($_GET)){
 			            </td>
 			          </tr>
 			        </table>
-					    <input type=button value="Back" onClick="history.go(-1)">
+					    <input type="button" value="Back" onClick="history.go(-1)">
 			        <input type="button" value="Save" onclick="updateSettings('TRANSMISSION');" />
 			      </div>
 			      <div id="UTORRENT" class="panel"><br><br>
@@ -537,7 +541,7 @@ if(!empty($_GET)){
 			            </td>
 			          </tr>
 			        </table>
-					    <input type=button value="Back" onClick="history.go(-1)">
+					    <input type="button" value="Back" onClick="history.go(-1)">
 			        <input type="button" value="Save" onclick="updateSettings('UTORRENT');" />
 			      </div>
 			      <div id="JDOWNLOADER" class="panel"><br><br>
@@ -574,7 +578,7 @@ if(!empty($_GET)){
 			            <td align="left"><input name="PASSWORD" size="20" type="password" value="<?php echo $config->get('PASSWORD','JDOWNLOADER')?>" /></td>
 			          </tr>
 			        </table>
-					    <input type=button value="Back" onClick="history.go(-1)">
+					    <input type="button" value="Back" onClick="history.go(-1)">
 			        <input type="button" value="Save" onclick="updateSettings('JDOWNLOADER');" />
 			      </div>
 			      <div id="SUBSONIC" class="panel"><br><br>
@@ -613,7 +617,7 @@ if(!empty($_GET)){
 			            </td>
 			          </tr>
 			        </table>
-					    <input type=button value="Back" onClick="history.go(-1)">
+					    <input type="button" value="Back" onClick="history.go(-1)">
 			        <input type="button" value="Save" onClick="updateSettings('SUBSONIC');" />
 			      </div>
 			      <div id="HEADPHONES" class="panel"><br><br>
@@ -652,7 +656,7 @@ if(!empty($_GET)){
 			            </td>
 			          </tr>
 			        </table>
-					    <input type=button value="Back" onClick="history.go(-1)">
+					    <input type="button" value="Back" onClick="history.go(-1)">
 			        <input type="button" value="Save" onClick="updateSettings('HEADPHONES');" />
 			      </div>				  
 			      <div id="SEARCH" class="panel"><br><br>
@@ -1035,7 +1039,15 @@ if(!empty($_GET)){
       </div>
     </div>  
   </center>
-  <?php 
+<!--
+  <div>
+    <input value="Regular Notice" onclick="$.pnotify({
+						pnotify_title: 'Regular Notice',
+						pnotify_text: 'Check me out! I\'m a notice.'
+					});" type="button" role="button" aria-disabled="false">  
+	</div>
+-->
+<?php 
   }
   include "footer.php";
   ?>
