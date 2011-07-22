@@ -188,26 +188,22 @@ if(!empty($_GET)){
 						   transition: all .2s ease-out; 
 						}
 						.zoom:hover { 
-						   -moz-transform: scale(2);
-						   -webkit-transform: scale(2);
-						   -o-transform: scale(2);
-						   transform: scale(2);
+						   -moz-transform: scale(1.5);
+						   -webkit-transform: scale(1.5);
+						   -o-transform: scale(1.5);
+						   transform: scale(1.5);
 						   }
 						</style>
 				   <h3>Program Settings</h3>
-			        <table cellspacing="30px" cellpadding="30px">
+			        <table cellspacing="15px" cellpadding="15px">
 			          <tr>
 					    <td><div class="zoom"><a href="#XBMC" title="XBMC"><img src="media/nav/XBMC.png" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 			            <td><div class="zoom"><a href="#SABNZBD" title="SabNZBd+"><img src="media/nav/SabNZBd.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 						<td><div class="zoom"><a href="#SUBSONIC" title="Subsonic"><img src="media/nav/SubSonic.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-			          </tr>
-			          <tr>
-			            <td><div class="zoom"><a href="#SICKBEARD" title="Sick Beard"><img src="media/nav/SickBeard.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+<td><div class="zoom"><a href="#SICKBEARD" title="Sick Beard"><img src="media/nav/SickBeard.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 			            <td><div class="zoom"><a href="#COUCHPOTATO" title="Couch Potato"><img src="media/nav/CouchPotato.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 						<td><div class="zoom"><a href="#HEADPHONES" title="Headphones"><img src="media/nav/HeadPhones.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-			            </tr>
-			          <tr>
-			            <td><div class="zoom"><a href="#TRANSMISSION" title="Transmission"><img src="media/nav/Transmission.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+<td><div class="zoom"><a href="#TRANSMISSION" title="Transmission"><img src="media/nav/Transmission.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 			            <td><div class="zoom"><a href="#UTORRENT" title="uTorrent"><img src="media/nav/uTorrent.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 			            <td><div class="zoom"><a href="#JDOWNLOADER" title="jDownloader"><img src="media/nav/JDownloader.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 			          </tr>
