@@ -4,6 +4,7 @@
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="stylesheet" type="text/css" href="css/front.css" />
 <link rel="stylesheet" type="text/css" href="css/static_widget.css" />
+<link href="css/settings.css" rel="stylesheet" type="text/css">
 </head>
 <?php
 if (file_exists('firstrun.php')){header('Location: servercheck.php');} 

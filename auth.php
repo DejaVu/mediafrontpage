@@ -17,26 +17,8 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 <title>Media Center</title>
 <link rel="shortcut icon" href="favicon.ico" />
 <link rel="stylesheet" type="text/css" href="css/front.css" />
-<style type="text/css">
-.widget {
-    border:1px solid black;
-    -moz-border-radius:6px 6px 6px 6px;
-    border-radius:6px 6px 6px 6px;
-    margin:0px 0px;
-    box-shadow: 3px 3px 3px #000;
-	background:#2C2D32;
-}
-.widget-head {
-    -moz-border-radius:6px 6px 0px 0px;
-    border-radius:6px 6px 0px 0px;
-    background:#3d3d3d;
-    border-bottom:1px solid black;
-    width: 100%;
-    height: 30px;
-    line-height: 30px;
-	font-weight:bold;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="css/static_widget.css" />
+<link href="css/settings.css" rel="stylesheet" type="text/css">
 	<center><br><br><br>
 	<form action="auth.php" method="post">
 	<table class="widget" width=259 cellpadding=0 cellspacing=0 id=1>
