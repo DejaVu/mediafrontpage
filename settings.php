@@ -211,7 +211,7 @@ if(!empty($_GET)){
 			            <td><div class="zoom"><a href="#UTORRENT" title="uTorrent"><img src="media/nav/uTorrent.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 			            <td><div class="zoom"><a href="#JDOWNLOADER" title="jDownloader"><img src="media/nav/JDownloader.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 			          </tr>
-			          <tr><td colspan="9"><input type="button" 			        <input type="button" value="Save" onclick="updateSettings('GLOBAL');" /></td></tr>
+			          <tr><td colspan="9"><input type="button" 			        <input type="button" value="REVERSE PROXIES" onclick="window.location.href='#WEBROOT'" /></td></tr>
 			        </table>
 			      </div>
 			      <div id="WEBROOT" class="panel"><br><br>
