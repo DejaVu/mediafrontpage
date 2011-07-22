@@ -136,7 +136,7 @@
 }
 
 	#main #wComingEpisodes.widget .widget-content {
-		max-height:96%;
+		max-height:92%;
 	
 	/* show vertical scrollbar only on overflow */
 		overflow-x:hidden;

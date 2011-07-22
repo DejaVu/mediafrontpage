@@ -1,14 +1,17 @@
-html,body { 
-	height: 96%; -webkit-font-smoothing: antialiased;
+html {
+	overflow: -moz-scrollbars-vertical;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 body {
+	-webkit-font-smoothing: antialiased;
 	background:url(../media/background.png) #222528;
 	font-family: 'Helvetica Neue','HelveticaNeue',Helvetica, Arial, sans-serif;
 	font-size:12px;
 	line-height:140%;
 	color: #666666;
-	height: 100%;
-	margin: 22 0;
+	height: 92%;
+	margin: 35 0;
 }
 h1 {
 	text-align: center;
