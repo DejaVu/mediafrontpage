@@ -996,8 +996,8 @@ if(!empty($_GET)){
 			           }
 			           ?>
 			        </table>
-			        <input type="button" value="ADD" onclick="addRowToTable('RSS', 40, 80);" />
-			        <input type="button" value="REMOVE" onclick="removeRowToTable('RSS');" />
+			        <input type="button" value="ADD" onclick="addRowToTable('rss', 40, 80);" />
+			        <input type="button" value="REMOVE" onclick="removeRowToTable('rss');" />
 			        <br />
 			        <br />
 			        <input type="button" value="Save" onclick="updateAlternative('RSS');" />
@@ -1023,8 +1023,8 @@ if(!empty($_GET)){
 						    }
 						    ?>
 			        </table>
-			        <input type="button" value="ADD" onclick="addRowToTable('CONTROL', 40, 80);" />
-			        <input type="button" value="REMOVE" onclick="removeRowToTable('CONTROL');" />
+			        <input type="button" value="ADD" onclick="addRowToTable('control', 40, 80);" />
+			        <input type="button" value="REMOVE" onclick="removeRowToTable('control');" />
 			        <br />
 			        <br />
 			        <input type="button" value="Save" onclick="updateAlternative('CONTROL');" />
