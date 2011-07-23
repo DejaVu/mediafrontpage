@@ -44,26 +44,26 @@ echo "</script>";
 		<!-- END: Dynamic Header Inserts From Widgets -->
 		<div class="header"></div>
 <ul id="navigation">
-<li><a href="./" style='background-image: url(./media/nav/mfp.png)'><H3>Widgets</H3></a></li>
+<li><a href="./" style='background-image: url(./media/Programs/mfp.png)'><H3>Widgets</H3></a></li>
 <?php
 if(!empty($navlink)){
 	foreach( $navlink as $navlinklabel => $navlinkpath) {
     if(!is_array($navlinkpath)){
-      $image = (file_exists('./media/nav/'.$navlinklabel.'.png')) ? $navlinklabel : 'default';
-      echo "<li><a href='".$navlinkpath."' style='background-image: url(./media/nav/".$image.".png)'><H3>".$navlinklabel."</H3></a></li>";
+      $image = (file_exists('./media/Programs/'.$navlinklabel.'.png')) ? $navlinklabel : 'default';
+      echo "<li><a href='".$navlinkpath."' style='background-image: url(./media/Programs/".$image.".png)'><H3>".$navlinklabel."</H3></a></li>";
     }
     else{
       $title = (!empty($navlinkpath['title'])) ? $navlinkpath['title'] : $navlinklabel;
-      $image = (!empty($navlinkpath['image']) && file_exists('./media/nav/'.$navlinkpath['image'])) ? $navlinkpath['image'] : 'default.png';
+      $image = (!empty($navlinkpath['image']) && file_exists('./media/Programs/'.$navlinkpath['image'])) ? $navlinkpath['image'] : 'default.png';
       $target = (!empty($navlinkpath['target'])) ? $navlinkpath['target'] : '';
-      echo "<li><a href='".$navlinkpath['path']."' target='".$target."' style='background-image: url(./media/nav/".$image.")'><H3>".$title."</H3></a></li>";    
+      echo "<li><a href='".$navlinkpath['path']."' target='".$target."' style='background-image: url(./media/Programs/".$image.")'><H3>".$title."</H3></a></li>";    
     }
   }
 }
 //<--START LOGOUT--> 
-echo "<li><a href='settings.php' style='background-image: url(./media/nav/config.png)'><H3>Config</H3></a></li>";
+echo "<li><a href='settings.php' style='background-image: url(./media/Programs/config.png)'><H3>Config</H3></a></li>";
 if ($authsecured) {
-  echo "<li><a href='login.php' onclick='logout();' style='background-image: url(./media/nav/logout.png)'><H3>Logout</H3></a></li>";
+  echo "<li><a href='login.php' onclick='logout();' style='background-image: url(./media/Programs/logout.png)'><H3>Logout</H3></a></li>";
 }
 //<--END LOGOUT-->
 ?>

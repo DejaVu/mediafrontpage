@@ -2,7 +2,7 @@
 require_once('class.ConfigMagik.php');
 $config = new ConfigMagik('config.ini', true, true);
 
-if(!empty($_GET)){
+if(!empty($_GET) && strpos($_SERVER['HTTP_REFERER'],'settings')){
 	if(!is_writeable('config.ini')){
 		echo 'Could not write to config.ini';
 		return false;
@@ -16,6 +16,7 @@ if(!empty($_GET)){
     if (!empty($_GET)){
 	    foreach ($_GET as $var => $value){
 	    //Here we go through all $_GET variables and add the values one by one.
+		$var = urlencode($var);
         try{
           $config->set($var, $value, $section_name); //Setting variable '. $var.' to '.$value.' on section '.$section_name;
         } catch(Exception $e) {
@@ -31,6 +32,7 @@ if(!empty($_GET)){
 			//Here we go through all variables in the section and delete the ones that are in there but not in the $_GET variables
 			//Used mostly for deleting things.
       	if(!isset($_GET[$title]) && ($config->get($title, $section_name) !== NULL)){
+			$title = urlencode($title);
         	try{
             $config = new ConfigMagik('config.ini', true, true);
           	$config->removeKey($title, $section_name);  //$title removed;
@@ -201,15 +203,15 @@ if(!empty($_GET)){
 				   <h3>Program Settings</h3>
 			        <table cellspacing="15px" cellpadding="15px">
 			          <tr>
-					    <td><div class="zoom"><a href="#XBMC" title="XBMC"><img src="media/nav/XBMC.png" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-			            <td><div class="zoom"><a href="#SABNZBD" title="SabNZBd+"><img src="media/nav/SabNZBd.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-						<td><div class="zoom"><a href="#SUBSONIC" title="Subsonic"><img src="media/nav/SubSonic.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-			            <td><div class="zoom"><a href="#SICKBEARD" title="Sick Beard"><img src="media/nav/SickBeard.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-			            <td><div class="zoom"><a href="#COUCHPOTATO" title="Couch Potato"><img src="media/nav/CouchPotato.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-						<td><div class="zoom"><a href="#HEADPHONES" title="Headphones"><img src="media/nav/HeadPhones.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-			            <td><div class="zoom"><a href="#TRANSMISSION" title="Transmission"><img src="media/nav/Transmission.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-			            <td><div class="zoom"><a href="#UTORRENT" title="uTorrent"><img src="media/nav/uTorrent.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-			            <td><div class="zoom"><a href="#JDOWNLOADER" title="jDownloader"><img src="media/nav/JDownloader.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+					    <td><div class="zoom"><a href="#XBMC" title="XBMC"><img src="media/Programs/XBMC.png" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+			            <td><div class="zoom"><a href="#SABNZBD" title="SabNZBd+"><img src="media/Programs/SabNZBd.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+						<td><div class="zoom"><a href="#SUBSONIC" title="Subsonic"><img src="media/Programs/SubSonic.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+			            <td><div class="zoom"><a href="#SICKBEARD" title="Sick Beard"><img src="media/Programs/SickBeard.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+			            <td><div class="zoom"><a href="#COUCHPOTATO" title="Couch Potato"><img src="media/Programs/CouchPotato.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+						<td><div class="zoom"><a href="#HEADPHONES" title="Headphones"><img src="media/Programs/HeadPhones.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+			            <td><div class="zoom"><a href="#TRANSMISSION" title="Transmission"><img src="media/Programs/Transmission.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+			            <td><div class="zoom"><a href="#UTORRENT" title="uTorrent"><img src="media/Programs/uTorrent.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+			            <td><div class="zoom"><a href="#JDOWNLOADER" title="jDownloader"><img src="media/Programs/JDownloader.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 			          </tr>
 			          <tr><td colspan="9"><input type="button" 			        <input type="button" value="REVERSE PROXIES" onclick="window.location.href='#WEBROOT'" /></td></tr>
 			        </table>
@@ -303,7 +305,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onclick="updateSettings('WEBROOT');" />
 			      </div>
 			      <div id="XBMC" class="panel"><br><br>
-			        <h3>XBMC Settings</h3><br><img src="media/nav/XBMC.png">
+			        <h3>XBMC Settings</h3><br><img src="media/Programs/XBMC.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -342,7 +344,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onclick="updateSettings('XBMC');" />
 			      </div>
 			      <div id="SICKBEARD" class="panel"><br><br>
-			        <h3>Sickbeard Settings</h3><br><img src="media/nav/SickBeard.png">
+			        <h3>Sickbeard Settings</h3><br><img src="media/Programs/SickBeard.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -381,7 +383,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onclick="updateSettings('SICKBEARD');" />
 			      </div>
 			      <div id="COUCHPOTATO" class="panel"><br><br>
-			        <h3>Couch Potato Settings</h3><br><img src="media/nav/CouchPotato.png">
+			        <h3>Couch Potato Settings</h3><br><img src="media/Programs/CouchPotato.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -420,7 +422,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onclick="updateSettings('COUCHPOTATO');" />
 			      </div>
 			      <div id="SABNZBD" class="panel"><br><br>
-			        <h3>SabNZBd+ Settings</h3><br><img src="media/nav/SabNZBd.png">
+			        <h3>SabNZBd+ Settings</h3><br><img src="media/Programs/SabNZBd.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -467,7 +469,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onclick="updateSettings('SABNZBD');" />
 			      </div>
 			      <div id="TRANSMISSION" class="panel"><br><br>
-			        <h3>Transmission Settings</h3><br><img src="media/nav/Transmission.png">
+			        <h3>Transmission Settings</h3><br><img src="media/Programs/Transmission.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -506,7 +508,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onclick="updateSettings('TRANSMISSION');" />
 			      </div>
 			      <div id="UTORRENT" class="panel"><br><br>
-			        <h3>uTorrent Settings</h3><br><img src="media/nav/uTorrent.png">
+			        <h3>uTorrent Settings</h3><br><img src="media/Programs/uTorrent.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -545,7 +547,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onclick="updateSettings('UTORRENT');" />
 			      </div>
 			      <div id="JDOWNLOADER" class="panel"><br><br>
-			        <h3>jDownloader Settings</h3><br><img src="media/nav/JDownloader.png">
+			        <h3>jDownloader Settings</h3><br><img src="media/Programs/JDownloader.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -582,7 +584,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onclick="updateSettings('JDOWNLOADER');" />
 			      </div>
 			      <div id="SUBSONIC" class="panel"><br><br>
-			        <h3>SubSonic Settings</h3><br><img src="media/nav/SubSonic.png">
+			        <h3>SubSonic Settings</h3><br><img src="media/Programs/SubSonic.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -621,7 +623,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onClick="updateSettings('SUBSONIC');" />
 			      </div>
 			      <div id="HEADPHONES" class="panel"><br><br>
-			        <h3>HeadPhones Settings</h3><br><img src="media/nav/HeadPhones.png">
+			        <h3>HeadPhones Settings</h3><br><img src="media/Programs/HeadPhones.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -660,7 +662,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onClick="updateSettings('HEADPHONES');" />
 			      </div>				  
 			      <div id="SEARCH" class="panel"><br><br>
-			        <h3>Search Widget Settings</h3><br><img src="media/nav/search.png">
+			        <h3>Search Widget Settings</h3><br><img src="media/Programs/search.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -722,7 +724,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onclick="updateSettings('SEARCH');" />
 			      </div>
 			      <div id="TRAKT" class="panel"><br><br>
-			        <h3>Trakt.tv Settings</h3><br><img src="media/nav/Trakt.png">
+			        <h3>Trakt.tv Settings</h3><br><img src="media/Programs/Trakt.png">
 			        <table>
 			          <tr>
 			            <td align="right">
@@ -751,7 +753,7 @@ if(!empty($_GET)){
 			        <input type="button" value="Save" onclick="updateSettings('TRAKT');" />
 			      </div>
 			      <div id="SHARETHETV" class="panel"><br><br>
-			        <h3>ShareThe.TV Settings</h3><br><img src="media/nav/ShareTheTV.png">
+			        <h3>ShareThe.TV Settings</h3><br><img src="media/Programs/ShareTheTV.png">
 			        <table>
 			          <tr>
 			            <td align="right">

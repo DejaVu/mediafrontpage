@@ -32,7 +32,7 @@ MediaFrontPage can make use of, but is not limited to, the following projects:
 
 ## Dependencies
 
-MediaFrontPage requires aa Apache/PHP Webserver to be running on the machine or network and must have PHP Curl configured correctly.
+MediaFrontPage requires an Apache/PHP Webserver to be running on the machine or network and must have PHP Curl configured correctly.
 
 
 ## Bugs
@@ -42,24 +42,29 @@ This project is always being updated by like minded individuals and bugs will ex
 ## Install
 ###Ubuntu Commandline/XBMCLive
 
-1 - SSH or Telnet into XBMCLive - or simply press CTRL F2 and login with you user details.
+1.
+SSH or Telnet into your computer - or simply press CTRL F2 and login with you user details.
 
-2 - Clone the Git to the required directory, XBMCLive = /var/www.
+2.
+Clone the Git to the required directory, XBMCLive and Ubuntu = /var/www.
 
 `sudo git clone git://github.com/dejavu77/mediafrontpage.git /var/www`
 
-3 - Ensure file permissions allow your web server to write to the directory.
+3.
+Ensure file permissions allow your web server to write to the directory.
 
-`sudo chmod 777 /var/www/`
+`sudo chmod 777 /var/www/ -R`
 
-4 - Install PHP-Curl
+4.
+Install PHP-Curl
 
 `sudo apt-get install php5-curl`
 
-5 - Goto your Server's localhost or IP and follow the onscreen instructions.
+5.
+Browse to MFP and you shall be greeted with a server check to confirm all dependencies are met. If so, you will be allowed to continue to MFP's settings page to configure it according to your setup.
 
-
-6 - If everything went well, you will be automatically forwarded to the MediaFrontPage Configuration page where you will need to setup a number of settings before being able to enjoy this program to it's fullest. 
+6.
+Done
 
 ## List of available Widgets 5th May 2011
 
@@ -71,7 +76,7 @@ This project is always being updated by like minded individuals and bugs will ex
 * RSS Feed
 * SabNZBd Status
 * NZB Search
-* TrakT Last Watched
+* TrakT Recommended
 * Transmission
 * uTorrent
 * JDownloader (WIP)
