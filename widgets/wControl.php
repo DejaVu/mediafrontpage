@@ -104,6 +104,12 @@ function widgetControl($baseurl = "widgets/wControl.php", $forcemenu = false) {
 				case "vidscan":  // Video Library ScanForContent
 					$results = jsonmethodcall("VideoLibrary.ScanForContent");
 					break;
+				case "audscan":  // Audio Library ScanForContent
+					$results = jsonmethodcall("AudioLibrary.ScanForContent");
+					break;
+				case "xbmcmute":  // XBMC Mute
+					$results = jsonmethodcall("XBMC.Mute.Toggle");
+					break;
 				default:
 					$errmsg = "Invalid Command";
 					$displayMenu = ($_GET["style"] != "m");

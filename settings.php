@@ -77,8 +77,8 @@ if(!empty($_GET) && strpos($_SERVER['HTTP_REFERER'],'settings')){
 </head>
 
 <body style="overflow: hidden;">
-  <center>
-    <div style="width:90%; height:95%;" class="widget">
+  <center><br>
+    <div style="width:98%; height:95%;" class="widget">
       <div class="widget-head">
         <h3>MediaFrontPage Settings</h3>
       </div>
