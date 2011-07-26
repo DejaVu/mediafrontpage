@@ -18,6 +18,10 @@
 		<tr style="cursor: move; ">
 			<td align=center colspan=2 height=25>
 		        <div class="widget-head">
+					<div style="position:absolute; float:left; padding:5px;">
+						<a href="javascript:parent.programs.history.go(-1)"><img src="media/browseleft.png" style="cursor:pointer;"></a>
+						<a href="javascript:parent.programs.history.forward()"><img src="media/browseright.png" style="cursor:pointer;"></a>
+						<a href="javascript:parent.programs.history.go(0)"><img src="media/browserefresh.png" style="cursor:pointer;"></div></a>
 					<h3><?php echo $title; ?></h3>
 				</div>
 			</td>
@@ -43,7 +47,7 @@
 													echo $subsonic_url;
 												} else {
 													echo $qs;
-											}?>'; frameborder='0' height='96%' width='98%' scrolling='auto'></iframe>
+											}?>'; frameborder='0' height='96%' width='98%' scrolling='auto' name='programs'></iframe>
 			</td>
 	    </tr>
       </table>
