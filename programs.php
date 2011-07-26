@@ -8,26 +8,25 @@
 	<head>
 		<title>MediaFrontPage - <?php echo $qs ?></title>
 		<link rel="shortcut icon" href="favicon.ico" />
-		<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+		<meta name="robots" content="noindex, nofollow">
 		<link rel="stylesheet" type="text/css" href="css/widget.css" />
 		<link rel="stylesheet" type="text/css" href="css/front.css" />
 		<link rel="stylesheet" type="text/css" href="css/static_widget.css" />
 	</head>
-  <body><br><center>    
+<body><br><center>    
 	<table width="98%" height="95%" align="center" cellpadding="0" cellspacing="0" class="widget">
 		<tr style="cursor: move; ">
 			<td align=center colspan=2 height=25>
-		        <div class="widget-head">
+		    	<div class="widget-head">
 					<div style="position:absolute; float:left; padding:5px;">
 						<a href="javascript:parent.programs.history.go(-1)"><img src="media/browseleft.png" style="cursor:pointer;"></a>
 						<a href="javascript:parent.programs.history.forward()"><img src="media/browseright.png" style="cursor:pointer;"></a>
 						<a href="javascript:parent.programs.history.go(0)"><img src="media/browserefresh.png" style="cursor:pointer;"></div></a>
-					<h3><?php echo $title; ?></h3>
-				</div>
+							<h3><?php echo $title; ?></h3>
+					</div>
 			</td>
-		<tr>
-			<td><br>
-				<iframe class='widget' src='<?php if ($qs == 'SickBeard') {
+		</tr><tr>
+			<td><br><iframe class='widget' src='<?php if ($qs == 'SickBeard') {
 													echo $sickbeardurl;
 											}	elseif($qs == 'CouchPotato') {
 													echo $cp_url;
@@ -49,8 +48,8 @@
 													echo $qs;
 											}?>'; frameborder='0' height='96%' width='98%' scrolling='auto' name='programs'></iframe>
 			</td>
-	    </tr>
-      </table>
+		</tr>
+	</table>
 <?php
 	include "footer.php"; 
 ?>

@@ -1,57 +1,30 @@
 <?php
-// inlclude the class-file
-require_once('class.ConfigMagik.php');
+// include the class file
+	require_once('class.ConfigMagik.php');
 
 // create new ConfigMagik-Object
 // Needed alternate paths for ajax based widgets to load appropriately
-$found = false;
-$path = 'config.ini';
-while(!$found){	
-	if(file_exists($path)){ 
-		$found = true;
-		$Config = new ConfigMagik( $path, true, true);
-		//echo '<script>alert("'.$path.'");</script>';
-	}
-	else{ $path= '../'.$path; }
+	$found = false;
+	$path = 'config.ini';
+	while(!$found){	
+		if(file_exists($path)){ 
+			$found = true;
+			$Config = new ConfigMagik( $path, true, true);
+			//echo '<script>alert("'.$path.'");</script>';
+		}
+		else{ $path= '../'.$path; }
 }
 //echo '<pre>';print_r($Config); echo '</pre>';
-//**************************************************************************************************************//
-//  __  __          _           ___                  _    ___                     ___              __           //
-// |  /  | ___  __| |(*) __ _ | __| _ _  ___  _ __ | |_ | _  __ _  __ _  ___   / __| ___  _ __  / _|(*) __ _  //
-// | |/| |/ -_)/ _` || |/ _` || _| | '_|/ _ | '  |  _||  _// _` |/ _` |/ -_)  |(__ / _ | '  |  _|| |/ _` | //
-// |_|  |_|___|__,_||_|__,_||_|  |_|  ___/|_||_||_|  |_|  __,_|__, |___|  ___|___/|_||_||_|  |_|__, | //
-//                                                                  ___/ |                               ___/ | //
-//**************************************************************************************************************//
 
-                              /*Programs Section*/
-
-//***********************************************************************************//
-//     Titles are self explanatory. Do not include http://                           //
-//                                                                                   //
-//     Need to add the option for reverse proxies(eg.: /xbmc)                        //
-//                                                                                   //
-//     $JDOWNLOADER_REMOTEPORT -> port from RemoteControl Plugin                     //
-//     $JDOWNLOADER_WEBPORT    -> port from Web plugin                               //
-//                                                                                   //
-//                                                                                   //
-//     If most or all programs live in the same machine set $GLOBAL_MACHINE          //
-//     to true and put all the info in the global variables. If one or two           //
-//     programs live in a different computer, then insert the info in the            //
-//     respective section and leave the ones that have the same info as GLOBAL       //
-//     empty. If USERNAME/PASSWORD are the same for all programs set                 //
-//     $GLOBAL_USER_PASS     to true and put you global username and password.       //
-//                                                                                   //
-//                                                                                   //
-//     Variables that are always required                                            //
-//     All PORTS                                                                     //
-//     All API's                                                                     //
-//***********************************************************************************//
+// Programs Section
 
      $GLOBAL_MACHINE      = filter_var($Config->get('ENABLED','GLOBAL'), FILTER_VALIDATE_BOOLEAN);
      $GLOBAL_USER_PASS    = filter_var($Config->get('AUTHENTICATION','GLOBAL'), FILTER_VALIDATE_BOOLEAN);
      $GLOBAL_IP           = $Config->get('URL','GLOBAL');
      $GLOBAL_USER         = $Config->get('USERNAME','GLOBAL');;
      $GLOBAL_PASS         = $Config->get('PASSWORD','GLOBAL');;
+
+// Reverse Proxy
 
      $REVERSE_PROXY       = filter_var($Config->get('ENABLED','WEBROOT'), FILTER_VALIDATE_BOOLEAN);
      $XBMC_WEBROOT        = $Config->get('XBMC','WEBROOT');
@@ -62,21 +35,21 @@ while(!$found){
      $JDOWNLOADER_WEBROOT = $Config->get('JDOWNLOADER','WEBROOT');
      $TRANSMISSION_WEBROOT= $Config->get('TRANSMISSION','WEBROOT');
 
-/* XBMC Section*/
+// XBMC Section
 
      $XBMC_IP             = $Config->get('IP','XBMC');
      $XBMC_PORT           = $Config->get('PORT','XBMC');
      $XBMC_USERNAME       = $Config->get('USERNAME','XBMC');
      $XBMC_PASS           = $Config->get('PASSWORD','XBMC');
           
-/* SickBeard Section*/
+// SickBeard Section
 
      $SICKBEARD_IP        = $Config->get('IP','SICKBEARD');
      $SICKBEARD_PORT      = $Config->get('PORT','SICKBEARD');
      $SICKBEARD_USERNAME  = $Config->get('USERNAME','SICKBEARD');
      $SICKBEARD_PASS      = $Config->get('PASSWORD','SICKBEARD');
 
-/* SABNZBD Section*/
+// SABNZBD Section
 
      $SABNZBD_IP          = $Config->get('IP','SABNZBD');
      $SABNZBD_PORT        = $Config->get('PORT','SABNZBD');
@@ -84,21 +57,21 @@ while(!$found){
      $SABNZBD_PASS        = $Config->get('PASSWORD','SABNZBD');
      $SABNZBD_API         = $Config->get('API','SABNZBD');
 
-/* CouchPotato Section*/
+// CouchPotato Section
 
      $COUCHPOTATO_IP      = $Config->get('IP','COUCHPOTATO');
      $COUCHPOTATO_PORT    = $Config->get('PORT','COUCHPOTATO');
      $COUCHPOTATO_USERNAME= $Config->get('USERNAME','COUCHPOTATO');
      $COUCHPOTATO_PASS    = $Config->get('PASSWORD','COUCHPOTATO');
 
-/* uTorrent Section*/
+// uTorrent Section
 
      $uTORRENT_IP         = $Config->get('IP','UTORRENT');
      $uTORRENT_PORT       = $Config->get('PORT','UTORRENT');
      $uTORRENT_USERNAME   = $Config->get('USERNAME','UTORRENT');
      $uTORRENT_PASS       = $Config->get('PASSWORD','UTORRENT');
 
-/* jDownloader Section*/
+// jDownloader Section
 
      $JDOWNLOADER_IP         = $Config->get('IP','JDOWNLOADER');
      $JDOWNLOADER_REMOTEPORT = $Config->get('REMOTE_PORT','JDOWNLOADER');
@@ -106,48 +79,34 @@ while(!$found){
      $JDOWNLOADER_USERNAME   = $Config->get('USERNAME','JDOWNLOADER');
      $JDOWNLOADER_PASS       = $Config->get('PASSWORD','JDOWNLOADER');
 
-/* Transmission Section*/
+// Transmission Section
 
      $TRANSMISSION_IP        = $Config->get('IP','TRANSMISSION');
      $TRANSMISSION_PORT      = $Config->get('PORT','TRANSMISSION');
      $TRANSMISSION_USERNAME  = $Config->get('USERNAME','TRANSMISSION');
      $TRANSMISSION_PASS      = $Config->get('PASSWORD','TRANSMISSION');
 	 
-/* SubSonic Section*/
+// SubSonic Section
 
      $SUBSONIC_IP            = $Config->get('IP','SUBSONIC');
      $SUBSONIC_PORT          = $Config->get('PORT','SUBSONIC');
      $SUBSONIC_USERNAME      = $Config->get('USERNAME','SUBSONIC');
      $SUBSONIC_PASS          = $Config->get('PASSWORD','SUBSONIC');
 	 
-/* HeadPhones Section*/
+// HeadPhones Section
 	 
      $HEADPHONES_IP          = $Config->get('IP','HEADPHONES');
      $HEADPHONES_PORT        = $Config->get('PORT','HEADPHONES');
      $HEADPHONES_USERNAME    = $Config->get('USERNAME','HEADPHONES');
      $HEADPHONES_PASS        = $Config->get('PASSWORD','HEADPHONES');
 	 
-/*Builtin Authentication*/
+// Builtin Authentication
 
      $AUTH_ON                = filter_var($Config->get('PASSWORD_PROTECTED','SECURITY'), FILTER_VALIDATE_BOOLEAN);;
      $AUTH_USERNAME          = $Config->get('USERNAME','SECURITY');
      $AUTH_PASS              = $Config->get('PASSWORD','SECURITY');
 
-                              /*SEARCH WIDGET*/
-
-//***********************************************************************************//
-//     $NZBSU_API   ->     http://nzb.su/profile                                     //
-//     $NZB_DL      ->     http://nzb.su/rss where it says "Add this string to your  // 
-//                                                  feed URL to allow NZB downloads  //
-//                                                  without logging in:"             //
-//                                                                                   //
-//     $NZBMATRIX_API       -> http://nzbmatrix.com/account.php                      //
-//     $preferredSearch     ->     Set to 1 for NZBMatrix and 2 for nzb.su           //
-//     $preferredCategories -> Check README for a list of options.                   //
-//                          Make sure the option is for the appropriate site         //
-//                                                                                   //
-//     $trakt_api     ->     http://trakt.tv/settings/api                            //
-//***********************************************************************************//
+// SEARCH WIDGET
 
      $preferredSearch       = $Config->get('preferred_site','SEARCH');
      $preferredCategories   = $Config->get('preferred_categories','SEARCH');
@@ -155,40 +114,16 @@ while(!$found){
      $NZBMATRIX_API         = $Config->get('NZBMATRIX_API','SEARCH');
      $NZBSU_API             = $Config->get('NZBSU_API','SEARCH');
      $NZB_DL                = $Config->get('NZB_DL','SEARCH');
+
+// Site Widget
+
      $TRAKT_API             = $Config->get('TRAKT_API','TRAKT');
      $TRAKT_USERNAME        = $Config->get('TRAKT_USERNAME','TRAKT');
      $TRAKT_PASSWORD        = $Config->get('TRAKT_PASSWORD','TRAKT');
-     $SHARETHETV_USERNAME    = $Config->get('SHARETHETV_USERNAME','SHARETHETV');
-     $SHARETHETV_PASSWORD    = $Config->get('SHARETHETV_PASSWORD','SHARETHETV'); //NOT IMPLEMENTED YET, ADD FOR WHEN NEEDED.
+     $SHARETHETV_USERNAME   = $Config->get('SHARETHETV_USERNAME','SHARETHETV');
+     $SHARETHETV_PASSWORD   = $Config->get('SHARETHETV_PASSWORD','SHARETHETV'); //NOT IMPLEMENTED YET, ADD FOR WHEN NEEDED.
 
-                              // NavBar Section //
-
-//***********************************************************************************//
-//     To open inline on MFP                                                         //
-//          $navlink["Example"] = "http://example.com/";                             //
-//                                                                                   //
-//     To open in a blank page                                                       //
-//          $navlink_blank["New Page"] = "http://google.com";                        //
-//                                                                                   //
-//     To populate the DropDown list                                                 //
-//          $navselect["Title"] = "http://google.com";                               //
-//                                                                                   //
-//     SubMenu                                                                       //
-//     =======                                                                       //
-//     To open inline on MFP                                                         //
-//          $subnavlink["Google"] = "http://google.com";                             //
-//                                                                                   //
-//     To open in a blank page                                                       //
-//          $subnavlink_blank["Google"] = "http://google.com";                       //
-//                                                                                   //
-//     Examples                                                                      //
-//     ========                                                                      //
-//     $navlink["TV Headend"]   = "/tvheadend";                                      //
-//     $navlink["Transmission"] = "http://localhost:9091/transmission/web/";         //
-//     $navlink["uTorrent"]     = "http://localhost:8081/gui/";                      //
-//     $navlink["jDownloader"]  = "http://localhost:8765/";                          //
-//***********************************************************************************//
-
+// NavBar Section
 
           $navlink;
           $x = $Config->get('NAVBAR');
@@ -199,6 +134,8 @@ while(!$found){
 		          }
 		      }
 
+// SubNav Section
+
           $subnavlink;
           $x = $Config->get('SUBNAV');
           if(!empty($x)){
@@ -206,37 +143,12 @@ while(!$found){
               if(isset($k) && $k != ''){
                 $k = str_ireplace('_', ' ', $k);
                 $subnavlink["$k"]         = "$e";
+                }
               }
-		        }
-		      }
+              }
 
-                              // Control Section //
+// Control Section
 
-//***********************************************************************************//
-//     Options:                                                                      //
-//     =======                                                                       //
-//          cmd                                                                      //
-//          xbmcsend                                                                 //
-//          json                                                                     //
-//                                                                                   //
-//      Optionally Add                                                               //
-//      ==============                                                               //
-//          'host' => 'localhost',                                                   //
-//          'port' => 9777 to connect to a different machine.                        //
-//          URL's can be used to link to various websites                            //
-//                                                                                   //
-//               INCOMPLETE INFO --->>     NEED TO COMPLETE THIS!                    //
-//***********************************************************************************//
-
-/*
-          $shortcut;
-          $shortcut["Shutdown XBMC"]         = array("cmd" => 'shutdown');
-          $shortcut["Update Video Library"]  = array("cmd" => 'vidscan');
-          $shortcut["Clean Video Library"]   = array("xbmcsend" => 'CleanLibrary(video)'); 
-          $shortcut["Update Audio Library"]  = array("json" => '{"jsonrpc": "2.0", "method": "AudioLibrary.ScanForContent", "id" : 1 }');
-          $shortcut["MediaFrontPage Forum"]  = "http://forum.xbmc.org/showthread.php?t=83304&goto=newpost";
-*/
-					
           $shortcut;
           $x = $Config->get('CONTROL');
           $array;
@@ -247,21 +159,8 @@ while(!$found){
                   $shortcut[urldecode($k)] = $array;
 		          }
           }
-					
 
-                              // Hard Drive Section //
-
-//***********************************************************************************//
-//      Adding your drives to MFP is different, depending on the OS your using       //
-//                                                                                   //
-//          Examples                                                                 //
-//          ========                                                                 //
-//          $drive["USB"]     = "/Volumes/USB_NAME";      applies for Mac OS         //
-//          $drive["Sata 1"]  = "/media/sata1/";          applies for Linux OS       //
-//          $drive["Sata 2"]  = "/media/sata2/";          applies for Linux OS       //
-//          $drive["C Drive"] = "C:";                     applies for Windows OS     //
-//          $drive["D Drive"] = "D:";                     applies for Windows OS     //
-//***********************************************************************************//
+// Hard Drive Section
 
           $drive;
           $x = $Config->get('HDD');
@@ -271,24 +170,9 @@ while(!$found){
                   $drive["$k"] = "$e";
 		      		}
           }
-                              // RSS Section //
 
-//***********************************************************************************//
-//     Ensure only RSS Feed URL's are used.                                          //
-//     Ensure SabNZBd > Config > Index sites is set.                                 //
-//     Supports cat, pp, script, priority as per the sabnzbd api.                    //
-//***********************************************************************************//
+// RSS Section
 
-/*
-          $rssfeeds["MediaFrontPage on Github"]       = array("url" => "https://github.com/MediaFrontPage/mediafrontpage/commits/master.atom", "type" => "atom");
-          $rssfeeds["NZBMatrix - TV Shows (DivX)"]    = array("url" => "http://rss.nzbmatrix.com/rss.php?subcat=6"     , "cat" => "tv");
-          $rssfeeds["NZBMatrix - TV Shows (HD x264)"] = array("url" => "http://rss.nzbmatrix.com/rss.php?subcat=41"     , "cat" => "tv");
-          $rssfeeds["NZBMatrix - Movies (DivX)"]      = array("url" => "http://rss.nzbmatrix.com/rss.php?subcat=2"     , "cat" => "movies");
-          $rssfeeds["NZBMatrix - Movies (HD x264)"]   = array("url" => "http://rss.nzbmatrix.com/rss.php?subcat=42"     , "cat" => "movies");
-          $rssfeeds["NZBMatrix - Music (MP3)"]        = array("url" => "http://rss.nzbmatrix.com/rss.php?subcat=22"     , "cat" => "music");
-          $rssfeeds["NZBMatrix - Music (Lossless)"]   = array("url" => "http://rss.nzbmatrix.com/rss.php?subcat=23"     , "cat" => "music");
-          $rssfeeds["NZBMatrix - Sports"]             = array("url" => "http://rss.nzbmatrix.com/rss.php?subcat=7"     , "cat" => "sports");
-*/
           $rssfeeds;
           $x = $Config->get('RSS');
           if(!empty($x)){
@@ -306,32 +190,12 @@ while(!$found){
 		      		}
           }
 
+// Custom Stylesheet Section
 
-                              // Custom Stylesheet Section //
-
-//***********************************************************************************//
-//     To have MFP use a different CSS use this.                                     //
-//     Simply remove the // from the beginning of any line.                          //
-//     Feel free to create your own and submit them for adding.                      //
-//***********************************************************************************//
-
-//$customStyleSheet = "css/lighttheme.css";
-//$customStyleSheet = "css/comingepisodes-minimal-banner.css";
-//$customStyleSheet = "css/comingepisodes-minimal-poster.css";
-//$customStyleSheet = "css/black_velvet.css";
-//$customStyleSheet = "css/hernandito.css";
          $customStyleSheet = 'css/customcss/'.$Config->get('ENABLED','MODS').'.css';
 
-                              // Message Section //
+// Message Section
 
-//***********************************************************************************//
-//     If there is only one XBMC instance, this can be ignored as the widget will    //
-//     use the same info as the one set on the XBMC Section                          //
-//     Otherwise add them like this:                                                 //
-//          $xbmcMessages['Title']   = "http://localhost:8080/";                     //
-//          $xbmcMessages['EXAMPLE'] = "http://USERNAME:PASSWORD@IP:PORT/";          //
-//***********************************************************************************//
-          
           $xbmcMessages;
           $x = $Config->get('MESSAGE');
           if(!empty($x)){
@@ -341,21 +205,13 @@ while(!$found){
 		      		}
           }
 
-                              // Security //
-
-//***********************************************************************************//
-//      Only set the $mfpsecured variable to true if you have secured                //
-//      MediaFrontPage with a password via .htaccess or some other method            //
-//      use at your own risk as this can create a security vulnerability in          //
-//      the wControl widget.                                                         //
-//***********************************************************************************//
+// Security
 
      $mfpsecured = filter_var($Config->get('mfpsecured','SECURITY'), FILTER_VALIDATE_BOOLEAN);
-
-// Alternatively you can set a unique key here. //
      $mfpapikey = $Config->get('mfpapikey','SECURITY');
 
-                 //XBMC MySQL Connections EXPERIMENTAL!//
+//XBMC MySQL Connections EXPERIMENTAL!
+
                             //DO NOT USE YET//
 //***********************************************************************************//
 //     Set this if you use a centralised MySQL Database.                             //
@@ -378,13 +234,6 @@ while(!$found){
 //     );                                                                            //
 //***********************************************************************************//
 
-//*****************************//
-//          THE END!!!!        //
-//*****************************//
-
-//*****************************//
-//IGNORE FROM THIS PART ONWARDS//
-//*****************************//
 if($GLOBAL_MACHINE)
 {
      //XBMC Global Settings//
@@ -538,4 +387,4 @@ if($REVERSE_PROXY){
    $headphones_url         = "http://$HEADPHONESlogin"."$HEADPHONES_IP:$HEADPHONES_PORT/";
 }
 if ($authsecured && session_id()=='') session_start();
-?>	
+?>
