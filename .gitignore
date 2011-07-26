@@ -3,3 +3,4 @@ layout.php
 config.ini
 m/mobileconfig.php
 sbpcache/*
+firstrun.php
