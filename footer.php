@@ -8,15 +8,10 @@ if(!empty($subnavlink)||!empty($subnavlink_blank)||!empty($subnavselect)){
 
 	if(!empty($subnavlink)){
 		foreach( $subnavlink as $navlinklabel => $navlinkpath) {
-			echo "<li><a href='".$navlinkpath."' target='main'>".$navlinklabel."</a></li>";
+			echo "<li><a href='programs.php?p=".$navlinkpath."'>".$navlinklabel."</a></li>";
 		}
 	}
-	if(!empty($subnavlink_blank)){
-		foreach( $subnavlink_blank as $navlinklabel => $navlinkpath) {
-			echo "<li><a href='".$navlinkpath."' target='_blank'>".$navlinklabel."</a></li>";
-		}
-	}
-	
+
 /*
 	if(!empty($subnavselect)){
 		echo "<li><select onchange=\"top.frames['main'].location.href = this.value;\">";

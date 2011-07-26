@@ -205,7 +205,7 @@ while(!$found){
             foreach ($x as $k=>$e){
               if(isset($k) && $k != ''){
                 $k = str_ireplace('_', ' ', $k);
-                $subnavlink_blank["$k"]         = "$e";
+                $subnavlink["$k"]         = "$e";
               }
 		        }
 		      }

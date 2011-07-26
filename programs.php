@@ -40,6 +40,8 @@ if ($qs == 'SickBeard') {
 	echo $jd_weburl;
 }	elseif($qs == 'SubSonic') {
 	echo $subsonic_url;
+}	else {
+	echo $qs;
 }
 ?>'; frameborder='0' height='96%' width='98%' scrolling='auto'></iframe>
 						</td>
