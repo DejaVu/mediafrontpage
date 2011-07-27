@@ -75,7 +75,14 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/jquery.pnotify.default.css">
 	<link rel="stylesheet" type="text/css" href="css/UI/jquery-ui-1.8.14.custom.css">
-	<script src="js/jquery.pnotify.js" type="text/javascript"></script> 
+	<script src="js/jquery.pnotify.js" type="text/javascript"></script>
+	<script type='text/javascript' src='js/jquery.tipsy.js'></script>
+	<link rel="stylesheet" href="css/tipsy.css" type="text/css" />
+	<script type='text/javascript'>
+	$(function() {
+		$('input').tipsy({gravity: 'w', fade: true});
+		});
+	</script>
 	</head>
 <body style="overflow: hidden;"><center><br>
 	<div style="width:98%; height:95%;" class="widget">
@@ -86,7 +93,7 @@
 	<div id="slider">
 	<ul class="settings_nav">
 			<li><a href="#ABOUT">About</a></li>
-			<li><a href="#GLOBAL">General</a></li>
+			<li><a href="#GLOBAL">Global</a></li>
 			<li><a href="#PROGRAMS">Programs</a></li>
 			<li><a href="#SEARCH">Search Widget</a></li>
 			<li><a href="#TRAKT">Trakt.tv</a></li>
@@ -115,12 +122,12 @@
 								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
 									<input type="hidden" name="cmd" value="_s-xclick">
 									<input type="hidden" name="hosted_button_id" value="D2R8MBBL7EFRY">
-									<input type="image" src="media/donate.png" value="Donate" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+									<input type="image" src="media/donate.png" value="Donate" border="0" name="submit" Title="You know you want to!" alt="PayPal - The safer, easier way to pay online.">
 									<img border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
 								</form>by<br><img src="media/paypal.png">
 							</td>
 						</tr><tr align="left">
-					<td>Homepage</td><td><a href="http://mediafrontpage.net/">http://mediafrontpage.net/</a></td>
+							<td>Homepage</td><td><a href="http://mediafrontpage.net/">http://mediafrontpage.net/</a></td>
 						</tr><tr align="left">
 							<td>Forum</td><td><a href="http://forum.xbmc.org/showthread.php?t=83304">http://forum.xbmc.org/showthread.php?t=83304</a></td>
 						</tr><tr align="left">
@@ -133,26 +140,28 @@
 
 <!-- General/Global Settings -->
 	<div id="GLOBAL" class="panel"><br><br>
-		<h3>General Settings</h3>
+		<h3>Global Settings</h3><br>
 			<table>
 				<tr>
-					<td align="right"><p>Global URL:</p></td>
-					<td align="left"><p><input type="checkbox" name="ENABLED" <?php echo ($config->get('ENABLED','GLOBAL')=="true")?'CHECKED':'';?>></td>
+				<td colspan="2"><p align="justify" style="width: 500px;padding-bottom: 20px;">Use Global Settings if all your programs are installed to one computer and/or if you use the same Username and Password throughout. Changing a setting for that particular program overides this page.</p>
 				</tr><tr>
-					<td align="right"><p>IP:</p></td>
-					<td align="left"><input name="URL" size="20" value="<?php echo $config->get('URL','GLOBAL')?>"></td>
+					<td align="right"><p>Global URL:</p></td>
+					<td align="left"><p><input type="checkbox"  Title="Tick to Enable" name="ENABLED" <?php echo ($config->get('ENABLED','GLOBAL')=="true")?'CHECKED':'';?>></td>
+				</tr><tr>
+					<td align="right"><p>Global IP:</p></td>
+					<td align="left"><p><input name="URL" size="20" Title="Insert IP Address or Network Name" value="<?php echo $config->get('URL','GLOBAL')?>"></td>
 				</tr><tr>
 					<td align="right"><p>Global Authentication:</p></td>
-					<td align="left"><p><input type="checkbox" name="AUTHENTICATION" <?php echo ($config->get('AUTHENTICATION','GLOBAL') == "true")?'CHECKED':'';?>></p></td>
+					<td align="left"><p><input type="checkbox" Title="Tick to Enable" name="AUTHENTICATION" <?php echo ($config->get('AUTHENTICATION','GLOBAL') == "true")?'CHECKED':'';?>></p></td>
 				</tr><tr>
-					<td align="right"><p>Username:</p></td>
-					<td align="left"><input name="USERNAME" size="20" value="<?php echo $config->get('USERNAME','GLOBAL')?>"></td>
+					<td align="right"><p>Global Username:</p></td>
+					<td align="left"><input name="USERNAME" Title="Insert your Global Username" size="20" value="<?php echo $config->get('USERNAME','GLOBAL')?>"></td>
 				</tr><tr>
-	<td align="right"><p>Password:</p></td>
-					<td align="left"><input type="password" name="PASSWORD" size="20" value="<?php echo $config->get('PASSWORD','GLOBAL')?>"></td>
+					<td align="right"><p>Global Password:</p></td>
+					<td align="left"><input type="password" Title="Insert your Global Password" name="PASSWORD" size="20" value="<?php echo $config->get('PASSWORD','GLOBAL')?>"></td>
 				</tr>
 			</table>
-		<input type="button" value="Save" onClick="updateSettings('GLOBAL');" />
+		<input type="button" Title="Save these Settings" value="Save" onClick="updateSettings('GLOBAL');" />
 	</div>
 
 <!-- Programs Settings -->
@@ -173,19 +182,20 @@
 				}
 		</style>
 		<h3>Program Settings</h3>
+		<p align="justify" style="width: 500px;padding-bottom: 20px;">Here you can specificy which Username/Password/IP Address and/or Ports each program is available on individually.</p>
 			<table cellspacing="15px" cellpadding="15px">
 				<tr>
-	<td><div class="zoom"><a href="#XBMC" title="XBMC"><img src="media/Programs/XBMC.png" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+					<td><div class="zoom"><a href="#XBMC" title="XBMC"><img src="media/Programs/XBMC.png" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 					<td><div class="zoom"><a href="#SABNZBD" title="SabNZBd+"><img src="media/Programs/SabNZBd.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 					<td><div class="zoom"><a href="#SUBSONIC" title="Subsonic"><img src="media/Programs/SubSonic.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 					<td><div class="zoom"><a href="#SICKBEARD" title="Sick Beard"><img src="media/Programs/SickBeard.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 					<td><div class="zoom"><a href="#COUCHPOTATO" title="Couch Potato"><img src="media/Programs/CouchPotato.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 					<td><div class="zoom"><a href="#HEADPHONES" title="Headphones"><img src="media/Programs/HeadPhones.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-					<td><div class="zoom"><a href="#TRANSMISSION" title="Transmission"><img src="media/Programs/Transmission.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+					<td><div class="zoom"><a href="#TRANSMISSION"title="Transmission"><img src="media/Programs/Transmission.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 					<td><div class="zoom"><a href="#UTORRENT" title="uTorrent"><img src="media/Programs/uTorrent.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 					<td><div class="zoom"><a href="#JDOWNLOADER" title="jDownloader"><img src="media/Programs/JDownloader.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
 				</tr><tr>
-					<td colspan="9"><input type="button" value="REVERSE PROXIES" onClick="window.location.href='#WEBROOT'" /></td>
+					<td colspan="9"><input type="button" value="REVERSE PROXIES" Title="Click here to Setup Reverse Proxies" onClick="window.location.href='#WEBROOT'" /></td>
 				</tr>
 			</table>
 	</div>
@@ -195,35 +205,37 @@
 		<h3>Webroot Settings</h3>
 			<table>
 				<tr>
+					<td colspan="2"><p align="justify" style="width: 500px;padding-bottom: 20px;">Reverse Proxies allow your Programs to be access from outside of you Local Area Network. IE - Using 3G Mobile Devices. However it does take a lot of settings up. Further information on this is available from <a href="http://mediafrontpage.lighthouseapp.com/projects/76089/apache-configuration-hints" target="_blank">MediaFrontPage's Development Site</a>.</p></td>
+				</tr><tr>
 					<td align="right"><p>ENABLED:</p></td>
-					<td align="left"><p><input type="checkbox" name="ENABLED" <?php echo ($config->get('ENABLED','WEBROOT')=="true")?'CHECKED':'';?>></p></td>
+					<td align="left"><p><input type="checkbox" Title="Tick To Enable" name="ENABLED" <?php echo ($config->get('ENABLED','WEBROOT')=="true")?'CHECKED':'';?>></p></td>
 				</tr><tr>
 					<td align="right"><p>XBMC:</p></td>
-					<td align="left"><input name="XBMC" size="20" value="<?php echo $config->get('XBMC','WEBROOT')?>"></td>
+					<td align="left"><input name="XBMC" size="20" Title="XBMC's Address" value="<?php echo $config->get('XBMC','WEBROOT')?>"></td>
 				</tr><tr>
 					<td align="right"><p>Sickbeard:</p></td>
-					<td align="left"><input name="SICKBEARD" size="20" value="<?php echo $config->get('SICKBEARD','WEBROOT')?>"></td>
+					<td align="left"><input name="SICKBEARD" size="20" Title="Sickbeard's Address" value="<?php echo $config->get('SICKBEARD','WEBROOT')?>"></td>
 				</tr><tr>
 					<td align="right"><p>Couch Potato:</p></td>
-					<td align="left"><input name="COUCHPOTATO" size="20" value="<?php echo $config->get('COUCHPOTATO','WEBROOT')?>"></td>
+					<td align="left"><input name="COUCHPOTATO" size="20" Title="CouchPotato's Address" value="<?php echo $config->get('COUCHPOTATO','WEBROOT')?>"></td>
 				</tr><tr>
 					<td align="right"><p>SabNZBd+:</p></td>
-					<td align="left"><input name="SABNZBD" size="20" value="<?php echo $config->get('SABNZBD','WEBROOT')?>"></td>
+					<td align="left"><input name="SABNZBD" size="20" Title="SabNZBd+'s Address" value="<?php echo $config->get('SABNZBD','WEBROOT')?>"></td>
 				</tr><tr>
 					<td align="right"><p>jDownloader:</p></td>
-					<td align="left"><input name="JDOWNLOADER" size="20" value="<?php echo $config->get('JDOWNLOADER','WEBROOT')?>"></td>
+					<td align="left"><input name="JDOWNLOADER" size="20" Title="jDownloaders's Address" value="<?php echo $config->get('JDOWNLOADER','WEBROOT')?>"></td>
 				</tr><tr>
 					<td align="right"><p>Transmission:</p></td>
-					<td align="left"><input name="TRANSMISSION" size="20" value="<?php echo $config->get('TRANSMISSION','WEBROOT')?>"></td>
+					<td align="left"><input name="TRANSMISSION" size="20" Title="Transmission's Address" value="<?php echo $config->get('TRANSMISSION','WEBROOT')?>"></td>
 				</tr><tr>
 					<td align="right"><p>uTorrent:</p></td>
-					<td align="left"><input name="UTORRENT" size="20" value="<?php echo $config->get('UTORRENT','WEBROOT')?>"></td>
+					<td align="left"><input name="UTORRENT" size="20" Title="uTorrent's Address" value="<?php echo $config->get('UTORRENT','WEBROOT')?>"></td>
 				</tr><tr>
 					<td align="right"><p>Headphones:</p></td>
-					<td align="left"><input name="HEADPHONES" size="20" value="<?php echo $config->get('HEADPHONES','WEBROOT')?>"></td>
+					<td align="left"><input name="HEADPHONES" size="20" Title="HeadPhones's Address" value="<?php echo $config->get('HEADPHONES','WEBROOT')?>"></td>
 				</tr><tr>
 					<td align="right"><p>SubSonic:</p></td>
-					<td align="left"><input name="SUBSONIC" size="20" value="<?php echo $config->get('SUBSONIC','WEBROOT')?>"></td>
+					<td align="left"><input name="SUBSONIC" size="20" Title="SubSonic's Address" value="<?php echo $config->get('SUBSONIC','WEBROOT')?>"></td>
 				</tr>
 			</table>
 		<input type="button" value="Back" onClick="history.go(-1)">
