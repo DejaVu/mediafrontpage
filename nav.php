@@ -65,7 +65,7 @@ echo "</script>";
 
 //<-- START: LOGOUT--> 
 
-			echo "<li><a href='settings.php' style='background-image: url(./media/Programs/config.png)'><H3>Config</H3></a></li>";
+			echo "<li><a href='settings.php' style='background-image: url(./media/Programs/config.png)'><H3>Settings</H3></a></li>";
 				if ($authsecured) {
 			echo "<li><a href='login.php' onclick='logout();' style='background-image: url(./media/Programs/logout.png)'><H3>Logout</H3></a></li>";
 			}

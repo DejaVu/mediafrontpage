@@ -1,8 +1,8 @@
 <?php
 require_once "config.php";
 
-$COMM_ERROR = "\n<p><strong>XBMC's JSON API did not respond.</strong></p>\n<p>Check your configuration (config.php) and that the JSON service variable is configured correctly and that the <a href=\"".$xbmcjsonservice."\">Service</a> is running.</p>\n";
-$JSON_ERROR = "\n<p><strong>XBMC's <a href=\"".$xbmcjsonservice."\">JSON API service</a> returned an Error.</strong></p>\n";
+$COMM_ERROR = "\n<p><strong>XBMC could not be reached.</strong></p>\n<p>Check your <a href='http://xbmclive/settings.php#XBMC'>XBMC Settings</a> are correct.</p>\n";
+$JSON_ERROR = "\n<p><strong>XBMC could not be reached.</strong></p>\n<p>Check your <a href='http://xbmclive/settings.php#XBMC'>XBMC Settings</a> are correct.</p>\n";
 $videodetailfields = '"genre", "director", "trailer", "tagline", "plot", "plotoutline", "title", "originaltitle", "lastplayed", "showtitle", "firstaired", "duration", "season", "episode", "runtime", "year", "playcount", "rating", "writer", "studio", "mpaa", "premiered", "album"';
 
 $xbmcJsonMethods = array(
