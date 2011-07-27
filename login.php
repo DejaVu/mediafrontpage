@@ -5,7 +5,33 @@
 	<link rel="stylesheet" type="text/css" href="css/front.css" />
 	<link rel="stylesheet" type="text/css" href="css/static_widget.css" />
 	<link href="css/settings.css" rel="stylesheet" type="text/css">
-	</head>
+	
+	<script type="text/javascript" src="http://jqueryjs.googlecode.com/files/jquery-1.3.2.js"></script>
+ 	<script>
+ 	// Stop chrome's autocomplete from making your input fields that nasty yellow. Yuck.
+		if (navigator.userAgent.toLowerCase().indexOf("chrome") >= 0)
+			{
+				var _interval = window.setInterval(function ()
+			{
+				var autofills = $('input:-webkit-autofill');
+		if (autofills.length > 0)
+			{
+				window.clearInterval(_interval); // stop polling
+				autofills.each(function()
+            {
+				var clone = $(this).clone(true, true);
+				$(this).after(clone).remove();
+				});
+			}
+		}, 200);
+	}
+ 	</script>
+ 	<style>
+		input:-webkit-autofill {
+			color: #2a2a2a !important;
+		}
+ 	</style>
+</head>
 <?php
 	if (file_exists('firstrun.php')){
 			header('Location: servercheck.php');
