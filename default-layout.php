@@ -16,7 +16,7 @@ $arrLayout = array(
 		"display" => ""
 	),
 		"wControl" => array(
-		"title" => "Control",
+		"title" => "Control XBMC",
 		"display" => ""
 	),
 		"wRecentTV" => array(
