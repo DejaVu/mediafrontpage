@@ -6,7 +6,7 @@
 ?>
 <html style="overflow:none">
 	<head>
-		<title>MediaFrontPage - <?php echo $qs ?></title>
+		<title>MediaFrontPage - <?php echo $title ?></title>
 		<link rel="shortcut icon" href="favicon.ico" />
 		<meta name="robots" content="noindex, nofollow">
 		<link rel="stylesheet" type="text/css" href="css/widget.css" />
