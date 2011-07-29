@@ -138,23 +138,23 @@
 						</tr><tr align="left">
 							<td>Last Updated</td>
 							<td>
-							<?php
-								require_once 'lib/github/Autoloader.php';
-								Github_Autoloader::register();
-									$github = new Github_Client();
-									$repo = $github->getRepoApi()->show('DejaVu77', 'mediafrontpage');
-									echo $repo['pushed_at'];
+<!--							<?php
+							 // require_once 'lib/github/Autoloader.php';
+							 // Github_Autoloader::register();
+							 //	$github = new Github_Client();
+							 //	$repo = $github->getRepoApi()->show('DejaVu77', 'mediafrontpage');
+							 //	echo $repo['pushed_at'];
 									?>
 							</td>
 						</tr><tr align="left">
 							<td>
 							<?php
-								$commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
-									echo "Version </td><td>".$commits['0']['parents']['0']['id'];
-									if($commits['0']['parents']['0']['id'] !== $config->get('version','ADVANCED')){
-									echo "\t<a href='#' onclick='updateVersion();'>***UPDATE Available***</a>";
-								}							
-							?>
+							// $commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
+							//	echo "Version </td><td>".$commits['0']['parents']['0']['id'];
+							//	if($commits['0']['parents']['0']['id'] !== $config->get('version','ADVANCED')){
+							//	echo "\t<a href='#' onclick='updateVersion();'>***UPDATE Available***</a>";
+							//	}							
+							?> -->
 							</td>
 						</tr>	
 				</table>
