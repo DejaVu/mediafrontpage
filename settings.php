@@ -1,5 +1,5 @@
 <?php
-	require_once('class.ConfigMagik.php');
+	require_once('lib/class.settings.php');
 		$config = new ConfigMagik('config.ini', true, true);
 
 	if(!empty($_GET) && strpos($_SERVER['HTTP_REFERER'],'settings')){
@@ -135,7 +135,28 @@
 							<td>Source</td><td><a href="https://github.com/MediaFrontPage/mediafrontpage">https://github.com/MediaFrontPage/mediafrontpage</a></td>
 						</tr><tr align="left">
 							<td>Bug Tracker</td><td><a href="http://mediafrontpage.lighthouseapp.com">http://mediafrontpage.lighthouseapp.com</a></td>
-					</tr>
+						</tr><tr align="left">
+							<td>Last Updated</td>
+							<td>
+							<?php
+								require_once 'lib/github/Autoloader.php';
+								Github_Autoloader::register();
+									$github = new Github_Client();
+									$repo = $github->getRepoApi()->show('DejaVu77', 'mediafrontpage');
+									echo $repo['pushed_at'];
+									?>
+							</td>
+						</tr><tr align="left">
+							<td>
+							<?php
+								$commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
+									echo "Version </td><td>".$commits['0']['parents']['0']['id'];
+									if($commits['0']['parents']['0']['id'] !== $config->get('version','ADVANCED')){
+									echo "\t<a href='#' onclick='updateVersion();'>***UPDATE Available***</a>";
+								}							
+							?>
+							</td>
+						</tr>	
 				</table>
 			</div>				
 

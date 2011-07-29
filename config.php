@@ -1,16 +1,15 @@
 <?php
 // include the class file
-	require_once('class.ConfigMagik.php');
+	require_once('lib/class.settings.php');
 
 // create new ConfigMagik-Object
-// Needed alternate paths for ajax based widgets to load appropriately
+// Needed alternate paths for ajax based widgets to load appropriately therefore we go back recursively in directories
 	$found = false;
 	$path = 'config.ini';
 	while(!$found){	
 		if(file_exists($path)){ 
 			$found = true;
 			$Config = new ConfigMagik( $path, true, true);
-			//echo '<script>alert("'.$path.'");</script>';
 		}
 		else{ $path= '../'.$path; }
 }
