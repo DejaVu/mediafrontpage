@@ -1,58 +1,58 @@
 <?php
-	require_once('lib/class.settings.php');
-		$config = new ConfigMagik('config.ini', true, true);
+require_once('lib/class.settings.php');
+$config = new ConfigMagik('config.ini', true, true);
 
-	if(!empty($_GET) && strpos($_SERVER['HTTP_REFERER'],'settings')){
-	if(!is_writeable('config.ini')){
-		echo 'Could not write to config.ini';
-	return false;
-	}
-//if there is no section parameter, we will not do anything.
-	if(!isset($_GET['section'])){ 
-		echo false; return false;
-	} else {
-	$section_name = $_GET['section'];
-//Unset section so that we can use the GET array to manipulate the other parameters in a foreach loop.
-			unset($_GET['section']); 
-	if (!empty($_GET)){
-		foreach ($_GET as $var => $value){
-//Here we go through all $_GET variables and add the values one by one.
-		$var = urlencode($var);
+if(!empty($_GET) && strpos($_SERVER['HTTP_REFERER'],'settings')){
+  if(!is_writeable('config.ini')){
+    echo 'Could not write to config.ini';
+    return false;
+  }
+  //if there is no section parameter, we will not do anything.
+  if(!isset($_GET['section'])){ 
+    echo false; return false;
+  } else {
+    $section_name = $_GET['section'];
+    //Unset section so that we can use the GET array to manipulate the other parameters in a foreach loop.
+    unset($_GET['section']); 
+    if (!empty($_GET)){
+      foreach ($_GET as $var => $value){
+        //Here we go through all $_GET variables and add the values one by one.
+        $var = urlencode($var);
 	try{
-//Setting variable '. $var.' to '.$value.' on section '.$section_name;
-			$config->set($var, $value, $section_name); 
+          //Setting variable '. $var.' to '.$value.' on section '.$section_name;
+	  $config->set($var, $value, $section_name); 
 	} catch(Exception $e) {
-		echo 'Could not set variable '.$var.'<br>';
-		echo $e;
-		return false;
-		}
-		}
-	}
-	try{
-//Get the entire section so that we can check the variables in it.
-		$section = $config->get($section_name); 
-		foreach ($section as $title=>$value){
-//Here we go through all variables in the section and delete the ones that are in there but not in the $_GET variables
-//Used mostly for deleting things.
+          echo 'Could not set variable '.$var.'<br>';
+          echo $e;
+          return false;
+        }
+      }
+    }
+    try{
+      //Get the entire section so that we can check the variables in it.
+      $section = $config->get($section_name); 
+      foreach ($section as $title=>$value){
+        //Here we go through all variables in the section and delete the ones that are in there but not in the $_GET variables
+        //Used mostly for deleting things.
 	if(!isset($_GET[$title]) && ($config->get($title, $section_name) !== NULL)){
-		$title = urlencode($title);
-	try{
-		$config = new ConfigMagik('config.ini', true, true);
-		$config->removeKey($title, $section_name);//$title removed;
-		$config->save();
-	} catch(Exception $e){
-		echo 'Unable to remove variable '.$title.' on section'.$section_name.'<br>';
-		echo $e;
-		}
-	}
-	}
-	} catch(Exception $e){
-		echo $e;
-}
-		echo true;
-		return true;
-	}
-	} else {
+          $title = urlencode($title);
+	  try{
+            $config = new ConfigMagik('config.ini', true, true);
+            $config->removeKey($title, $section_name);//$title removed;
+            $config->save();
+          } catch(Exception $e){
+            echo 'Unable to remove variable '.$title.' on section'.$section_name.'<br>';
+            echo $e;
+          }
+        }
+      }
+    } catch(Exception $e){
+      echo $e;
+    }
+    echo true;
+    return true;
+  }
+} else {
 ?>
 <!-- @author: Gustavo Hoirisch -->
 <?php 
@@ -139,22 +139,22 @@
 							<td>Last Updated</td>
 							<td>
 <!--							<?php
-							 // require_once 'lib/github/Autoloader.php';
-							 // Github_Autoloader::register();
-							 //	$github = new Github_Client();
-							 //	$repo = $github->getRepoApi()->show('DejaVu77', 'mediafrontpage');
-							 //	echo $repo['pushed_at'];
-									?>
+							 require_once 'lib/github/Autoloader.php';
+							 Github_Autoloader::register();
+							 $github = new Github_Client();
+							 $repo = $github->getRepoApi()->show('DejaVu77', 'mediafrontpage');
+							 echo $repo['pushed_at'];
+							?>
 							</td>
 						</tr><tr align="left">
 							<td>
 							<?php
-							// $commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
-							//	echo "Version </td><td>".$commits['0']['parents']['0']['id'];
-							//	if($commits['0']['parents']['0']['id'] !== $config->get('version','ADVANCED')){
-							//	echo "\t<a href='#' onclick='updateVersion();'>***UPDATE Available***</a>";
-							//	}							
-							?> -->
+							$commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
+							echo "Version </td><td>".$commits['0']['parents']['0']['id'];
+							if($commits['0']['parents']['0']['id'] !== $config->get('version','ADVANCED')){
+							echo "\t<a href='#' onclick='updateVersion();'>***UPDATE Available***</a>";
+							}							
+							?>
 							</td>
 						</tr>	
 				</table>
