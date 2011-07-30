@@ -1,18 +1,18 @@
 <?php
 // include the class file
-	require_once('class.ConfigMagik.php');
+     require_once('lib/class.settings.php');
 
 // create new ConfigMagik-Object
-// Needed alternate paths for ajax based widgets to load appropriately
-	$found = false;
-	$path = 'config.ini';
-	while(!$found){	
-		if(file_exists($path)){ 
-			$found = true;
-			$Config = new ConfigMagik( $path, true, true);
-			//echo '<script>alert("'.$path.'");</script>';
-		}
-		else{ $path= '../'.$path; }
+// Needed alternate paths for ajax based widgets to load appropriately therefore we go back recursively in directories
+     $found = false;
+     $path = 'config.ini';
+     while(!$found){     
+          if(file_exists($path)){ 
+               $found = true;
+               $Config = new ConfigMagik( $path, true, true);
+               //echo '<script>alert("'.$path.'");</script>';
+          }
+          else{ $path= '../'.$path; }
 }
 //echo '<pre>';print_r($Config); echo '</pre>';
 
@@ -85,21 +85,21 @@
      $TRANSMISSION_PORT      = $Config->get('PORT','TRANSMISSION');
      $TRANSMISSION_USERNAME  = $Config->get('USERNAME','TRANSMISSION');
      $TRANSMISSION_PASS      = $Config->get('PASSWORD','TRANSMISSION');
-	 
+      
 // SubSonic Section
 
      $SUBSONIC_IP            = $Config->get('IP','SUBSONIC');
      $SUBSONIC_PORT          = $Config->get('PORT','SUBSONIC');
      $SUBSONIC_USERNAME      = $Config->get('USERNAME','SUBSONIC');
      $SUBSONIC_PASS          = $Config->get('PASSWORD','SUBSONIC');
-	 
+      
 // HeadPhones Section
-	 
+      
      $HEADPHONES_IP          = $Config->get('IP','HEADPHONES');
      $HEADPHONES_PORT        = $Config->get('PORT','HEADPHONES');
      $HEADPHONES_USERNAME    = $Config->get('USERNAME','HEADPHONES');
      $HEADPHONES_PASS        = $Config->get('PASSWORD','HEADPHONES');
-	 
+      
 // Builtin Authentication
 
      $AUTH_ON                = filter_var($Config->get('PASSWORD_PROTECTED','SECURITY'), FILTER_VALIDATE_BOOLEAN);;
@@ -131,8 +131,8 @@
               foreach ($x as $k=>$e){
                   $k = str_ireplace('_', ' ', $k);
                   $navlink["$k"]         = "$e";
-		          }
-		      }
+                    }
+                }
 
 // SubNav Section
 
@@ -157,7 +157,7 @@
                   parse_str($e, $array);
                   $k = str_ireplace('_', ' ', $k);
                   $shortcut[urldecode($k)] = $array;
-		          }
+                    }
           }
 
 // Hard Drive Section
@@ -168,7 +168,7 @@
               foreach ($x as $k=>$e){
                   $k = str_ireplace('_', ' ', $k);
                   $drive["$k"] = "$e";
-		      		}
+                          }
           }
 
 // RSS Section
@@ -177,17 +177,17 @@
           $x = $Config->get('RSS');
           if(!empty($x)){
               foreach ($x as $k => $e){
-              		parse_str($e, $array);
-              		/*
-									$cat = (!empty($array['cat']))?$array['cat']:'';
-              		$pp = (!empty($array['pp']))?$array['pp']:'';
-              		$script = (!empty($array['script']))?$array['script']:'';
-              		$priority = (!empty($array['priority']))?$array['priority']:'';
-              		$type = (!empty($array['type']))?$array['type']:'';
-              		*/
+                        parse_str($e, $array);
+                        /*
+                        $cat = (!empty($array['cat']))?$array['cat']:'';
+                        $pp = (!empty($array['pp']))?$array['pp']:'';
+                        $script = (!empty($array['script']))?$array['script']:'';
+                        $priority = (!empty($array['priority']))?$array['priority']:'';
+                        $type = (!empty($array['type']))?$array['type']:'';
+                        */
                   $k = str_ireplace('_', ' ', $k);
                   $rssfeeds[urldecode($k)] = $array;
-		      		}
+                          }
           }
 
 // Custom Stylesheet Section
@@ -202,7 +202,7 @@
               foreach ($x as $k=>$e){
                   $k = str_ireplace('_', ' ', $k);
                   $xbmcMessages["$k"] = "$e";
-		      		}
+                          }
           }
 
 // Security
@@ -347,30 +347,30 @@ $authpassword           = $AUTH_PASS;
 
 //   Reverse Proxy section    //
 if($REVERSE_PROXY){
-	if(!empty($XBMC_WEBROOT)){
-		$xbmcjsonservice = 'http://'.$xbmclogin.$GLOBAL_IP.'/'.$XBMC_WEBROOT.'/jsonrpc';
-		$xbmcimgpath     = 'http://'.$xbmclogin.$GLOBAL_IP.'/'.$XBMC_WEBROOT.'/vfs/';
-	}
-	if(!empty($SICKBEARD_WEBROOT)){
-		$sickbeardcomingepisodes = 'http://'.$sickbeardlogin.$GLOBAL_IP.'/'.$SICKBEARD_WEBROOT.'/comingEpisodes';
-		$sickbeardurl = 'http://'.$sickbeardlogin.$GLOBAL_IP.'/'.$SICKBEARD_WEBROOT.'/home/';
-	}
-	if(!empty($COUCHPOTATO_WEBROOT)){
-		$cp_url = 'http://'.$COUCHPOTATOlogin.$GLOBAL_IP.'/'.$COUCHPOTATO_WEBROOT.'/';
-	}
-	if(!empty($UTORRENT_WEBROOT)){
-		$utorrent_url = 'http://'.$uTorrentlogin.$UTORRENT_IP.'/'.$UTORRENT_WEBROOT.'/';
-	}
-	if(!empty($SABNZBD_WEBROOT)){
-		$saburl = 'http://'.$SABNZBDlogin.$GLOBAL_IP.'/'.$SABNZBD_WEBROOT.'/';
-	}
-	if(!empty($TRANSMISSION_WEBROOT)){
-		$transmission_url = 'http://'.$GLOBAL_IP.'/'.$TRANSMISSION_WEBROOT.'/rpc/';
-		$transmission_web = 'http://'.$GLOBAL_IP.'/'.$TRANSMISSION_WEBROOT;
-	}
-	if(!empty($JDOWNLOADER_WEBROOT)){
-		$jd_weburl = 'http://'.$JDOWNLOADERlogin.$GLOBAL_IP.'/'.$JDOWNLOADER_WEBROOT.'/';
-	}
+     if(!empty($XBMC_WEBROOT)){
+          $xbmcjsonservice = 'http://'.$xbmclogin.$GLOBAL_IP.'/'.$XBMC_WEBROOT.'/jsonrpc';
+          $xbmcimgpath     = 'http://'.$xbmclogin.$GLOBAL_IP.'/'.$XBMC_WEBROOT.'/vfs/';
+     }
+     if(!empty($SICKBEARD_WEBROOT)){
+          $sickbeardcomingepisodes = 'http://'.$sickbeardlogin.$GLOBAL_IP.'/'.$SICKBEARD_WEBROOT.'/comingEpisodes';
+          $sickbeardurl = 'http://'.$sickbeardlogin.$GLOBAL_IP.'/'.$SICKBEARD_WEBROOT.'/home/';
+     }
+     if(!empty($COUCHPOTATO_WEBROOT)){
+          $cp_url = 'http://'.$COUCHPOTATOlogin.$GLOBAL_IP.'/'.$COUCHPOTATO_WEBROOT.'/';
+     }
+     if(!empty($UTORRENT_WEBROOT)){
+          $utorrent_url = 'http://'.$uTorrentlogin.$UTORRENT_IP.'/'.$UTORRENT_WEBROOT.'/';
+     }
+     if(!empty($SABNZBD_WEBROOT)){
+          $saburl = 'http://'.$SABNZBDlogin.$GLOBAL_IP.'/'.$SABNZBD_WEBROOT.'/';
+     }
+     if(!empty($TRANSMISSION_WEBROOT)){
+          $transmission_url = 'http://'.$GLOBAL_IP.'/'.$TRANSMISSION_WEBROOT.'/rpc/';
+          $transmission_web = 'http://'.$GLOBAL_IP.'/'.$TRANSMISSION_WEBROOT;
+     }
+     if(!empty($JDOWNLOADER_WEBROOT)){
+          $jd_weburl = 'http://'.$JDOWNLOADERlogin.$GLOBAL_IP.'/'.$JDOWNLOADER_WEBROOT.'/';
+     }
 } else {
    $xbmcjsonservice        = "http://$xbmclogin"."$XBMC_IP:$XBMC_PORT/jsonrpc";
    $xbmcimgpath            = "http://$xbmclogin"."$XBMC_IP:$XBMC_PORT/vfs/";
