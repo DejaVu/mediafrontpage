@@ -704,33 +704,34 @@ if(!empty($_GET) && strpos($_SERVER['HTTP_REFERER'],'settings')){
           <table border="0" cellpadding="0" cellspacing="10">
             <tr>
               <td align="center" colspan="4"><p align="justify" style="width: 500px;">These are 'user created' CSS modifications submitted by some of our users. These change mainly the look and colors of MediaFrontPage. If your confident enough with CSS and want to contribute your own modification, submit it to us on the <a href="http://forum.xbmc.org/showthread.php?t=83304" target="_blank">MediaFrontPage Support Thread</a>.</p></td>
-            </tr><tr>
-              <td><img class="widget" src="media/examples/lightheme.jpg" height="120px" /></td>
-              <td><img class="widget" src="media/examples/hernadito.jpg" height="120px" /></td>
-              <td><img class="widget" src="media/examples/dpickles.jpg" height="120px" /></td>
-              <td><img src="media/examples/black_modern_glass.jpg" height="120" class="widget" /></td>
-            </tr><tr>
-              <td><p><input Title="Tick to Enable Light Theme" type="radio" name="ENABLED" value="lighttheme" <?php echo ($config->get('ENABLED','MODS') == "lighttheme")?'CHECKED':'';?> />Light Theme</p></td>
-              <td><p><input Title="Tick to Enable Hernandito Theme" type="radio" name="ENABLED" value="hernandito" <?php echo ($config->get('ENABLED','MODS') == "hernandito")?'CHECKED':''; ?> />Hernandito's Theme</p></td>
-              <td><p><input Title="Tick to Enable DPickles Theme" type="radio" name="ENABLED" value="dpickles" <?php echo ($config->get('ENABLED','MODS') == "dpickles")?'CHECKED':'';?> />DPickles Theme</p></td>
-              <td><p><input Title="Tick to Enable Black Modern Glass Theme" type="radio" name="ENABLED" value="black_modern_glass" <?php echo ($config->get('ENABLED','MODS') == "black_modern_glass")?'CHECKED':'';?> />Black Modern Glass Theme</p></td>
-            </tr><tr>
-              <td><img src="media/examples/space6.jpg" height="120" class="widget" /></td>
-              <td><img class="widget" src="media/examples/minimal-posters.jpg" height="120px" /></td>
-              <td><img class="widget" src="media/examples/minimal-banners.jpg" height="120px" /></td>
-              <td><img src="media/examples/original.jpg" height="120" class="widget" /></td>
-            </tr><tr>
-              <td><p><input Title="Tick to Enable Space 6 Theme" type="radio" name="ENABLED" value="space6" <?php echo ($config->get('ENABLED','MODS') == "space6")?'CHECKED':'';?> />Space 6 Theme</p></td>
-              <td><p><input Title="Tick to Enable Coming Episodes Minimal POSTER Theme" type="radio" name="ENABLED" value="comingepisodes-minimal-poster" <?php echo ($config->get('ENABLED','MODS') == "comingepisodes-minimal-poster")?'CHECKED':'';?> />Minimal Posters</p></td>
-              <td><p><input Title="Tick to Enable Coming Episodes Minimal BANNER Theme" type="radio" name="ENABLED" value="comingepisodes-minimal-banner" <?php echo ($config->get('ENABLED','MODS') == "comingepisodes-minimal-banner")?'CHECKED':'';?> />Minimal Banners</p></td>
-              <td><p><input Title="Tick to Disable all Themes" type="radio" name="ENABLED" value="" <?php echo ($config->get('ENABLED','MODS') == "")?'CHECKED':''; ?> />OFF</p></td>
-            </tr><tr>
-              <td>&nbsp;</td>
-                            <td colspan="2"><p><input type="button" value="Save" Title="Save these Settings" onClick="updateSettings('MODS');" /></p></td>
-              <td>&nbsp;</td>
-            </tr>
-          </table>
-    </div>
+	            </tr>
+	         </table>
+           <div style="overflow-x: scroll;">
+           <table>
+	            <tr>
+	              <td><img class="widget" src="media/examples/lightheme.jpg" height="120px" /></td>
+	              <td><img class="widget" src="media/examples/hernadito.jpg" height="120px" /></td>
+	              <td><img class="widget" src="media/examples/dpickles.jpg" height="120px" /></td>
+	              <td><img src="media/examples/black_modern_glass.jpg" height="120" class="widget" /></td>
+	              <td><img src="media/examples/space6.jpg" height="120" class="widget" /></td>
+	              <td><img class="widget" src="media/examples/minimal-posters.jpg" height="120px" /></td>
+	              <td><img class="widget" src="media/examples/minimal-banners.jpg" height="120px" /></td>
+	              <td><img src="media/examples/original.jpg" height="120" class="widget" /></td>
+              </tr>
+              <tr>
+	              <td><p><input Title="Tick to Enable Light Theme" type="radio" name="ENABLED" value="lighttheme" <?php echo ($config->get('ENABLED','MODS') == "lighttheme")?'CHECKED':'';?> />Light Theme</p></td>
+	              <td><p><input Title="Tick to Enable Hernandito Theme" type="radio" name="ENABLED" value="hernandito" <?php echo ($config->get('ENABLED','MODS') == "hernandito")?'CHECKED':''; ?> />Hernandito's Theme</p></td>
+	              <td><p><input Title="Tick to Enable DPickles Theme" type="radio" name="ENABLED" value="dpickles" <?php echo ($config->get('ENABLED','MODS') == "dpickles")?'CHECKED':'';?> />DPickles Theme</p></td>
+	              <td><p><input Title="Tick to Enable Black Modern Glass Theme" type="radio" name="ENABLED" value="black_modern_glass" <?php echo ($config->get('ENABLED','MODS') == "black_modern_glass")?'CHECKED':'';?> />Black Modern Glass Theme</p></td>
+	              <td><p><input Title="Tick to Enable Space 6 Theme" type="radio" name="ENABLED" value="space6" <?php echo ($config->get('ENABLED','MODS') == "space6")?'CHECKED':'';?> />Space 6 Theme</p></td>
+	              <td><p><input Title="Tick to Enable Coming Episodes Minimal POSTER Theme" type="radio" name="ENABLED" value="comingepisodes-minimal-poster" <?php echo ($config->get('ENABLED','MODS') == "comingepisodes-minimal-poster")?'CHECKED':'';?> />Minimal Posters</p></td>
+	              <td><p><input Title="Tick to Enable Coming Episodes Minimal BANNER Theme" type="radio" name="ENABLED" value="comingepisodes-minimal-banner" <?php echo ($config->get('ENABLED','MODS') == "comingepisodes-minimal-banner")?'CHECKED':'';?> />Minimal Banners</p></td>
+                <td><p><input Title="Tick to Disable all Themes" type="radio" name="ENABLED" value="" <?php echo ($config->get('ENABLED','MODS') == "")?'CHECKED':''; ?> />OFF</p></td>
+              </tr>
+            </table>
+          </div>
+          <p><input type="button" value="Save" Title="Save these Settings" onClick="updateSettings('MODS');" /></p>
+     </div>
 
 <!-- RSS Settings -->
   <div id="RSS" class="panel"><br><br>
