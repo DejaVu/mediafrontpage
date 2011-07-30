@@ -151,8 +151,8 @@
                                      <?php
 //SO DOES THIS ONE                     $commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
 //                                     echo "Version </td><td>".$commits['0']['parents']['0']['id'];
-//                                     if($commits['0']['parents']['0']['id'] !== @$config->get('version','ADVANCED')){
-//                                     echo "\t***UPDATE Available***";
+//                                     if($commits['0']['parents']['0']['id'] !== $config->get('version','ADVANCED')){
+//                                     echo "\t<a href='#' onclick='updateVersion();'>***UPDATE Available***</a>";
 //                                     }
                                       ?>
                                    </td>
