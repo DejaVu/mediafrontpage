@@ -372,7 +372,7 @@ if($REVERSE_PROXY){
           $jd_weburl = 'http://'.$JDOWNLOADERlogin.$GLOBAL_IP.'/'.$JDOWNLOADER_WEBROOT.'/';
      }
      if(!empty($HEADPHONES_WEBROOT)){
-          $headphones_url = 'http://'.$GLOBAL_IP.'/'.$HEADPHONES_WEBROOT.'/rpc/';
+          $headphones_url = 'http://'.$GLOBAL_IP.'/'.$HEADPHONES_WEBROOT.'/home/';
 } else {
    $xbmcjsonservice        = "http://$xbmclogin"."$XBMC_IP:$XBMC_PORT/jsonrpc";
    $xbmcimgpath            = "http://$xbmclogin"."$XBMC_IP:$XBMC_PORT/vfs/";
