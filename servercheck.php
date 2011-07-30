@@ -128,8 +128,8 @@
 }
                echo '</table>';
      if($redirect){
-               echo "<p>Congratulations! Everything seems to be in working order.</p>";
-               echo "<p><input type='button' onclick=\"window.location = 'settings.php';\" value='CONTINUE' /></p>";
+          echo "<p>Congratulations! Everything seems to be in working order.</p>";
+          echo "<p><input type='button' onclick=\"window.location = 'settings.php';\" value='CONTINUE' /></p>";
           require_once 'lib/class.settings.php';
           require_once 'lib/github/Autoloader.php';
           Github_Autoloader::register();

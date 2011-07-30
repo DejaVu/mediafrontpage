@@ -139,17 +139,21 @@
                                    <td>Last Updated</td>
                                    <td>
                                    <?php
-//                                     require_once 'lib/github/Autoloader.php';
+//THIS SCRIPT BREAKS THE SETTINGS      require_once 'lib/github/Autoloader.php';
 //                                     Github_Autoloader::register();
-//                                       $github = new Github_Client();
-//                                       $repo = $github->getRepoApi()->show('DejaVu77', 'mediafrontpage', 'master');
-//                                       //echo '<pre>';print_r($repo);echo '</pre>';
-//                                       echo $repo['pushed_at'];
+//                                     $github = new Github_Client();
+//                                     $repo = $github->getRepoApi()->show('DejaVu77', 'mediafrontpage', 'master');
+//                                     echo $repo['pushed_at'];
                                    ?>
                                    </td>
                               </tr><tr>
                                    <td>
                                      <?php
+//SO DOES THIS ONE                     $commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
+//                                     echo "Version </td><td>".$commits['0']['parents']['0']['id'];
+//                                     if($commits['0']['parents']['0']['id'] !== @$config->get('version','ADVANCED')){
+//                                     echo "\t***UPDATE Available***";
+//                                     }
                                       ?>
                                    </td>
                              </tr>
