@@ -1,24 +1,3 @@
-<?php
-if(isset($_GET['update']) && $_GET['update']){
-  updateVersion();
-}
-
-function updateVersion(){
-  require_once 'lib/class.settings.php';
-  require_once 'lib/github/Autoloader.php';
-  Github_Autoloader::register();
-  $github = new Github_Client();
-  $commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
-  $id = $commits['0']['parents']['0']['id'];
-  $config = new ConfigMagik('config.ini', true, true);
-  try{
-    $config->set('version', $id, 'ADVANCED');
-  } catch (Exception $e){
-    echo false; exit;
-  }
-  echo true; exit;
-}
-?>
 <html>
 <head>
      <title>MediaFrontPage Server Check</title>
@@ -151,8 +130,6 @@ function updateVersion(){
      if($redirect){
           echo "<p>Congratulations! Everything seems to be in working order.</p>";
           echo "<p><input type='button' onclick=\"window.location = 'settings.php';\" value='CONTINUE' /></p>";
-//THIS MAKES SERVERCHECK REAPPEAR ALL THE TIME
-//        updateVersion();
     if (file_exists('firstrun.php')){
           unlink('firstrun.php');
      }
