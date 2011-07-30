@@ -151,7 +151,8 @@ function updateVersion(){
      if($redirect){
           echo "<p>Congratulations! Everything seems to be in working order.</p>";
           echo "<p><input type='button' onclick=\"window.location = 'settings.php';\" value='CONTINUE' /></p>";
-          updateVersion();
+//THIS MAKES SERVERCHECK REAPPEAR ALL THE TIME
+//        updateVersion();
     if (file_exists('firstrun.php')){
           unlink('firstrun.php');
      }
