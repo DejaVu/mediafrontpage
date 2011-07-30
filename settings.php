@@ -135,8 +135,20 @@
                                    <td>Source</td><td><a href="https://github.com/MediaFrontPage/mediafrontpage">https://github.com/MediaFrontPage/mediafrontpage</a></td>
                               </tr><tr align="left">
                                    <td>Bug Tracker</td><td><a href="http://mediafrontpage.lighthouseapp.com">http://mediafrontpage.lighthouseapp.com</a></td>
-                         </tr>
-                    </table>
+                              </tr><tr align="left">
+                                   <td>Last Updated</td>
+                                   <td>
+                                   <?php
+//                                     require_once 'lib/github/Autoloader.php';
+//                                     Github_Autoloader::register();
+//                                       $github = new Github_Client();
+//                                       $repo = $github->getRepoApi()->show('DejaVu77', 'mediafrontpage', 'master');
+//                                       //echo '<pre>';print_r($repo);echo '</pre>';
+//                                       echo $repo['pushed_at'];
+                                   ?>
+                                   </td>
+                              </tr>
+                     </table>
                </div>                    
 
 <!-- General/Global Settings -->
