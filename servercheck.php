@@ -1,22 +1,23 @@
 <?php
-	if(isset($_GET['update']) && $_GET['update']){
-		updateVersion();
-	}
-	function updateVersion(){
+if(isset($_GET['update']) && $_GET['update']){
+  updateVersion();
+  echo true; exit;
+}
+function updateVersion(){
 	require_once 'lib/class.settings.php';
 	require_once 'lib/github/Autoloader.php';
 	Github_Autoloader::register();
-		$github = new Github_Client();
-		$commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
-		$id = $commits['0']['parents']['0']['id'];
-		$config = new ConfigMagik('config.ini', true, true);
-		try{
-			$config->set('version', $id, 'ADVANCED');
-		} catch (Exception $e){
-			echo false; exit;
+	$github = new Github_Client();
+	$commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
+	$id = $commits['0']['parents']['0']['id'];
+	$config = new ConfigMagik('config.ini', true, true);
+	try{
+		$config->set('version', $id, 'ADVANCED');
+	} catch (Exception $e){
+		//echo false;
 	}
-			echo true; exit;
-	}
+	//echo true;
+}
 ?>
 <html>
 <head>
@@ -109,36 +110,35 @@
 	if(!is_writable('layout.php')){
 	if(@chmod("layout.php", 0777)){
 			echo " and CHMODDED";
-		}
-		else{
+		}else{
 			echo ", could not be written. Please CHMOD it.";
-		$redirect = false;
-		$valid = false;
+		  $redirect = false;
+		  $valid = false;
+	  }
+  }else{
+	  echo ", writeable";
 	}
-		}else{
-			echo ", writeable";
-	}
-			echo ($valid)?"</td><td><img src='media/green-tick.png' height='15px'/></td></tr>":"</td><td><img src='media/red-cross.png' height='15px'/></td></tr>";
-		}else{
-			echo '<tr><td>default-layout.php';
-		$valid = true;
+	echo ($valid)?"</td><td><img src='media/green-tick.png' height='15px'/></td></tr>":"</td><td><img src='media/red-cross.png' height='15px'/></td></tr>";
+}else{
+	echo '<tr><td>default-layout.php';
+	$valid = true;
 	if(file_exists("default-layout.php")){
 	if(copy("default-layout.php", "layout.php")){
-			echo " renamed successfully. ";
+		echo " renamed successfully. ";
 	}
 	}else{
-			echo " could not be found. ";
+		echo " could not be found. ";
 		$redirect = false;
 		$valid = false;
 	}
 	if(file_exists("layout.php")){
 	if(!is_writable('layout.php')){
 	if(@chmod("layout.php", 0777)){
-			echo " and CHMODDED";
-		}else{
-			echo ", could not be written. Please CHMOD it.";
-	$redirect = false;
-	$valid = false;
+		echo " and CHMODDED";
+	}else{
+		echo ", could not be written. Please CHMOD it.";
+	  $redirect = false;
+	  $valid = false;
 	}
 		}else{
 			echo ", writeable";
@@ -148,16 +148,16 @@
 }
 			echo '</table>';
 	if($redirect){
-			echo "<p>Congratulations! Everything seems to be in working order.</p>";
-			echo "<p><input type='button' onclick=\"window.location = 'settings.php';\" value='CONTINUE' /></p>";
-			updateVersion();
-	if (file_exists('firstrun.php')){
-		unlink('firstrun.php');
-	}
-		} else {
-			echo "<p>It looks like some problems were found, please fix them then <input type=\"button\" value=\"reload\" onClick=\"window.location.reload()\"> the page.</p>";
-			echo "<p>If further assistance is needed, please visit the <a href='http://forum.xbmc.org/showthread.php?t=83304' target='_blank'>forum</a> or our <a href='http://mediafrontpage.lighthouseapp.com' target='_blank'>project page</a>.</p>";
-			echo "Attention WINDOWS users, please remember our WEB Server of choice for your platform is <a href='http://www.uniformserver.com/' target='_blank'>The Uniform Server</a>.";
+	  echo "<p>Congratulations! Everything seems to be in working order.</p>";
+	  echo "<p><input type='button' onclick=\"window.location = 'settings.php';\" value='CONTINUE' /></p>";
+		updateVersion();
+	  if (file_exists('firstrun.php')){
+		  unlink('firstrun.php');
+	  }
+  } else {
+		echo "<p>It looks like some problems were found, please fix them then <input type=\"button\" value=\"reload\" onClick=\"window.location.reload()\"> the page.</p>";
+		echo "<p>If further assistance is needed, please visit the <a href='http://forum.xbmc.org/showthread.php?t=83304' target='_blank'>forum</a> or our <a href='http://mediafrontpage.lighthouseapp.com' target='_blank'>project page</a>.</p>";
+		echo "Attention WINDOWS users, please remember our WEB Server of choice for your platform is <a href='http://www.uniformserver.com/' target='_blank'>The Uniform Server</a>.";
 }
 ?>
 	</body>
