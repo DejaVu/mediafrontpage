@@ -139,8 +139,8 @@
                                    <td>Last Updated</td>
                                    <td>
                                    <?php
-//THIS SCRIPT BREAKS THE SETTINGS      require_once 'lib/github/Autoloader.php';
-//                                     Github_Autoloader::register();
+// THIS STILL BREAKS THE               require_once 'lib/github/Autoloader.php';
+// SETTINGS PAGE                       Github_Autoloader::register();
 //                                     $github = new Github_Client();
 //                                     $repo = $github->getRepoApi()->show('DejaVu77', 'mediafrontpage', 'master');
 //                                     echo $repo['pushed_at'];
@@ -148,9 +148,9 @@
                                    </td>
                               </tr><tr>
                                    <td>
-                                     <?php
-//SO DOES THIS ONE                     $commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
-//                                     echo "Version </td><td>".$commits['0']['parents']['0']['id'];
+                                    <?php
+// THIS STILL BREAKS THE               $commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
+// SETTINGS PAGE                       echo "Version </td><td>".$commits['0']['parents']['0']['id'];
 //                                     if($commits['0']['parents']['0']['id'] !== $config->get('version','ADVANCED')){
 //                                     echo "\t<a href='#' onclick='updateVersion();'>***UPDATE Available***</a>";
 //                                     }
