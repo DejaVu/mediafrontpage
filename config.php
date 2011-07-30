@@ -359,7 +359,7 @@ if($REVERSE_PROXY){
           $cp_url = 'http://'.$COUCHPOTATOlogin.$GLOBAL_IP.'/'.$COUCHPOTATO_WEBROOT.'/';
      }
      if(!empty($UTORRENT_WEBROOT)){
-          $utorrent_url = 'http://'.$uTorrentlogin.$UTORRENT_IP.'/'.$UTORRENT_WEBROOT.'/';
+          $utorrent_url = 'http://'.$uTorrentlogin.$GLOBAL_IP.'/'.$UTORRENT_WEBROOT.'/';
      }
      if(!empty($SABNZBD_WEBROOT)){
           $saburl = 'http://'.$SABNZBDlogin.$GLOBAL_IP.'/'.$SABNZBD_WEBROOT.'/';
@@ -371,6 +371,8 @@ if($REVERSE_PROXY){
      if(!empty($JDOWNLOADER_WEBROOT)){
           $jd_weburl = 'http://'.$JDOWNLOADERlogin.$GLOBAL_IP.'/'.$JDOWNLOADER_WEBROOT.'/';
      }
+     if(!empty($HEADPHONES_WEBROOT)){
+          $headphones_url = 'http://'.$GLOBAL_IP.'/'.$HEADPHONES_WEBROOT.'/rpc/';
 } else {
    $xbmcjsonservice        = "http://$xbmclogin"."$XBMC_IP:$XBMC_PORT/jsonrpc";
    $xbmcimgpath            = "http://$xbmclogin"."$XBMC_IP:$XBMC_PORT/vfs/";
