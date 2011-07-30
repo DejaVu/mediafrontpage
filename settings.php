@@ -147,8 +147,13 @@
 //                                       echo $repo['pushed_at'];
                                    ?>
                                    </td>
-                              </tr>
-                     </table>
+                              </tr><tr>
+                                   <td>
+                                     <?php
+                                      ?>
+                                   </td>
+                             </tr>
+                    </table>
                </div>                    
 
 <!-- General/Global Settings -->
