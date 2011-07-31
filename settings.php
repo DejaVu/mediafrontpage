@@ -112,9 +112,10 @@
      <div class="scroll">
 <!-- the element that will be scrolled during the effect -->
           <div class="scrollContainer">
-               <div id="ABOUT" class="panel">
-                    <table cellpadding="5px">
-                         <tr><img src="media/mfp.png" /></tr>
+               <div id="ABOUT" class="panel"><br><br>
+                    <table>
+                       <h3>About MediaFrontPage</h3>
+                         <tr><img src="media/mfp.png" width="64" height="64"/></tr>
                               <tr>
                                    <td colspan="2"><p align="justify" style="width: 500px;padding-bottom: 20px;">MediaFrontPage is a HTPC Web Program Organiser. Your HTPC utilises a number of different programs to do certain tasks. What MediaFrontPage does is creates a user specific web page that will be your nerve centre for everything you will need. It was originally created by <a href="http://forum.xbmc.org/member.php?u=24286">Nick8888</a> and has had a fair share of contributors. If you'd like to contribute please consider making a donation or come and join us developing this great tool.</p>
 
@@ -557,7 +558,7 @@
      
 <!-- Navigation Bar Settings -->                   
      <div id="NAVBAR" class="panel"><br><br>
-          <h3>Navigation Links</h3>
+          <h3>Navigation Links</h3><img src="media/Programs/navigation.png">
                <table id='table_nav'>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Here are the Navigation Links you see at the top of your page. You can add or remove them depending on the programs you use. All the programs MFP supports are loaded by default, unfortunately, no new programs can be added manually. To request a program to be supported by MediaFrontPage, make a request at <a href="http://forum.xbmc.org/showthread.php?t=83304" target="_blank">MediaFrontPage's Support Forum</a>.</p></td>
@@ -584,7 +585,7 @@
 
 <!-- Sub Navigation Settings -->
      <div id="SUBNAV" class="panel"><br><br>
-          <h3>Sub Navigation Links</h3>
+          <h3>Sub Navigation Links</h3><img src="media/Programs/subnav.png">
                <table id='table_subnav'>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Here are the Sub Navigation Links you see at the bottom of your page. You can add or remove any site you like. Simply give it a Title and a URL and it will show up on the Footer at the bottom of MediaFrontPage. At the moment, you cannot remove them at will, you can only remove the last entry.</p></td>
@@ -611,7 +612,7 @@
      
 <!-- Hard Drive Settings -->
      <div id="HDD" class="panel"><br><br>
-          <h3>Hard Drives Settings</h3>
+          <h3>Hard Drives Settings</h3><img src="media/Programs/hdd.png">
                <table id='table_hdd'>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">This is the part of MediaFrontPage that finds your Hard Drives. It does not matter what system it is running on, but you need to know where your media is stored on your HDD's. Examples have been added to show you how to add your own. Remove them all and add your own.</p></td>
@@ -638,7 +639,7 @@
      
 <!-- Search Settings -->
      <div id="MESSAGE" class="panel"><br><br>
-          <h3>XBMC Instances for Message Widget</h3>
+          <h3>XBMC Instances for Message Widget</h3><img src="media/Programs/message.png">
                <table id="table_msg">
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Do you have multiple instance of XBMC with different IP Addresses/Port Numbers. IE - The Kids room or Kitchen? If so, the Message Widget can send customized messages to these machine. IE - "Turn it off" or "Cup of Coffee please".</p></td>
@@ -665,7 +666,7 @@
      
 <!-- Security Settings -->
      <div id="SECURITY" class="panel"><br><br>
-          <h3>Security Settings</h3>
+          <h3>Security Settings</h3><img src="media/Programs/security.png">
                <table>
                     <tr>
                          <td align="center" colspan="2"><p align="justify" style="width: 500px;">Worried someone could mess up your settings or interfere with your MediaFrontPage?</p></td>
@@ -691,8 +692,8 @@
 
 <!-- CSS Modification Settings -->
      <div id="MODS" class="panel"><br><br>
-               <h3>CSS Modifications:</h3>
-                         <table border="0" cellpadding="0" cellspacing="10">
+               <h3>CSS Modifications:</h3><img src="media/Programs/cssmod.png">
+                         <table>
                               <tr>
                                    <td align="center" colspan="4"><p align="justify" style="width: 500px;">These are 'user created' CSS modifications submitted by some of our users. These change mainly the look and colors of MediaFrontPage. If your confident enough with CSS and want to contribute your own modification, submit it to us on the <a href="http://forum.xbmc.org/showthread.php?t=83304" target="_blank">MediaFrontPage Support Thread</a>.</p></td>
                               </tr><tr>
@@ -725,7 +726,7 @@
 
 <!-- RSS Settings -->
      <div id="RSS" class="panel"><br><br>
-          <h3>RSS Feeds</h3>
+          <h3>RSS Feeds</h3><img src="media/Programs/RSS.png">
                <table id="table_rss">
                               <tr>
                                    <td align="center" colspan="2"><p align="justify" style="width: 500px;">We also added an RSS Feed from the most popular NZB Sites so you can instantly grab an NZB from their Feeds and load it straight to SabNZBd+ with no other user intervention. The default/shown RSS is the Repository of MediaFrontPage so End Users can keep up with new commits as they happen.</p></td>
@@ -752,7 +753,7 @@
      
 <!-- Control Settings -->    
     <div id="CONTROL" class="panel"><br><br>
-          <h3>Control XBMC Settings</h3>
+          <h3>Control XBMC Settings</h3><img src="media/Programs/control.png">
                <table id="table_control">
                     <tr>
                          <td align="center" colspan="2"><p align="justify" style="width: 500px;">These commands are JSON API controls that directly communicate with the computer that MediaFrontPage is installed on. They can be removed, but as of yet, no more exist to add.</p></td>

@@ -373,7 +373,8 @@ if($REVERSE_PROXY){
      }
      if(!empty($HEADPHONES_WEBROOT)){
           $headphones_url = 'http://'.$GLOBAL_IP.'/'.$HEADPHONES_WEBROOT.'/home/';
-} else {
+     }
+ } else {
    $xbmcjsonservice        = "http://$xbmclogin"."$XBMC_IP:$XBMC_PORT/jsonrpc";
    $xbmcimgpath            = "http://$xbmclogin"."$XBMC_IP:$XBMC_PORT/vfs/";
    $sickbeardcomingepisodes= "http://$sickbeardlogin"."$SICKBEARD_IP:$SICKBEARD_PORT/comingEpisodes/";
