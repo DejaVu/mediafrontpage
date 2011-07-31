@@ -1,5 +1,5 @@
 <?php
-     require_once('lib/class.settings.php');
+     require 'lib/class.settings.php';require 'lib/class.github.php';
           $config = new ConfigMagik('config.ini', true, true);
 
      if(!empty($_GET) && strpos($_SERVER['HTTP_REFERER'],'settings')){
@@ -140,21 +140,21 @@
                                    <td>Last Updated</td>
                                    <td>
                                    <?php
-// THIS STILL BREAKS THE               require_once 'lib/github/Autoloader.php';
-// SETTINGS PAGE                       Github_Autoloader::register();
-//                                     $github = new Github_Client();
-//                                     $repo = $github->getRepoApi()->show('DejaVu77', 'mediafrontpage', 'master');
-//                                     echo $repo['pushed_at'];
+                                   $github = new GitHub('DejaVu77','mediafrontpage');
+                                   $date   = $github->getInfo();
+                                   echo $date['pushed_at'];
                                    ?>
                                    </td>
-                              </tr><tr>
+                              </tr><tr align="left">
                                    <td>
                                     <?php
-// THIS STILL BREAKS THE               $commits = $github->getCommitApi()->getBranchCommits('DejaVu77', 'mediafrontpage', 'master');
-// SETTINGS PAGE                       echo "Version </td><td>".$commits['0']['parents']['0']['id'];
-//                                     if($commits['0']['parents']['0']['id'] !== $config->get('version','ADVANCED')){
-//                                     echo "\t<a href='#' onclick='updateVersion();'>***UPDATE Available***</a>";
-//                                     }
+                                      $commit = $github->getCommits();
+                                      $commitNo = $commit['0']['sha'];
+                                      $currentVersion = $config->get('version','ADVANCED');
+                                      echo "Version </td><td><a href='https://github.com/DejaVu77/mediafrontpage/commit/".$currentVersion."' target='_blank'>".$currentVersion.'</a>';
+                                      if($commitNo != $currentVersion){
+                                         echo "\t<a href='#' onclick='updateVersion();' title='".$commitNo." - Description: ".$commit['0']['commit']['message']."'>***UPDATE Available***</a>";
+                                      }
                                       ?>
                                    </td>
                              </tr>
