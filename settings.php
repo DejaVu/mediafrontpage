@@ -207,15 +207,15 @@
           <h3>Program Settings</h3>
                <table cellspacing="15px" cellpadding="15px">
                     <tr>
-                         <td><div class="zoom"><a href="#XBMC" title="XBMC"><img src="media/Programs/XBMC.png" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#SABNZBD" title="SabNZBd+"><img src="media/Programs/SabNZBd.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#SUBSONIC" title="Subsonic"><img src="media/Programs/SubSonic.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#SICKBEARD" title="Sick Beard"><img src="media/Programs/SickBeard.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#COUCHPOTATO" title="Couch Potato"><img src="media/Programs/CouchPotato.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#HEADPHONES" title="Headphones"><img src="media/Programs/HeadPhones.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#TRANSMISSION"title="Transmission"><img src="media/Programs/Transmission.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#UTORRENT" title="uTorrent"><img src="media/Programs/uTorrent.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#JDOWNLOADER" title="jDownloader"><img src="media/Programs/JDownloader.png" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td><div class="zoom"><a href="#XBMC"><img src="media/Programs/XBMC.png" Title="XBMC" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td><div class="zoom"><a href="#SABNZBD"><img src="media/Programs/SabNZBd.png" Title="SabNZBd+" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td><div class="zoom"><a href="#SUBSONIC"><img src="media/Programs/SubSonic.png" Title="Subsonic" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td><div class="zoom"><a href="#SICKBEARD"><img src="media/Programs/SickBeard.png" Title="Sick Beard" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td><div class="zoom"><a href="#COUCHPOTATO"><img src="media/Programs/CouchPotato.png" Title="Couch Potato" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td><div class="zoom"><a href="#HEADPHONES"><img src="media/Programs/HeadPhones.png" Title="Headphones" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td><div class="zoom"><a href="#TRANSMISSION"><img src="media/Programs/Transmission.png" Title="Transmission" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td><div class="zoom"><a href="#UTORRENT"><img src="media/Programs/uTorrent.png" Title="uTorrent" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td><div class="zoom"><a href="#JDOWNLOADER"><img src="media/Programs/JDownloader.png" Title="jDownloader" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
                     </tr><tr>
                          <td align="center" colspan="9" ><p align="justify" style="width: 500px;">Here you can specify a Username / Password / IP Address / Ports for each program individually. These settings <i>will</i> overide the Global Setting.</p></td>
                     </tr><tr>
@@ -269,7 +269,7 @@
 <!-- WEBROOT/REVERSE PROXY Settings -->
 <!-- XBMC Settings -->
      <div id="XBMC" class="panel"><br><br>
-          <h3>XBMC Settings</h3><a href="http://www.xbmc.org" Title="Visit XBMC" target="_blank"><img src="media/Programs/XBMC.png"></a>
+          <h3>XBMC Settings</h3><a href="http://www.xbmc.org" target="_blank"><img src="media/Programs/XBMC.png" Title="Visit XBMC"></a>
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">To connect with XBMC, you need to enable a few settings in Network Settings within XBMC.<i><br><br>Allow control of XBMC via HTTP<br>Allow programs on this system to control XBMC<br>Allow programs on other systems to control XBMC.</i></p></td>
@@ -293,7 +293,7 @@
     
 <!-- Sickbeard Settings -->
      <div id="SICKBEARD" class="panel"><br><br>
-          <h3>SickBeard Settings</h3><a href="http://www.sickbeard.com" target="_blank" title="Visit SickBeard"><img src="media/Programs/SickBeard.png"></a>
+          <h3>SickBeard Settings</h3><a href="http://www.sickbeard.com" target="_blank"><img src="media/Programs/SickBeard.png" Title="Visit SickBeard"></a>
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Enter the details where MediaFrontPage will find SickBeard.</p></td>
@@ -317,7 +317,7 @@
     
 <!-- Sickbeard Settings -->
      <div id="COUCHPOTATO" class="panel"><br><br>
-          <h3>Couch Potato Settings</h3><a href="http://www.couchpotatoapp.com" target="_blank" title="Visit CouchPotato"><img src="media/Programs/CouchPotato.png"></a>
+          <h3>Couch Potato Settings</h3><a href="http://www.couchpotatoapp.com" target="_blank"><img src="media/Programs/CouchPotato.png" Title="Visit CouchPotato"></a>
                <table>
                  <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Enter the details where MediaFrontPage will find CouchPotato.</p></td>
@@ -341,7 +341,7 @@
      
 <!-- SabNZBd+ Settings -->    
      <div id="SABNZBD" class="panel"><br><br>
-          <h3>SabNZBd+ Settings</h3><a href="http://sabnzbd.org" Title="Visit SabNZBd+" target="_blank"><img src="media/Programs/SabNZBd.png"></a>
+          <h3>SabNZBd+ Settings</h3><a href="http://sabnzbd.org" target="_blank"><img src="media/Programs/SabNZBd.png" Title="Visit SabNZBd+"></a>
                <table>
                  <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Enter the details where MediaFrontPage will find SabNZBd+.</p></td>
@@ -368,7 +368,7 @@
      
 <!-- Transmission Settings -->    
      <div id="TRANSMISSION" class="panel"><br><br>
-          <h3>Transmission Settings</h3><a href="http://www.transmissionbt.com" target="_blank" Title="Visit Transmission"><img src="media/Programs/Transmission.png"></a>
+          <h3>Transmission Settings</h3><a href="http://www.transmissionbt.com" target="_blank"><img src="media/Programs/Transmission.png" Title="Visit Transmission"></a>
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Enter the details where MediaFrontPage will find Transmission.</p></td>
@@ -392,7 +392,7 @@
      
 <!-- uTorrent Settings -->
      <div id="UTORRENT" class="panel"><br><br>
-          <h3>uTorrent Settings</h3><a href="http://www.utorrent.com" target="_blank" Title="Visit uTorrent"><img src="media/Programs/uTorrent.png"></a>
+          <h3>uTorrent Settings</h3><a href="http://www.utorrent.com" target="_blank"><img src="media/Programs/uTorrent.png" Title="Visit uTorrent"></a>
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Enter the details where MediaFrontPage will find uTorrent.</p></td>
@@ -416,7 +416,7 @@
      
 <!-- jDownloader Settings -->
      <div id="JDOWNLOADER" class="panel"><br><br>
-          <h3>jDownloader Settings</h3><a href="http://jdownloader.org/home/index?s=lng_en" target="_blank" Title="Visit jDownloader"><img src="media/Programs/JDownloader.png"></a>
+          <h3>jDownloader Settings</h3><a href="http://jdownloader.org/home/index?s=lng_en" target="_blank"><img src="media/Programs/JDownloader.png" Title="Visit jDownloader"></a>
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Enter the details where MediaFrontPage will find jDownloader.</p></td>
@@ -443,7 +443,7 @@
 
 <!-- Subsonic Settings -->
      <div id="SUBSONIC" class="panel"><br><br>
-          <h3>SubSonic Settings</h3><a href="http://www.subsonic.org/pages/index.jsp" target="_blank" Title="Visit SubSonic"><img src="media/Programs/SubSonic.png"></a>
+          <h3>SubSonic Settings</h3><a href="http://www.subsonic.org/pages/index.jsp" target="_blank"><img src="media/Programs/SubSonic.png" Title="Visit SubSonic"></a>
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Enter the details where MediaFrontPage will find SubSonic.</p></td>
@@ -467,7 +467,7 @@
 
 <!-- Headphones Settings -->
     <div id="HEADPHONES" class="panel"><br><br>
-          <h3>HeadPhones Settings</h3><a href="https://github.com/rembo10/headphones" target="_blank" Title="Visit HeadPhones"><img src="media/Programs/HeadPhones.png"></a>
+          <h3>HeadPhones Settings</h3><a href="https://github.com/rembo10/headphones" target="_blank"><img src="media/Programs/HeadPhones.png" Title="Visit HeadPhones"></a>
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Enter the details where MediaFrontPage will find HeadPhones.</p></td>
@@ -521,7 +521,7 @@
 
 <!-- Search Settings -->
      <div id="TRAKT" class="panel"><br><br>
-          <h3>Trakt.tv Settings</h3><a href="http://www.trakt.tv" target="_blank" Title="Visit TrakT"><img src="media/Programs/Trakt.png"></a>
+          <h3>Trakt.tv Settings</h3><a href="http://www.trakt.tv" target="_blank"><img src="media/Programs/Trakt.png" Title="Visit TrakT"></a>
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Here you can specify your trakt.tv details.</p></td>
@@ -541,7 +541,7 @@
 
 <!-- ShareThe.TV Settings -->
      <div id="SHARETHETV" class="panel"><br><br>
-          <h3>ShareThe.TV Settings</h3><a href="http://www.sharethe.tv" target="_blank" Title="Visit ShareThe.TV"><img src="media/Programs/ShareTheTV.png"></a>
+          <h3>ShareThe.TV Settings</h3><a href="http://www.sharethe.tv" target="_blank"><img src="media/Programs/ShareTheTV.png" Title="Visit ShareThe.TV"></a>
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Here you can specify your ShareThe.TV details.</p></td>
