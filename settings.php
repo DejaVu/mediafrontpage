@@ -151,9 +151,9 @@
                                       $commit = $github->getCommits();
                                       $commitNo = $commit['0']['sha'];
                                       $currentVersion = $config->get('version','ADVANCED');
-                                      echo "Version </td><td><a href='https://github.com/DejaVu77/mediafrontpage/commit/".$currentVersion."' target='_blank'>".$currentVersion.'</a>';
+                                      echo "Version </td><td><a href='https://github.com/DejaVu77/mediafrontpage/commit/".$currentVersion."' target='_blank'>".$currentVersion."</a> - <a href='https://github.com/DejaVu77/mediafrontpage/zipball/".$currentVersion."' target='_blank'><img src='media/download.png' Title='Download it'></a>";
                                       if($commitNo != $currentVersion){
-                                         echo "\t<a href='#' onclick='updateVersion();' title='".$commitNo." - Description: ".$commit['0']['commit']['message']."'>***UPDATE Available***</a>";
+                                         echo "\t<a href='#' onclick='updateVersion();' title='".$commitNo." - Description: ".$commit['0']['commit']['message']."'> - UPDATE Available.</a>";
                                       }
                                       ?>
                                    </td>
