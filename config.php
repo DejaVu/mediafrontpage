@@ -374,6 +374,9 @@ if($REVERSE_PROXY){
      if(!empty($HEADPHONES_WEBROOT)){
           $headphones_url = 'http://'.$GLOBAL_IP.'/'.$HEADPHONES_WEBROOT.'/home/';
      }
+     if(!empty($SUBSONIC_WEBROOT)){
+          $subsonic_url = 'http://'.$GLOBAL_IP.'/'.$SUBSONIC_WEBROOT.'/login.view?user=$SUBSONIC_USERNAME&password=$SUBSONIC_PASS/';
+     }
  } else {
    $xbmcjsonservice        = "http://$xbmclogin"."$XBMC_IP:$XBMC_PORT/jsonrpc";
    $xbmcimgpath            = "http://$xbmclogin"."$XBMC_IP:$XBMC_PORT/vfs/";
