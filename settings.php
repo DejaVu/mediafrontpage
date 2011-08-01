@@ -226,7 +226,7 @@
 
 <!-- WEBROOT/REVERSE PROXY Settings -->
      <div id="WEBROOT" class="panel"><br><br>
-          <h3>Webroot Settings</h3>
+          <h3>Reverse Proxy Settings</h3><img src="media/Programs/reverse.png">
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Reverse Proxy changes your programs locations from http://serverip:port to http://serverip/programs. These also need to be edited within some of the programs you use. Further information on this is available from <a href="http://mediafrontpage.lighthouseapp.com/projects/76089/apache-configuration-hints" target="_blank">MediaFrontPage's Development Site</a> as well as more information about what else can be used for.</p></td>
@@ -235,31 +235,31 @@
                          <td align="left"><p><input type="checkbox" Title="Tick To Enable" name="ENABLED" <?php echo ($config->get('ENABLED','WEBROOT')=="true")?'CHECKED':'';?>></p></td>
                     </tr><tr>
                          <td align="right"><p>XBMC:</p></td>
-                         <td align="left"><input name="XBMC" size="20" Title="XBMC's IP Address" value="<?php echo $config->get('XBMC','WEBROOT')?>"></td>
+                         <td align="left"><input name="XBMC" size="20" Title="Insert XBMC's Webroot" value="<?php echo $config->get('XBMC','WEBROOT')?>"></td>
                     </tr><tr>
                          <td align="right"><p>Sickbeard:</p></td>
-                         <td align="left"><input name="SICKBEARD" size="20" Title="Sickbeard's IP Address" value="<?php echo $config->get('SICKBEARD','WEBROOT')?>"></td>
+                         <td align="left"><input name="SICKBEARD" size="20" Title="Insert Sickbeard's Webroot" value="<?php echo $config->get('SICKBEARD','WEBROOT')?>"></td>
                     </tr><tr>
                          <td align="right"><p>Couch Potato:</p></td>
-                         <td align="left"><input name="COUCHPOTATO" size="20" Title="CouchPotato's IP Address" value="<?php echo $config->get('COUCHPOTATO','WEBROOT')?>"></td>
+                         <td align="left"><input name="COUCHPOTATO" size="20" Title="Insert CouchPotato's Webroot" value="<?php echo $config->get('COUCHPOTATO','WEBROOT')?>"></td>
                     </tr><tr>
                          <td align="right"><p>SabNZBd+:</p></td>
-                         <td align="left"><input name="SABNZBD" size="20" Title="SabNZBd+'s IP Address" value="<?php echo $config->get('SABNZBD','WEBROOT')?>"></td>
+                         <td align="left"><input name="SABNZBD" size="20" Title="Insert SabNZBd+'s Webroot" value="<?php echo $config->get('SABNZBD','WEBROOT')?>"></td>
                     </tr><tr>
                          <td align="right"><p>jDownloader:</p></td>
-                         <td align="left"><input name="JDOWNLOADER" size="20" Title="jDownloaders's IP Address" value="<?php echo $config->get('JDOWNLOADER','WEBROOT')?>"></td>
+                         <td align="left"><input name="JDOWNLOADER" size="20" Title="Insert jDownloaders's Webroot" value="<?php echo $config->get('JDOWNLOADER','WEBROOT')?>"></td>
                     </tr><tr>
                          <td align="right"><p>Transmission:</p></td>
-                         <td align="left"><input name="TRANSMISSION" size="20" Title="Transmission's IP Address" value="<?php echo $config->get('TRANSMISSION','WEBROOT')?>"></td>
+                         <td align="left"><input name="TRANSMISSION" size="20" Title="Insert Transmission's Webroot" value="<?php echo $config->get('TRANSMISSION','WEBROOT')?>"></td>
                     </tr><tr>
                          <td align="right"><p>uTorrent:</p></td>
-                         <td align="left"><input name="UTORRENT" size="20" Title="uTorrent's IP Address" value="<?php echo $config->get('UTORRENT','WEBROOT')?>"></td>
+                         <td align="left"><input name="UTORRENT" size="20" Title="Insert uTorrent's Webroot" value="<?php echo $config->get('UTORRENT','WEBROOT')?>"></td>
                     </tr><tr>
                          <td align="right"><p>Headphones:</p></td>
-                         <td align="left"><input name="HEADPHONES" size="20" Title="HeadPhones's IP Address" value="<?php echo $config->get('HEADPHONES','WEBROOT')?>"></td>
+                         <td align="left"><input name="HEADPHONES" size="20" Title="Insert HeadPhones's Webroot" value="<?php echo $config->get('HEADPHONES','WEBROOT')?>"></td>
                     </tr><tr>
                          <td align="right"><p>SubSonic:</p></td>
-                         <td align="left"><input name="SUBSONIC" size="20" Title="SubSonic's IP Address" value="<?php echo $config->get('SUBSONIC','WEBROOT')?>"></td>
+                         <td align="left"><input name="SUBSONIC" size="20" Title="Insert SubSonic's Webroot" value="<?php echo $config->get('SUBSONIC','WEBROOT')?>"></td>
                     </tr>
                </table>
           <input type="button" value="Back" onClick="history.go(-1)">
