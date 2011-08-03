@@ -34,6 +34,8 @@
      $UTORRENT_WEBROOT    = $Config->get('UTORRENT','WEBROOT');
      $JDOWNLOADER_WEBROOT = $Config->get('JDOWNLOADER','WEBROOT');
      $TRANSMISSION_WEBROOT= $Config->get('TRANSMISSION','WEBROOT');
+     $HEADPHONES_WEBROOT  = $Config->get('HEADPHONES','WEBROOT');
+     $SUBSONIC_WEBROOT    = $Config->get('SUBSONIC','WEBROOT');
 
 // XBMC Section
 
