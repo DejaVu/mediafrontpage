@@ -48,7 +48,7 @@ SSH or Telnet into your computer - or simply press CTRL F2 and login with you us
 2.
 Clone the Git to the required directory, XBMCLive and Ubuntu = /var/www.
 
-`sudo git clone git://github.com/dejavu77/mediafrontpage.git /var/www`
+`sudo git clone git://github.com/DejaVu77/mediafrontpage.git /var/www`
 
 3.
 Ensure file permissions allow your web server to write to the directory.
