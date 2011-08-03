@@ -142,15 +142,17 @@
                                    <?php
                                    $github = new GitHub('DejaVu77','mediafrontpage');
                                    $date   = $github->getInfo();
-                                   echo $date['pushed_at'];
+                                   $commit = $github->getCommits();
+                                   $commitNo = $commit['0']['sha'];
+                                   $currentVersion = $config->get('version','ADVANCED');
+                                   $fixdate = $date['pushed_at'];
+                                   $updateddate = str_replace(array("T","Z"), " ", $fixdate);
+                                   echo "<a href='https://github.com/DejaVu77/mediafrontpage/commit/".$currentVersion."' target='_blank'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";
                                    ?>
                                    </td>
                               </tr><tr align="left">
                                    <td>
                                     <?php
-                                      $commit = $github->getCommits();
-                                      $commitNo = $commit['0']['sha'];
-                                      $currentVersion = $config->get('version','ADVANCED');
                                       echo "Version </td><td><a href='https://github.com/DejaVu77/mediafrontpage/commit/".$currentVersion."' target='_blank'>".$currentVersion."</a> - <a href='https://github.com/DejaVu77/mediafrontpage/zipball/".$currentVersion."' target='_blank'><img src='media/download.png' Title='Download it'></a>";
                                       if($commitNo != $currentVersion){
                                          echo "\t<a href='#' onclick='updateVersion();' title='".$commitNo." - Description: ".$commit['0']['commit']['message']."'> - UPDATE Available.</a>";
