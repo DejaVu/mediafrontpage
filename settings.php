@@ -112,7 +112,7 @@
      <div class="scroll">
 <!-- the element that will be scrolled during the effect -->
           <div class="scrollContainer">
-               <div id="ABOUT" class="panel"><br><br>
+               <div id="ABOUT" class="panel">
                     <table>
                        <h3>About MediaFrontPage</h3>
                          <tr><img src="media/mfp.png" width="64" height="64"/></tr>
@@ -162,7 +162,7 @@
                </div>                    
 
 <!-- General/Global Settings -->
-     <div id="GLOBAL" class="panel"><br><br>
+     <div id="GLOBAL" class="panel">
           <h3>Global Settings</h3><img src="media/Programs/config.png">
                <table>
                     <tr>
@@ -188,7 +188,7 @@
      </div>
 
 <!-- Programs Settings -->
-     <div id="PROGRAMS" class="panel"><br><br>
+     <div id="PROGRAMS" class="panel">
           <style type="text/css">
                .zoom { 
                     width: 32; padding: 0px; border: 0px; 
@@ -225,7 +225,7 @@
      </div>
 
 <!-- WEBROOT/REVERSE PROXY Settings -->
-     <div id="WEBROOT" class="panel"><br><br>
+     <div id="WEBROOT" class="panel">
           <h3>Reverse Proxy Settings</h3><img src="media/Programs/reverse.png">
                <table>
                     <tr>
@@ -268,7 +268,7 @@
 
 <!-- WEBROOT/REVERSE PROXY Settings -->
 <!-- XBMC Settings -->
-     <div id="XBMC" class="panel"><br><br>
+     <div id="XBMC" class="panel">
           <h3>XBMC Settings</h3><a href="http://www.xbmc.org" target="_blank"><img src="media/Programs/XBMC.png" Title="Visit XBMC"></a>
                <table>
                     <tr>
@@ -292,7 +292,7 @@
      </div>
     
 <!-- Sickbeard Settings -->
-     <div id="SICKBEARD" class="panel"><br><br>
+     <div id="SICKBEARD" class="panel">
           <h3>SickBeard Settings</h3><a href="http://www.sickbeard.com" target="_blank"><img src="media/Programs/SickBeard.png" Title="Visit SickBeard"></a>
                <table>
                     <tr>
@@ -316,7 +316,7 @@
      </div>
     
 <!-- Sickbeard Settings -->
-     <div id="COUCHPOTATO" class="panel"><br><br>
+     <div id="COUCHPOTATO" class="panel">
           <h3>Couch Potato Settings</h3><a href="http://www.couchpotatoapp.com" target="_blank"><img src="media/Programs/CouchPotato.png" Title="Visit CouchPotato"></a>
                <table>
                  <tr>
@@ -340,7 +340,7 @@
      </div>
      
 <!-- SabNZBd+ Settings -->    
-     <div id="SABNZBD" class="panel"><br><br>
+     <div id="SABNZBD" class="panel">
           <h3>SabNZBd+ Settings</h3><a href="http://sabnzbd.org" target="_blank"><img src="media/Programs/SabNZBd.png" Title="Visit SabNZBd+"></a>
                <table>
                  <tr>
@@ -367,7 +367,7 @@
      </div>
      
 <!-- Transmission Settings -->    
-     <div id="TRANSMISSION" class="panel"><br><br>
+     <div id="TRANSMISSION" class="panel">
           <h3>Transmission Settings</h3><a href="http://www.transmissionbt.com" target="_blank"><img src="media/Programs/Transmission.png" Title="Visit Transmission"></a>
                <table>
                     <tr>
@@ -391,7 +391,7 @@
      </div>
      
 <!-- uTorrent Settings -->
-     <div id="UTORRENT" class="panel"><br><br>
+     <div id="UTORRENT" class="panel">
           <h3>uTorrent Settings</h3><a href="http://www.utorrent.com" target="_blank"><img src="media/Programs/uTorrent.png" Title="Visit uTorrent"></a>
                <table>
                     <tr>
@@ -415,7 +415,7 @@
      </div>
      
 <!-- jDownloader Settings -->
-     <div id="JDOWNLOADER" class="panel"><br><br>
+     <div id="JDOWNLOADER" class="panel">
           <h3>jDownloader Settings</h3><a href="http://jdownloader.org/home/index?s=lng_en" target="_blank"><img src="media/Programs/JDownloader.png" Title="Visit jDownloader"></a>
                <table>
                     <tr>
@@ -442,7 +442,7 @@
           </div>
 
 <!-- Subsonic Settings -->
-     <div id="SUBSONIC" class="panel"><br><br>
+     <div id="SUBSONIC" class="panel">
           <h3>SubSonic Settings</h3><a href="http://www.subsonic.org/pages/index.jsp" target="_blank"><img src="media/Programs/SubSonic.png" Title="Visit SubSonic"></a>
                <table>
                     <tr>
@@ -466,7 +466,7 @@
      </div>
 
 <!-- Headphones Settings -->
-    <div id="HEADPHONES" class="panel"><br><br>
+    <div id="HEADPHONES" class="panel">
           <h3>HeadPhones Settings</h3><a href="https://github.com/rembo10/headphones" target="_blank"><img src="media/Programs/HeadPhones.png" Title="Visit HeadPhones"></a>
                <table>
                     <tr>
@@ -490,7 +490,7 @@
      </div>                    
      
 <!-- Search Settings -->
-     <div id="SEARCH" class="panel"><br><br>
+     <div id="SEARCH" class="panel">
           <h3>Search Widget Settings</h3><img src="media/Programs/search.png">
                <table>
                     <tr>
@@ -520,7 +520,7 @@
      </div>
 
 <!-- Search Settings -->
-     <div id="TRAKT" class="panel"><br><br>
+     <div id="TRAKT" class="panel">
           <h3>Trakt.tv Settings</h3><a href="http://www.trakt.tv" target="_blank"><img src="media/Programs/Trakt.png" Title="Visit TrakT"></a>
                <table>
                     <tr>
@@ -540,7 +540,7 @@
      </div>
 
 <!-- ShareThe.TV Settings -->
-     <div id="SHARETHETV" class="panel"><br><br>
+     <div id="SHARETHETV" class="panel">
           <h3>ShareThe.TV Settings</h3><a href="http://www.sharethe.tv" target="_blank"><img src="media/Programs/ShareTheTV.png" Title="Visit ShareThe.TV"></a>
                <table>
                     <tr>
@@ -557,7 +557,7 @@
      </div>                    
      
 <!-- Navigation Bar Settings -->                   
-     <div id="NAVBAR" class="panel"><br><br>
+     <div id="NAVBAR" class="panel">
           <h3>Navigation Links</h3><img src="media/Programs/navigation.png">
                <table id='table_nav'>
                     <tr>
@@ -584,7 +584,7 @@
      </div>
 
 <!-- Sub Navigation Settings -->
-     <div id="SUBNAV" class="panel"><br><br>
+     <div id="SUBNAV" class="panel">
           <h3>Sub Navigation Links</h3><img src="media/Programs/subnav.png">
                <table id='table_subnav'>
                     <tr>
@@ -611,7 +611,7 @@
      </div>
      
 <!-- Hard Drive Settings -->
-     <div id="HDD" class="panel"><br><br>
+     <div id="HDD" class="panel">
           <h3>Hard Drives Settings</h3><img src="media/Programs/hdd.png">
                <table id='table_hdd'>
                     <tr>
@@ -638,7 +638,7 @@
      </div>
      
 <!-- Search Settings -->
-     <div id="MESSAGE" class="panel"><br><br>
+     <div id="MESSAGE" class="panel">
           <h3>XBMC Instances for Message Widget</h3><img src="media/Programs/message.png">
                <table id="table_msg">
                     <tr>
@@ -665,7 +665,7 @@
      </div>
      
 <!-- Security Settings -->
-     <div id="SECURITY" class="panel"><br><br>
+     <div id="SECURITY" class="panel">
           <h3>Security Settings</h3><img src="media/Programs/security.png">
                <table>
                     <tr>
@@ -691,7 +691,7 @@
      </div>
 
 <!-- CSS Modification Settings -->
-     <div id="MODS" class="panel"><br><br>
+     <div id="MODS" class="panel">
                <h3>CSS Modifications:</h3><img src="media/Programs/cssmod.png">
                          <table>
                               <tr>
@@ -725,7 +725,7 @@
           </div>
 
 <!-- RSS Settings -->
-     <div id="RSS" class="panel"><br><br>
+     <div id="RSS" class="panel">
           <h3>RSS Feeds</h3><img src="media/Programs/RSS.png">
                <table id="table_rss">
                               <tr>
@@ -752,7 +752,7 @@
      </div>
      
 <!-- Control Settings -->    
-    <div id="CONTROL" class="panel"><br><br>
+    <div id="CONTROL" class="panel">
           <h3>Control XBMC Settings</h3><img src="media/Programs/control.png">
                <table id="table_control">
                     <tr>
