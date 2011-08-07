@@ -82,6 +82,7 @@
      $(function() {
           $('input').tipsy({gravity: 'w', fade: true});
           $('img').tipsy({fade: true, gravity: 'n'});     
+          $('a').tipsy({fade: true, gravity: 'n'});     
      });
      </script>
      </head>
@@ -153,7 +154,7 @@
                               </tr><tr align="left">
                                    <td>
                                     <?php
-                                      echo "Version </td><td><a href='https://github.com/DejaVu77/mediafrontpage/commit/".$currentVersion."' target='_blank'>".$currentVersion."</a> - <a href='https://github.com/DejaVu77/mediafrontpage/zipball/".$currentVersion."' target='_blank'><img src='media/download.png' Title='Download it'></a>";
+                                      echo "Version </td><td><a href='https://github.com/DejaVu77/mediafrontpage/commit/".$currentVersion."' target='_blank' Title='Description: ".$commit['0']['commit']['message']."'>".$currentVersion."</a>";
                                       if($commitNo != $currentVersion){
                                          echo "\t<a href='#' onclick='updateVersion();' title='".$commitNo." - Description: ".$commit['0']['commit']['message']."'> - UPDATE Available.</a>";
                                       }
