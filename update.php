@@ -33,7 +33,7 @@ function moveDownload($src,$dst){
 
 function updateVersion(){
   require_once 'lib/class.settings.php';require_once 'lib/class.github.php';
-  $github = new GitHub('DejaVu77','mediafrontpage');
+  $github = new GitHub('DejaVu','mediafrontpage');
   $commit = $github->getCommits();
   $commitNo = $commit['0']['sha'];
   $config = new ConfigMagik('config.ini', true, true);
@@ -48,11 +48,11 @@ function updateVersion(){
 
 function getNew(){
   require_once 'lib/class.github.php';
-  $git = new GitHub('DejaVu77');
+  $git = new GitHub('DejaVu');
   echo '<pre>';print_r($git->getDownload());echo '</pre>';
 }
 
-function download($url = 'https://nodeload.github.com/DejaVu77/mediafrontpage/zipball/master'){
+function download($url = 'https://nodeload.github.com/DejaVu/mediafrontpage/zipball/master'){
   echo cleanUp();
   
   $userAgent = 'Googlebot/2.1 (http://www.googlebot.com/bot.html)';

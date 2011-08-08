@@ -141,20 +141,20 @@
                                    <td>Last Updated</td>
                                    <td>
                                    <?php
-                                   $github = new GitHub('DejaVu77','mediafrontpage');
+                                   $github = new GitHub('DejaVu','mediafrontpage');
                                    $date   = $github->getInfo();
                                    $commit = $github->getCommits();
                                    $commitNo = $commit['0']['sha'];
                                    $currentVersion = $config->get('version','ADVANCED');
                                    $fixdate = $date['pushed_at'];
                                    $updateddate = str_replace(array("T","Z"), " ", $fixdate);
-                                   echo "<a href='https://github.com/DejaVu77/mediafrontpage/commit/".$currentVersion."' target='_blank'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";
+                                   echo "<a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";
                                    ?>
                                    </td>
                               </tr><tr align="left">
                                    <td>
                                     <?php
-                                      echo "Version </td><td><a href='https://github.com/DejaVu77/mediafrontpage/commit/".$currentVersion."' target='_blank' Title='Description: ".$commit['0']['commit']['message']."'>".$currentVersion."</a>";
+                                      echo "Version </td><td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank' Title='Description: ".$commit['0']['commit']['message']."'>".$currentVersion."</a>";
                                       if($commitNo != $currentVersion){
                                          echo "\t<a href='#' onclick='updateVersion();' title='".$commitNo." - Description: ".$commit['0']['commit']['message']."'> - UPDATE Available.</a>";
                                       }
