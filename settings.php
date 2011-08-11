@@ -155,14 +155,28 @@
                                    <td>
                                     <?php
                                       echo "Version </td><td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank' Title='Description: ".$commit['0']['commit']['message']."'>".$currentVersion."</a>";
-                                      if($commitNo != $currentVersion){
-                                         echo "\t<a href='#' onclick='updateVersion();' title='".$commitNo." - Description: ".$commit['0']['commit']['message']."'> - UPDATE Available.</a>";
-                                      }
+                                      ?>
+                                   </td>
+                              </tr><tr align="left">
+                                   <td>
+                                    <?php
+                                      echo "Description </td><td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank'>".$commit['0']['commit']['message']."</a>";
                                       ?>
                                    </td>
                              </tr>
                     </table>
-               </div>                    
+              <center>
+                                       <?php
+                                        if($commitNo == $currentVersion){
+										echo "<br>Congratulations, Your MediaFrontPage is the most current version.";
+										} else { 
+                                         echo "<br><input type='button' value='Update Available' Title='Click to update' onclick='updateVersion();' />";
+                                      }
+                                      ?>
+									  
+									  
+             </center>
+          </div>                    
 
 <!-- General/Global Settings -->
      <div id="GLOBAL" class="panel">
