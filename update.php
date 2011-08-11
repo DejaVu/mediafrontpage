@@ -1,49 +1,19 @@
 <?php
 //@author: Gustavo Hoirisch
 
-/*
-/Recursively move items from src to dst. Will overwrite if needed.
-*/
-function moveDownload($src,$dst){ 
-  $dir = opendir($src); 
-  while(false !== ($file = readdir($dir))){ 
-    if (($file != '.') && ($file != '..') && ($file != 'config.ini') && ($file != 'layout.php') && ($file != 'sbpcache') && ($file !='update')){ 
-      if (is_dir($src.'/'.$file)){
-        if(file_exists($dst.'/'.$file)){
-          rrmdir($dst.'/'.$file);
-        }
-      }
-      if(@rename($src . '/' . $file, $dst . '/' . $file)){
-	        echo '<tr><td>'.$file.' moved successfully </td><td><font color="green">OK</font></td></tr>';
-      } else {
-        if(@chmod($src.'/'.$file, 0777)){
-          if(@rename($src . '/' . $file, $dst . '/' . $file)){
-	        	echo '<tr><td>'.$file.' moved successfully </td><td><font color="green">OK</font></td></tr>';
-          } else {
-	        	echo '<tr><td>Could not move file '.$file.'</td><td><font color="red">ERROR RENAME</font></td></tr>';
-          }
-        } else {
-	        echo '<tr><td>Could not move file '.$file.'</td><td><font color="red">ERROR CHMOD</font></td></tr>';
-        }
-      }
-    } 
-  } 
-  closedir($dir); 
-}
-
 function updateVersion(){
   require_once 'lib/class.settings.php';require_once 'lib/class.github.php';
   $github = new GitHub('DejaVu','mediafrontpage');
   $commit = $github->getCommits();
   $commitNo = $commit['0']['sha'];
   $config = new ConfigMagik('config.ini', true, true);
+  echo "<p>Updating commit number from: ".$config->get('version', 'ADVANCED')." -> ".$commitNo;
   try{
     $config->set('version', $commitNo, 'ADVANCED');
+    echo "  <font color='green'>OK</font></p>";
   } catch (Exception $e){
-    echo false; exit;
+    echo "  <font color='red'>ERROR</font></p>";
   }
-  echo true;
-  exit;
 }
 
 function getNew(){
@@ -53,8 +23,18 @@ function getNew(){
 }
 
 function download($url = 'https://nodeload.github.com/DejaVu/mediafrontpage/zipball/master'){
-  echo cleanUp();
-  
+  echo '<html><head>';
+  echo '<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>';
+  echo '<script>
+  			function toggle(id){
+          if (document.getElementById(id).style.display == "none"){
+            document.getElementById(id).style.display = "inline-block";
+          }else {
+            document.getElementById(id).style.display = "none";
+          }
+				}
+        </script>';
+  echo '</head><body>';
   $userAgent = 'Googlebot/2.1 (http://www.googlebot.com/bot.html)';
   $file_zip = "update.zip";
 
@@ -109,43 +89,100 @@ function download($url = 'https://nodeload.github.com/DejaVu/mediafrontpage/zipb
     closedir($handle);
   }
 
-  //deleteOld();
-
-	echo '<p><font size="20">OLD STUFF</font></p>';
-	echo '<table>';
-	$updateContents = scandir('./');
+  $successful = true;
+  echo '<p onclick="toggle(\'old\');">Old stuff</p>';
+  echo '<div id="old" style="display: none;"><table>';
+  $updateContents = scandir('./');
   foreach($updateContents as $number=>$fileName){
-    if($fileName != 'update' && $fileName != 'config.ini' && $fileName != 'layout.php' && $fileName != '..' && $fileName != '.' && $fileName != '.git' && $fileName != '.gitignore'){
-	    if(is_dir($fileName)){
-	      rename($fileName, 'old/'.$fileName);
-	    } else {
-	      if(rename($fileName, 'old/'.$fileName)){
-	        echo '<tr><td>'.$fileName.' moved successfully </td><td><font color="green">OK</font></td></tr>';
-	      } else {
-	        echo '<tr><td>Could not move file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
-	      }
-	    }
+    if($fileName != 'update' && $fileName != 'config.ini' && $fileName != 'layout.php' && $fileName != '..' && $fileName != '.' && $fileName != '.git' && $fileName != '.gitignore' && $fileName != 'tmp'){
+      if(is_dir($fileName)){
+        rename($fileName, 'tmp/'.$fileName);
+      } else {
+        if(rename($fileName, 'tmp/'.$fileName)){
+          echo '<tr><td>'.$fileName.' moved successfully </td><td><font color="green">OK</font></td></tr>';
+        } else {
+          echo '<tr><td>Could not move file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
+          $successful = false;
+        }
+      }
     }
   }
-	echo '</table>';
+  echo '</table></div>';
 
-	echo '<p><font size="20">New stuff</font></p>';
-	echo '<table>';
-	$updateContents = scandir('update/'.$name);
-  foreach($updateContents as $number=>$fileName){
-    if($fileName != 'update' && $fileName != 'config.ini' && $fileName != 'layout.php' && $fileName != '..' && $fileName != '.' && $fileName != '.git' && $fileName != '.gitignore'){
-	    if(is_dir($fileName)){
-	      rename('update/'.$name.'/'.$fileName, './'.$fileName);
-	    } else {
-	      if(rename('update/'.$name.'/'.$fileName, './'.$fileName)){
-	        echo '<tr><td>'.$fileName.' moved successfully </td><td><font color="green">OK</font></td></tr>';
-	      } else {
-	        echo '<tr><td>Could not move file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
-	      }
-	    }
+  if($successful){
+    echo '<p onclick="toggle(\'new\');">New stuff</p>';
+    echo '<div id="new" style="display: none;"><table>';
+    $updateContents = scandir('update/'.$name);
+    foreach($updateContents as $number=>$fileName){
+      if($fileName != 'update' && $fileName != 'config.ini' && $fileName != 'layout.php' && $fileName != '..' && $fileName != '.' && $fileName != '.git' && $fileName != '.gitignore' && $fileName != 'tmp'){
+        if(is_dir($fileName)){
+          rename('update/'.$name.'/'.$fileName, './'.$fileName);
+        } else {
+          if(rename('update/'.$name.'/'.$fileName, './'.$fileName)){
+            echo '<tr><td>'.$fileName.' moved successfully </td><td><font color="green">OK</font></td></tr>';
+          } else {
+            echo '<tr><td>Could not move file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
+            $successful = false;
+          }
+        }
+      }
     }
   }
-	echo '</table>';
+  echo '</table></div>';
+  
+  //If the renaming went through smoothly, need to clean up the downloaded and backed up files. Otherwise, 
+  //move the files back and tell user to update manually.
+  if($successful){
+    echo "<p><font size='20' color='green'>UPDATE SUCCESSFULL</font></p>";
+    $dir = scandir('update/');
+    echo "<p onclick=\"toggle(\'update\');\">Cleaning up UPDATE</p><table id='update' style='display: none;'>";
+    foreach($dir as $number=>$fileName){
+      if($fileName != '..' && $fileName != '.'){
+        if(is_dir($fileName)){
+          rrmdir('update/'.$fileName);
+        //} else {
+        //if(unlink('update/'.$fileName)){
+        //    echo '<tr><td>'.$fileName.' deleted successfully </td><td><font color="green">OK</font></td></tr>';
+        //  } else {
+        //    echo '<tr><td>Could not delete file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
+        //  }
+        }
+      }
+    }
+    echo '</table>';
+    $dir = scandir('tmp/');
+    echo "<p onclick=\"toggle(\'tmp\');\">Cleaning up TMP</p><table id='tmp' style='display: none;'>";
+    foreach($dir as $number=>$fileName){
+      if($fileName != '..' && $fileName != '.'){
+        if(is_dir($fileName)){
+          rrmdir('tmp/'.$fileName);
+        } else {
+        if(unlink('tmp/'.$fileName)){
+          echo '<tr><td>'.$fileName.' deleted successfully </td><td><font color="green">OK</font></td></tr>';
+          } else {
+            echo '<tr><td>Could not delete file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
+          }
+        }
+      }
+    }
+    echo '</table>';
+    updateVersion();
+  } else {
+    echo "<p><font size='20' color='red'>FAILED</font></p>";
+    $dir = scandir('tmp/');
+    echo "<p>Moving things back</p><table>";
+    foreach($dir as $number=>$fileName){
+      if($fileName != '..' && $fileName != '.'){
+        if(rename('tmp/'.$fileName, './'.$fileName)){
+          echo '<tr><td>'.$fileName.' moved successfully </td><td><font color="green">OK</font></td></tr>';
+        } else {
+          echo '<tr><td>Could not move file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
+        }
+      }
+    }
+    echo '</table>'; 
+  }
+  echo '</body></html>';
 }
 
 function unzip($file, $extractDir = 'update'){
@@ -215,43 +252,24 @@ function cleanUp($extra = ''){
 
 //Deletes directories and it's contents. 
 function rrmdir($dir) { 
- if (is_dir($dir)) { 
-   $objects = scandir($dir); 
-   foreach ($objects as $object) { 
-     if ($object != "." && $object != "..") { 
-       if (filetype($dir."/".$object) == "dir"){
-         echo '<br />Going into '.$dir."/".$object;
-         rrmdir($dir."/".$object);
-       } else {
-         if(unlink($dir."/".$object)){
-          echo '<br />Deleting file: <b>'.$dir."/".$object.'</b> <font color="green">OK</font>';
-         } else {
-          echo '<br />Deleting file: <b>'.$dir."/".$object.'</b> <font color="red">FAILED</font>';
-         }
-       }
-     } 
-   } 
-   reset($objects); 
-   rmdir($dir); 
- } 
-}
-
-function deleteOld(){
-  $contents = scandir('./');
-  foreach($contents as $number => $name){
-    if($name != 'update' && $name != 'config.ini' && $name != 'layout.php' && $name != '..' && $name != '.' && $name != '.git' && $name != '.gitignore' && $name != 'tmp'){
-      if(is_dir($name)){
-        echo '<br />Deleting DIR: <b>'.$name.'</b>';
-        rrmdir($name);
-      } else {
-        if(unlink($name)){
-          echo '<br />Deleting file: <b>'.$name.'</b> <font color="green">OK</font>';
+  if (is_dir($dir)) { 
+    $objects = scandir($dir); 
+    foreach ($objects as $object) { 
+      if ($object != "." && $object != "..") { 
+        if (filetype($dir."/".$object) == "dir"){
+          rrmdir($dir."/".$object);
         } else {
-          echo '<br />Deleting file: <b>'.$name.'</b> <font color="red">FAILED</font>';
+          if(unlink($dir."/".$object)){
+            echo '<tr><td>'.$dir."/".$object.' deleted successfully </td><td><font color="green">OK</font></td></tr>';
+          } else {
+            echo '<tr><td>Could not delete file '.$dir."/".$object.'</td><td><font color="red">ERROR</font></td></tr>';
+          }
         }
-      }
-    }
-  }
+      } 
+    } 
+    reset($objects); 
+    rmdir($dir); 
+  } 
 }
 download();
 ?>
