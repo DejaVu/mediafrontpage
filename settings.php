@@ -120,7 +120,7 @@
                               <tr>
                                    <td colspan="2"><p align="justify" style="width: 500px;padding-bottom: 20px;">MediaFrontPage is a HTPC Web Program Organiser. Your HTPC utilises a number of different programs to do certain tasks. What MediaFrontPage does is creates a user specific web page that will be your nerve centre for everything you will need. It was originally created by <a href="http://forum.xbmc.org/member.php?u=24286">Nick8888</a> and has had a fair share of contributors. If you'd like to contribute please consider making a donation or come and join us developing this great tool.</p>
 
-<!-- At the time of writing this MFP is kept mainly by <a href="http://forum.xbmc.org/member.php?u=68433">DejaVu</a> and <a href="http://forum.xbmc.org/member.php?u=52241">gugahoi</a>. -->
+<!-- At the time of writing this MFP is kept mainly by <a href="http://forum.xbmc.org/member.php?u=68433">DejaVu</a> and <a href="http://forum.xbmc.org/member.php?u=52241">DejaVu</a>. -->
 
                                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                                              <input type="hidden" name="cmd" value="_s-xclick">
@@ -141,11 +141,11 @@
                                                      <td>Last Updated</td>
                   <td>
                   <?php
-                    $github = new GitHub('gugahoi','mediafrontpage');
+                    $github = new GitHub('DejaVu','mediafrontpage');
                     $date   = $github->getInfo();
                     $currentVersion = $config->get('version','ADVANCED');
                     $updateddate = str_replace(array("T","Z"), " ", $date['pushed_at']);
-                    echo "<a href='https://github.com/gugahoi/mediafrontpage/commit/".$currentVersion."' target='_blank'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";                  ?>
+                    echo "<a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";                  ?>
                   </td>
                 </tr>
                 <tr align="left">
@@ -153,7 +153,7 @@
                     <?php
                       $commit = $github->getCommits();
                       $commitNo = $commit['0']['sha'];
-                      echo "<td><a href='https://github.com/gugahoi/mediafrontpage/commit/".$currentVersion."' target='_blank' Title='Description: ".$commit['0']['commit']['message']."'>".$currentVersion."</a>";
+                      echo "<td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank' Title='Description: ".$commit['0']['commit']['message']."'>".$currentVersion."</a>";
                     ?>
                   </td>
                 </tr>
