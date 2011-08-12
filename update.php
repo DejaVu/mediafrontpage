@@ -1,48 +1,102 @@
 <?php
 //@author: Gustavo Hoirisch
-
-function updateVersion(){
-  require_once 'lib/class.settings.php';require_once 'lib/class.github.php';
-  $github = new GitHub('DejaVu','mediafrontpage');
-  $commit = $github->getCommits();
-  $commitNo = $commit['0']['sha'];
-  $config = new ConfigMagik('config.ini', true, true);
-  echo "<p>Updating commit number from: ".$config->get('version', 'ADVANCED')." -> ".$commitNo;
-  try{
-    $config->set('version', $commitNo, 'ADVANCED');
-    echo "  <font color='green'>OK</font></p>";
-  } catch (Exception $e){
-    echo "  <font color='red'>ERROR</font></p>";
+function unzip($file = 'update.zip', $extractDir = 'update'){
+  //check if ZIP extension is loaded
+  if (!extension_loaded('zip')) {
+    try{
+      dl('zip.so');
+    } catch(Exception $e){
+      //echo 'Could not load extension ZIP';
+      return false;
+    }
   }
+  // Unzip the file 
+  $zip = new ZipArchive;
+  if (!$zip) {
+    //echo "<br />Could not make ZipArchive object.";
+    return false;
+  }
+  if($zip->open("$file") != "true") {
+    //echo "<br />Could not open $file.";
+    return false;
+  }
+  $zip->extractTo($extractDir);
+  $zip->close();
+  //echo "<p>Unzipped file to: <b>".$extractDir.'</b></p>';  
+  return true;
 }
 
-function getNew(){
-  require_once 'lib/class.github.php';
-  $git = new GitHub('DejaVu');
-  echo '<pre>';print_r($git->getDownload());echo '</pre>';
+function moveDir($src, $dst){
+  $src = $src.'/';
+  $dst = $dst.'/';
+  $updateContents = scandir($src);
+  foreach($updateContents as $number=>$fileName){
+    if($fileName != 'update' && $fileName != 'config.ini' && $fileName != 'layout.php' && $fileName != '..' && $fileName != '.' && $fileName != '.git' && $fileName != '.gitignore' && $fileName != 'tmp' && $fileName != 'update'){
+      if(!rename($src.$fileName, $dst.$fileName)){
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
-function download($url = 'https://nodeload.github.com/DejaVu/mediafrontpage/zipball/master'){
-  echo '<html><head>';
-  echo '<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>';
-  echo '<script>
-  			function toggle(id){
-          if (document.getElementById(id).style.display == "none"){
-            document.getElementById(id).style.display = "inline-block";
-          }else {
-            document.getElementById(id).style.display = "none";
+function moveUpdate(){
+  $name = '';
+  if ($handle = opendir('../update')) {
+    while (false !== ($file = readdir($handle))) {
+      if(strstr($file,'mediafrontpage')){
+        $name = $file;
+      }
+    }
+    closedir($handle);
+  }
+  if($name != ''){
+    if(moveDir('../update/'.$name, '../')){
+      return true;
+    }
+  }
+  return false;
+}
+
+
+//Deletes directories and it's contents. If $remove is true, it will delete the directory otherwise, only it's contents.
+function rrmdir($dir, $remove = true) { 
+  if (is_dir($dir)) { 
+    $objects = scandir($dir);
+    //echo '<pre>';print_r($objects);echo '</pre>';
+    foreach ($objects as $object) { 
+      if ($object != "." && $object != "..") { 
+        if (filetype($dir."/".$object) == "dir"){
+          if(!rrmdir($dir."/".$object, true)){
+            echo 'Could not delete directory '.$dir."/".$object.'<font color="red">ERROR</font><br />';
+            return false;
           }
-				}
-        </script>';
-  echo '</head><body>';
+        } else {
+          if(!unlink($dir."/".$object)){
+            echo 'Could not delete file '.$dir."/".$object.'<font color="red">ERROR</font><br />';
+            return false;
+          }
+        }
+      } 
+    }
+    reset($objects);
+    if($remove){
+      if(rmdir($dir)){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+function download($file_name = "update.zip"){
+  $url = 'https://nodeload.github.com/DejaVu/mediafrontpage/zipball/master';
   $userAgent = 'Googlebot/2.1 (http://www.googlebot.com/bot.html)';
-  $file_zip = "update.zip";
-
-  echo "Starting";
-
   $ch = curl_init();
   //Opening $file_zip to save the download
-  $fp = fopen("$file_zip", "w"); 
+  $fp = fopen("$file_name", "w"); 
   curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
   // set the cURL request to $url
   curl_setopt($ch, CURLOPT_URL,$url);
@@ -61,215 +115,127 @@ function download($url = 'https://nodeload.github.com/DejaVu/mediafrontpage/zipb
   
   //In case the download failed
   if (!$page) {
-    echo "<br />cURL error number:" .curl_errno($ch);
-    echo "<br />cURL error:" . curl_error($ch);
+    //echo "<br />cURL error number:" .curl_errno($ch);
+    //echo "<br />cURL error:" . curl_error($ch);
     curl_close($ch);
-    exit;
+    return false;
   }
   curl_close($ch);
-  
-  echo "<br>Downloaded file from: $url";
-  echo "<br>Saved as file: $file_zip";
-  echo "<br>Starting unzip ...";
-  
-  if(!unzip($file_zip, 'update')){
-    echo 'Unzip failed';
-    exit;
-  }
-  
-  $name = '';
-  //Getting the name of the file. It should be the only file in the UPDATE directory for now.
-  //In the future I'd like to rename the update according to the PUSHED TIME or DOWNLOADED TIME.
-  if ($handle = opendir('update')) {
-    while (false !== ($file = readdir($handle))) {
-      if(strstr($file,'mediafrontpage')){
-        $name = $file;
-      }
-    }
-    closedir($handle);
-  }
-
-  $successful = true;
-  echo '<p onclick="toggle(\'old\');">Old stuff</p>';
-  echo '<div id="old" style="display: none;"><table>';
-  $updateContents = scandir('./');
-  foreach($updateContents as $number=>$fileName){
-    if($fileName != 'update' && $fileName != 'config.ini' && $fileName != 'layout.php' && $fileName != '..' && $fileName != '.' && $fileName != '.git' && $fileName != '.gitignore' && $fileName != 'tmp'){
-      if(is_dir($fileName)){
-        rename($fileName, 'tmp/'.$fileName);
-      } else {
-        if(rename($fileName, 'tmp/'.$fileName)){
-          echo '<tr><td>'.$fileName.' moved successfully </td><td><font color="green">OK</font></td></tr>';
-        } else {
-          echo '<tr><td>Could not move file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
-          $successful = false;
-        }
-      }
-    }
-  }
-  echo '</table></div>';
-
-  if($successful){
-    echo '<p onclick="toggle(\'new\');">New stuff</p>';
-    echo '<div id="new" style="display: none;"><table>';
-    $updateContents = scandir('update/'.$name);
-    foreach($updateContents as $number=>$fileName){
-      if($fileName != 'update' && $fileName != 'config.ini' && $fileName != 'layout.php' && $fileName != '..' && $fileName != '.' && $fileName != '.git' && $fileName != '.gitignore' && $fileName != 'tmp'){
-        if(is_dir($fileName)){
-          rename('update/'.$name.'/'.$fileName, './'.$fileName);
-        } else {
-          if(rename('update/'.$name.'/'.$fileName, './'.$fileName)){
-            echo '<tr><td>'.$fileName.' moved successfully </td><td><font color="green">OK</font></td></tr>';
-          } else {
-            echo '<tr><td>Could not move file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
-            $successful = false;
-          }
-        }
-      }
-    }
-  }
-  echo '</table></div>';
-  
-  //If the renaming went through smoothly, need to clean up the downloaded and backed up files. Otherwise, 
-  //move the files back and tell user to update manually.
-  if($successful){
-    echo "<p><font size='20' color='green'>UPDATE SUCCESSFULL</font></p>";
-    $dir = scandir('update/');
-    echo "<p onclick=\"toggle(\'update\');\">Cleaning up UPDATE</p><table id='update' style='display: none;'>";
-    foreach($dir as $number=>$fileName){
-      if($fileName != '..' && $fileName != '.'){
-        if(is_dir($fileName)){
-          rrmdir('update/'.$fileName);
-        //} else {
-        //if(unlink('update/'.$fileName)){
-        //    echo '<tr><td>'.$fileName.' deleted successfully </td><td><font color="green">OK</font></td></tr>';
-        //  } else {
-        //    echo '<tr><td>Could not delete file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
-        //  }
-        }
-      }
-    }
-    echo '</table>';
-    $dir = scandir('tmp/');
-    echo "<p onclick=\"toggle(\'tmp\');\">Cleaning up TMP</p><table id='tmp' style='display: none;'>";
-    foreach($dir as $number=>$fileName){
-      if($fileName != '..' && $fileName != '.'){
-        if(is_dir($fileName)){
-          rrmdir('tmp/'.$fileName);
-        } else {
-        if(unlink('tmp/'.$fileName)){
-          echo '<tr><td>'.$fileName.' deleted successfully </td><td><font color="green">OK</font></td></tr>';
-          } else {
-            echo '<tr><td>Could not delete file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
-          }
-        }
-      }
-    }
-    echo '</table>';
-    updateVersion();
-  } else {
-    echo "<p><font size='20' color='red'>FAILED</font></p>";
-    $dir = scandir('tmp/');
-    echo "<p>Moving things back</p><table>";
-    foreach($dir as $number=>$fileName){
-      if($fileName != '..' && $fileName != '.'){
-        if(rename('tmp/'.$fileName, './'.$fileName)){
-          echo '<tr><td>'.$fileName.' moved successfully </td><td><font color="green">OK</font></td></tr>';
-        } else {
-          echo '<tr><td>Could not move file '.$fileName.'</td><td><font color="red">ERROR</font></td></tr>';
-        }
-      }
-    }
-    echo '</table>'; 
-  }
-  echo '</body></html>';
-}
-
-function unzip($file, $extractDir = 'update'){
-  //check if ZIP extension is loaded
-  if (!extension_loaded('zip')) {
-    try{
-      dl('zip.so');
-    } catch(Exception $e){
-      echo 'Could not load extension ZIP';
-      exit;
-    }
-  }
-  // Unzip the file 
-  $zip = new ZipArchive;
-  if (!$zip) {
-    echo "<br />Could not make ZipArchive object.";
-    return false;
-  }
-  if($zip->open("$file") != "true") {
-    echo "<br />Could not open $file.";
-    return false;
-  }
-  $zip->extractTo($extractDir);
-  $zip->close();
-  echo "<br />Unzipped file to: <b>".$extractDir.'</b>';  
   return true;
 }
 
-/*
-/Function to clean up some leftover files. If files other than 'update' folder and 'update.zip'
-/are to be deleted, than the $extra variable and be used. If multiple files are to be deleted use
-/$extra as an array.
-/
-/return: false if nothing is deleted, a string with the deleted files otherwise.
-*/
-function cleanUp($extra = ''){
-  $return_value = '';
-  if(file_exists('update')){
-    if(@unlink('update')){
-      $return_value .= '<br /><b>update</b> folder deleted';
-    }
-  }
-  if(file_exists('update.zip')){
-    if(@unlink('update.zip')){
-      $return_value .= '<br /><b>update.zip</b> deleted';
-    }
-  }
-  if($extra !== ''){
-    if(is_array($extra)){
-      foreach($extra as $x){
-        if(@unlink($x)){
-          $return_value = '<br /><b>'.$x.'</b> deleted';
-        }
-      }
-    } else {
-      if(@unlink($extra)){
-        $return_value = '<br /><b>'.$extra.'</b> deleted';
-      }
-    }
-  }
-  if($return_value === ''){
+function updateVersion(){
+  require_once 'lib/class.settings.php';require_once 'lib/class.github.php';
+  $github = new GitHub('DejaVu','mediafrontpage');
+  $commit = $github->getCommits();
+  $commitNo = $commit['0']['sha'];
+  $config = new ConfigMagik('config.ini', true, true);
+  try{
+    $config->set('version', $commitNo, 'ADVANCED');
+    return true;
+  } catch (Exception $e){
     return false;
-  } else {
-    return $return_value;
   }
 }
 
-//Deletes directories and it's contents. 
-function rrmdir($dir) { 
-  if (is_dir($dir)) { 
-    $objects = scandir($dir); 
-    foreach ($objects as $object) { 
-      if ($object != "." && $object != "..") { 
-        if (filetype($dir."/".$object) == "dir"){
-          rrmdir($dir."/".$object);
-        } else {
-          if(unlink($dir."/".$object)){
-            echo '<tr><td>'.$dir."/".$object.' deleted successfully </td><td><font color="green">OK</font></td></tr>';
-          } else {
-            echo '<tr><td>Could not delete file '.$dir."/".$object.'</td><td><font color="red">ERROR</font></td></tr>';
-          }
-        }
-      } 
-    } 
-    reset($objects); 
-    rmdir($dir); 
-  } 
+if(!empty($_GET)){
+  if(isset($_GET['download']) && $_GET['download']){
+    if(download()){
+      echo true; return true;
+    }
+  }
+  elseif(isset($_GET['unzip']) && $_GET['unzip']){
+    if(unzip()){
+      echo true; return true;
+    }
+  }
+  elseif(isset($_GET['update']) && $_GET['update']){
+    if(updateVersion()){
+      echo true; return true;
+    }
+  }
+  elseif(isset($_GET['remove']) && $_GET['remove'] != false){
+    if(rrmdir($_GET['remove'])){
+      echo true; return true;
+    }
+  }
+  elseif(isset($_GET['move']) && $_GET['move']){
+    if(isset($_GET['src']) && isset($_GET['dst'])){
+      if(moveDir($_GET['src'], $_GET['dst'])){
+        echo true; return true; 
+      }
+    }
+  }
+  elseif(isset($_GET['moveupdate']) && $_GET['moveupdate']){
+    if(moveUpdate()){
+      echo true; return true;
+    }
+  }
+  elseif(isset($_GET['cleanup']) && $_GET['cleanup']){
+    if(isset($_GET['dir']) && $_GET['dir'] != ''){
+      if(rrmdir($_GET['dir'], false)){
+        echo true; return true;
+      }
+    }
+  }
+  echo false; return false; exit; 
+} else {
+  rrmdir('tmp', false);
+  rrmdir('update',false);
+  ?>
+<html>
+  <head>
+    <title>UPDATING</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="js/update.js"></script>
+    <link href="css/front.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/widget.css">
+    <link rel="stylesheet" type="text/css" href="css/static_widget.css">
+    <script>
+    </script>
+  </head>
+  <body>
+    <center>
+      <div style="width:90%; height:100%; overflow: auto;" class="widget">
+        <div class="widget-head">
+          <h3>MediaFrontPage Auto-Update</h3>
+        </div>
+        
+        <table align="left" style="padding-top: 30px;" cellspacing="7">
+          <tr>
+            <td align="left">Downloading latest version</td>
+            <td><img id="dl" src="media/pwait.gif" height="15px" /></td>
+          </tr>
+          <tr>
+            <td align="left">Unziping archive</td>
+            <td><div id="zip"></div></td>
+          </tr>
+          <tr>
+            <td align="left">Backing up old files</td>
+            <td><div id="backup"></div></td>
+          </tr>
+          <tr>
+            <td align="left">Updating</td>
+            <td><div id="update"></td>
+          </tr>
+          <tr>
+            <td align="left">Cleaning up backup</td>
+            <td><div id="clean-back"></div></td>
+          </tr>
+          <tr>
+            <td align="left">Cleaning up leftovers</td>
+            <td><div id="clean-left"></div></td>
+          </tr>
+          <tr>
+            <td align="left">Updating commit number</td>
+            <td><div id="commit"></div></td>
+          </tr>
+        </table>
+        <div id="result"></div>
+      </div>
+    </center>
+  </body>
+</html>
+<?php
 }
-download();
 ?>

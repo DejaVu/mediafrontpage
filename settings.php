@@ -138,45 +138,36 @@
                               </tr><tr align="left">
                                    <td>Bug Tracker</td><td><a href="http://mediafrontpage.lighthouseapp.com">http://mediafrontpage.lighthouseapp.com</a></td>
                               </tr><tr align="left">
-                                   <td>Last Updated</td>
-                                   <td>
-                                   <?php
-                                   $github = new GitHub('DejaVu','mediafrontpage');
-                                   $date   = $github->getInfo();
-                                   $commit = $github->getCommits();
-                                   $commitNo = $commit['0']['sha'];
-                                   $currentVersion = $config->get('version','ADVANCED');
-                                   $fixdate = $date['pushed_at'];
-                                   $updateddate = str_replace(array("T","Z"), " ", $fixdate);
-                                   echo "<a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";
-                                   ?>
-                                   </td>
-                              </tr><tr align="left">
-                                   <td>
-                                    <?php
-                                      echo "Version </td><td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank' Title='Description: ".$commit['0']['commit']['message']."'>".$currentVersion."</a>";
-                                      ?>
-                                   </td>
-                              </tr><tr align="left">
-                                   <td>
-                                    <?php
-                                      echo "Description </td><td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank'>".$commit['0']['commit']['message']."</a>";
-                                      ?>
-                                   </td>
-                             </tr>
-                    </table>
-              <center>
-                                       <?php
-                                        if($commitNo == $currentVersion){
-										echo "<br>Congratulations, Your MediaFrontPage is the most current version.";
-										} else { 
-                                         echo "<br><input type='button' value='Update Available' Title='Click to update' onclick='updateVersion();' />";
-                                      }
-                                      ?>
-									  
-									  
-             </center>
-          </div>                    
+                                                     <td>Last Updated</td>
+                  <td>
+                  <?php
+                    $github = new GitHub('gugahoi','mediafrontpage');
+                    $date   = $github->getInfo();
+                    $currentVersion = $config->get('version','ADVANCED');
+                    $updateddate = str_replace(array("T","Z"), " ", $date['pushed_at']);
+                    echo "<a href='https://github.com/gugahoi/mediafrontpage/commit/".$currentVersion."' target='_blank'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";                  ?>
+                  </td>
+                </tr>
+                <tr align="left">
+                  <td>Version</td>
+                    <?php
+                      $commit = $github->getCommits();
+                      $commitNo = $commit['0']['sha'];
+                      echo "<td><a href='https://github.com/gugahoi/mediafrontpage/commit/".$currentVersion."' target='_blank' Title='Description: ".$commit['0']['commit']['message']."'>".$currentVersion."</a>";
+                    ?>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                  <?php 
+                    if($commitNo != $currentVersion){
+                      echo "<input type='button' value='Update Available' Title='Click To Update' onclick=\"location.href='update.php'\" />";
+										} 
+								  ?>
+								  </td>
+								</tr>
+              </table>
+            </div>
 
 <!-- General/Global Settings -->
      <div id="GLOBAL" class="panel">
