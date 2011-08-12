@@ -161,11 +161,13 @@
                   <td colspan="2">
                   <?php 
                     if($commitNo != $currentVersion){
-                      echo "<input type='button' value='Update Available' Title='Click To Update' onclick=\"location.href='update.php'\" />";
-										} 
-								  ?>
-								  </td>
-								</tr>
+                          echo "<input type='button' value='Update Available' Title='Click To Update' onclick=\"location.href='update.php'\" />";
+                     }else{
+                          echo "Congratulations, your on the current version of MediaFrontPage.";
+                              } 
+                              ?>
+                              </td>
+                         </tr>
               </table>
             </div>
 
