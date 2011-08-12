@@ -238,4 +238,7 @@ if(!empty($_GET)){
 </html>
 <?php
 }
+include "nav.php";
+include "footer.php";
+
 ?>
