@@ -153,7 +153,7 @@
                     <?php
                       $commit = $github->getCommits();
                       $commitNo = $commit['0']['sha'];
-                      echo "<td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank' Title='Description: ".$commit['0']['commit']['message']."'>".$currentVersion."</a>";
+                      echo "<td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank'>".$currentVersion."</a>";
                     ?>
                   </td>
                 </tr>
