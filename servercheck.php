@@ -7,6 +7,7 @@ function redirect(){
 }
 </script>
 <link href="css/front.css" rel="stylesheet" type="text/css" />
+<link href="css/settings.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 .widget {
   border:1px solid black;
@@ -34,13 +35,12 @@ function redirect(){
 <br>
 <br>
 <br>
-<table class="widget" width=300 cellpadding=0 cellspacing=0>
+<table class="widget" width=550 cellpadding=0 cellspacing=0>
 <tr>
-  <td align=center colspan=2 height=25><div class="widget-head">Welcome to <a href="http://mediafrontpage.net/" target="_blank">MediaFrontPage</a></div></td>
+  <td align=center colspan=2 height=25><div class="widget-head">Welcome to <a href="http://mediafrontpage.net/" target="_blank">MediaFrontPage</a> ServerCheck</div></td>
 <tr>
-<td align=centre><br>
-  If you have no text below,<br>
-  your PHP is not working.<br>
+<td align=centre><br><p>
+  If you have no text below, your PHP is not working.<br>
   <br>
   <?php if(false){
 }
@@ -116,18 +116,19 @@ if (file_exists('layout.php')){
   }
   echo ($valid)?"</td><td><img src='media/green-tick.png' height='15px'/></td></tr>":"</td><td><img src='media/red-cross.png' height='15px'/></td></tr>";
 }
-echo '</table>';
+echo '<td>';
 if($redirect){
-  echo "<p>Congratulations! Everything seems to be in working order.</p>";
+  echo "<br><br><p>Congratulations! <br> Everything seems to be in working order.</p>";
   echo "<p><input type='button' onclick=\"window.location = 'settings.php';\" value='Continue' /></p>";
   if (file_exists('firstrun.php')){
     unlink('firstrun.php');
   }
 } else {
-  echo "<p>It looks like some problems were found, please fix them then <input type=\"button\" value=\"reload\" onClick=\"window.location.reload()\"> the page.</p>";
+  echo "<br><br><p>It looks like some problems were found, please fix them then <input type=\"button\" value=\"reload\" onClick=\"window.location.reload()\"> the page.</p>";
   echo "<p>If further assistance is needed, please visit the <a href='http://forum.xbmc.org/showthread.php?t=83304' target='_blank'>forum</a> or our <a href='http://mediafrontpage.lighthouseapp.com' target='_blank'>project page</a>.</p>";
   echo "Attention WINDOWS users, please remember our WEB Server of choice for your platform is <a href='http://www.uniformserver.com/' target='_blank'>The Uniform Server</a>.";
 }
+echo '</p></td></table>';
 ?>
 </body>
 </html>
