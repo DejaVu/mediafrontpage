@@ -81,8 +81,8 @@
      <script type='text/javascript'>
      $(function() {
           $('input').tipsy({gravity: 'w', fade: true});
-          $('img').tipsy({fade: true, gravity: 'n'});     
-          $('a').tipsy({fade: true, gravity: 'n'});     
+          $('img').tipsy({fade: true, gravity: 's'});     
+          $('a').tipsy({fade: true, gravity: 's'});     
      });
      </script>
      </head>
@@ -517,13 +517,13 @@
                          <td align="left"><input name="NZBMATRIX_USERNAME" Title="Insert your NZBMatrix Username" size="20" value="<?php echo $config->get('NZBMATRIX_USERNAME','SEARCH')?>" /></td>
                     </tr><tr>
                          <td align="right"><p>NZB Matrix API:</p></td>
-                         <td align="left"><input name="NZBMATRIX_API" Title="Insert your NZBMatrix API" type="password" size="40" value="<?php echo $config->get('NZBMATRIX_API','SEARCH')?>" /><a href="http://nzbmatrix.com/account.php"><img src="media/question.png" height="20px"></a></td>
+                         <td align="left"><input name="NZBMATRIX_API" Title="Insert your NZBMatrix API" type="password" size="40" value="<?php echo $config->get('NZBMATRIX_API','SEARCH')?>" /><a href="http://nzbmatrix.com/account.php"><img src="media/question.png" Title="Get your NZBMatrix API" height="20px"></a></td>
                     </tr><tr>
                          <td align="right"><p>NZB.SU API:</p></td>
-                         <td align="left"><Input name="NZBSU_API" Title="Insert your NZB.SU API" type="password" size="40" value="<?php echo $config->get('NZBSU_API','SEARCH')?>" /><a href="http://nzb.su/profile"><img src="media/question.png" height="20px"></a></td>
+                         <td align="left"><Input name="NZBSU_API" Title="Insert your NZB.SU API" type="password" size="40" value="<?php echo $config->get('NZBSU_API','SEARCH')?>" /><a href="http://nzb.su/profile"><img src="media/question.png" Title="Get your NZB.su API" height="20px"></a></td>
                     </tr><tr>
                      <td align="right"><p>NZB.SU Download Code:</p></td>
-                         <td align="left"><input name="NZB_DL" Title="Insert your NZB.SU Download Code" type="password" size="40" value="<?php echo $config->get('NZB_DL','SEARCH')?>" /><a href="http://nzb.su/rss"><img src="media/question.png" height="20px"></a></td>
+                         <td align="left"><input name="NZB_DL" Title="Insert your NZB.SU Download Code" type="password" size="40" value="<?php echo $config->get('NZB_DL','SEARCH')?>" /><a href="http://nzb.su/rss"><img src="media/question.png" Title="Get your NZB.su Download Code" height="20px"></a></td>
                     </tr>
                </table>
           <input type="button" value="Save" Title="Save these Settings" onClick="updateSettings('SEARCH');" />
@@ -543,7 +543,7 @@
                          <td align="left"><input name="TRAKT_PASSWORD" Title="Insert your trakt.tv Password" type="password" size="20" value="<?php echo $config->get('TRAKT_PASSWORD','TRAKT')?>" /></td>
                     </tr><tr>
                          <td align="right"><p>trakt API:</p></td>
-                    <td align="left"><input name="TRAKT_API" type="password" Title="Insert your trakt.tv API"  ize="40" value="<?php echo $config->get('TRAKT_API','TRAKT')?>" /><a href="http://trakt.tv/settings/api"><img src="media/question.png" height="20px"></a></td>
+                    <td align="left"><input name="TRAKT_API" type="password" Title="Insert your trakt.tv API"  ize="40" value="<?php echo $config->get('TRAKT_API','TRAKT')?>" /><a href="http://trakt.tv/settings/api"><img src="media/question.png" Title="Get your trakt API" height="20px"></a></td>
                     </tr>
                </table>
           <input type="button" value="Save" Title="Save these Settings" onClick="updateSettings('TRAKT');" />
@@ -896,13 +896,13 @@
           $x = $config->get('RSS');
      foreach ($x as $title=>$url){
           echo "<tr>
-                    <td><input size='40' Title='RSS Site Name' name='TITLE' value='".urldecode(str_ireplace('_', ' ', $title))."'/></td>
-                    <td><input size='80' Title='Direct RSS Feed URL' name='VALUE' value='$url'/></td>
+                    <td><input size='30' Title='RSS Site Name' name='TITLE' value='".urldecode(str_ireplace('_', ' ', $title))."'/></td>
+                    <td><input size='60' Title='Direct RSS Feed URL' name='VALUE' value='$url'/></td>
                </tr>";
                }
 ?>
                </table>
-          <input type="button" value="+" Title="Add a new Row" onClick="addRowToTable('rss', 40, 80);" />
+          <input type="button" value="+" Title="Add a new Row" onClick="addRowToTable('rss', 30, 60);" />
           <input type="button" value="-" Title="Remove the Last Row" onClick="removeRowToTable('rss');" />
                <br />
                <br />
@@ -923,13 +923,13 @@
           $x = $config->get('CONTROL');
      foreach ($x as $title=>$url){
           echo "<tr>
-                    <td><input size='40' Title='Control Label' name='TITLE' value='".urldecode(str_ireplace('_', ' ', $title))."'/></td>
-                    <td><input size='80' Title='Control Function' name='VALUE' value='$url'/></td>
+                    <td><input size='20' Title='Control Label' name='TITLE' value='".urldecode(str_ireplace('_', ' ', $title))."'/></td>
+                    <td><input size='20' Title='Control Function' name='VALUE' value='$url'/></td>
                </tr>";
                }
 ?>
                </table>
-          <input type="button" value="+" Title="Add a new Row" onClick="addRowToTable('control', 40, 80);" />
+          <input type="button" value="+" Title="Add a new Row" onClick="addRowToTable('control', 20, 20);" />
           <input type="button" value="-" Title="Remove the Last Row" onClick="removeRowToTable('control');" />
                <br />
                <br />
