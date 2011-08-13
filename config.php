@@ -125,7 +125,32 @@
      $SHARETHETV_USERNAME   = $Config->get('SHARETHETV_USERNAME','SHARETHETV');
      $SHARETHETV_PASSWORD   = $Config->get('SHARETHETV_PASSWORD','SHARETHETV'); //NOT IMPLEMENTED YET, ADD FOR WHEN NEEDED.
 
-// NavBar Section
+/* Column Widths*/
+
+     $width1 = $Config->get('WIDTH1','COLUMNS').'%';
+     $width2 = $Config->get('WIDTH2','COLUMNS').'%';
+     $width3 = $Config->get('WIDTH3','COLUMNS').'%';
+     $width4 = $Config->get('WIDTH4','COLUMNS').'%';
+
+/* Widgets On/Off */
+
+     $wComingEpisodes = $Config->get('wComingEpisodes','WIDGETS_ON/OFF');
+     $wXBMCLibrary = $Config->get('wXBMCLibrary','WIDGETS_ON/OFF');
+     $wControl = $Config->get('wControl','WIDGETS_ON/OFF');
+     $wRecentTV = $Config->get('wRecentTV','WIDGETS_ON/OFF');
+     $wRecentMovies = $Config->get('wRecentMovies','WIDGETS_ON/OFF');
+     $wSearch = $Config->get('wSearch','WIDGETS_ON/OFF');
+     $wRSS = $Config->get('wRSS','WIDGETS_ON/OFF');
+     $wHardDrives = $Config->get('wHardDrives','WIDGETS_ON/OFF');
+     $wNowPlaying = $Config->get('wNowPlaying','WIDGETS_ON/OFF');
+     $wTransmission = $Config->get('wTransmission','WIDGETS_ON/OFF');
+     $wSabnzbd = $Config->get('wSabnzbd','WIDGETS_ON/OFF');
+     $wMessage = $Config->get('wMessage','WIDGETS_ON/OFF');
+     $wTrakt = $Config->get('wTrakt','WIDGETS_ON/OFF');
+     $wSystem = $Config->get('wSystem','WIDGETS_ON/OFF');
+     $wUPS = $Config->get('wUPS','WIDGETS_ON/OFF');
+
+ // NavBar Section
 
           $navlink;
           $x = $Config->get('NAVBAR');
@@ -194,7 +219,11 @@
 
 // Custom Stylesheet Section
 
-         $customStyleSheet = 'css/customcss/'.$Config->get('ENABLED','MODS').'.css';
+         $customStyleSheet = 'css/'.$Config->get('ENABLED','THEMES').'.css';
+
+// Coming Episode Styles //
+
+         $ceview = $Config->get('CEVIEW','WIDGET_MODS');
 
 // Message Section
 

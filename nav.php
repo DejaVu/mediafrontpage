@@ -32,7 +32,7 @@ echo 'function logout(){
 echo "</script>";
 ?>
 <link rel="stylesheet" href="css/nav_style.css" type="text/css" charset="utf-8"/>
-<link href="css/widget.css" rel="stylesheet" type="text/css" />    
+<link href="css/widget.php" rel="stylesheet" type="text/css" />    
 <link href="css/front.css" rel="stylesheet" type="text/css" />    
     
     <!-- START: CustomCSS Inserts -->

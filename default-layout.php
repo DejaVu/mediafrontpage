@@ -42,9 +42,13 @@ $arrLayout = array(
 		"wHardDrives" => array(
 		"title" => "Hard Drives",
 		"display" => ""
+	),
+		"wUPS" => array(
+		"title" => "UPS Status Monitor",
+		"display" => ""
 		)
 	),
-		
+
 "section4" => array(
 
 		"wNowPlaying" => array(
@@ -78,11 +82,4 @@ $arrLayout = array(
 	)
 );
 	
-//UPS Widget
-/*
-			"wUPS" => array(
-				"title" => "UPS Status Monitor",
-				"display" => ""
-			)
-*/
 ?>

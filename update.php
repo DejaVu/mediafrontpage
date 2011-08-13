@@ -189,7 +189,7 @@ if(!empty($_GET)){
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="js/update.js"></script>
     <link href="css/front.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/widget.css">
+    <link rel="stylesheet" type="text/css" href="css/widget.php">
     <link rel="stylesheet" type="text/css" href="css/static_widget.css">
     <script>
     </script>

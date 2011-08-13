@@ -9,7 +9,7 @@
 		<title>MediaFrontPage - <?php echo $title ?></title>
 		<link rel="shortcut icon" href="favicon.ico" />
 		<meta name="robots" content="noindex, nofollow">
-		<link rel="stylesheet" type="text/css" href="css/widget.css" />
+		<link rel="stylesheet" type="text/css" href="css/widget.php" />
 		<link rel="stylesheet" type="text/css" href="css/front.css" />
 		<link rel="stylesheet" type="text/css" href="css/static_widget.css" />
 	</head>

@@ -63,7 +63,7 @@
      <title>MediaFrontPage - Settings</title>
      <link rel="stylesheet" type="text/css" href="css/front.css">
      <link rel="stylesheet" type="text/css" href="css/settings.css">
-     <link rel="stylesheet" type="text/css" href="css/widget.css">
+     <link rel="stylesheet" type="text/css" href="css/widget.php">
      <link rel="stylesheet" type="text/css" href="css/static_widget.css">
      <link rel="stylesheet" type="text/css" href="css/footer.css">
      <link rel="stylesheet" type="text/css" href="css/jquery.pnotify.default.css">
@@ -99,13 +99,14 @@
                <li><a href="#PROGRAMS">Programs</a></li>
                <li><a href="#SEARCH">Search Widget</a></li>
                <li><a href="#TRAKT">Trakt.tv</a></li>
-               <li><a href="#SHARETHETV">ShareThe.tv</a></li>               
+               <li><a href="#SHARETHETV">ShareThe.tv</a></li>
                <li><a href="#NAVBAR">Nav Bar</a></li>
                <li><a href="#SUBNAV">Sub Nav</a></li>
+               <li><a href="#THEMES">CSS Mods</a></li>
+               <li><a href="#COLUMNS">Widgets</a></li>
                <li><a href="#HDD">Hard Drives</a></li>
                <li><a href="#MESSAGE">Message Widget</a></li>
                <li><a href="#SECURITY">Security</a></li>
-               <li><a href="#MODS">CSS Mods</a></li>
                <li><a href="#RSS">RSS Feeds</a></li>
                <li><a href="#CONTROL">Control Widget</a></li>
           </ul>
@@ -648,6 +649,78 @@
           <input type="button" value="Save" Title="Save these Settings" onClick="updateAlternative('HDD');" />
      </div>
      
+<!-- Column Widths -->
+<div id="COLUMNS" class="panel">
+      <h3>Column Widths</h3>
+              <p align="justify" style="width: 500px;">This is to set the width of each column on the main widget page via a percentage. Do not exceed 100%. For 3 columns, leave column 4 as 0%. If you move to 3 columns make sure you move all widgets out of column 4 before you make the changes.</p>
+      
+      <table id='table_columns'>
+                <tr>
+                  <td align="right"><p>Column 1</p></td>
+                  <td align="left"><input class="txt" size="2" maxlength="2" name="WIDTH1" size="20" Title="Insert the desired width" value="<?php echo $config->get('WIDTH1','COLUMNS')?>" /></td>
+                </tr>
+                <tr>
+                  <td align="right"><p>Column 2</p></td>
+                  <td align="left"><input class="txt" size="2" maxlength="2" name="WIDTH2" size="20" Title="Insert the desired width" value="<?php echo $config->get('WIDTH2','COLUMNS')?>" /></td>
+                </tr>
+                <tr>
+                  <td align="right"><p>Column 3</p></td>
+
+                  <td align="left"><input class="txt" size="2" maxlength="2" name="WIDTH3" size="20" Title="Insert the desired width" value="<?php echo $config->get('WIDTH3','COLUMNS')?>" /></td>
+
+                </tr>
+                <tr>
+                  <td align="right"><p>Column 4</p></td>
+                  <td align="left"><input class="txt" size="2" maxlength="2" name="WIDTH4" size="20" Title="Insert the desired width" value="<?php echo $config->get('WIDTH4','COLUMNS')?>" /></td>
+                </tr>
+                <tr id="summation">
+        <td>&nbsp;</td>
+        <td align="right">Sum :</td>
+        <td align="center"><span id="sum">0</span></td>
+    </tr>
+                </table>
+              <br />
+        
+        <input type="button" value="Activate/Deactivate Widgets" Title="Activate/Deactivate Widgets" onClick="window.location.href='#WIDGETS_ON/OFF'" /><br>
+        <input type="button" value="Save" Title="Save these Settings" onclick="updateSettings('COLUMNS');" />
+        
+      <?php 
+//if ($sum <= 100) echo 
+      
+      //"<input type=\"button\" value=\"Save\" //onclick=\"updateSettings('COLUMNS');\" />" ?>
+      
+<script>
+    $(document).ready(function(){
+ 
+        //iterate through each textboxes and add keyup
+        //handler to trigger sum event
+        $(".txt").each(function() {
+ 
+            $(this).keyup(function(){
+                calculateSum();
+            });
+        });
+ 
+    });
+ 
+    function calculateSum() {
+ 
+        var sum = 0;
+        //iterate through each textboxes and add the values
+        $(".txt").each(function() {
+ 
+            //add only if the value is number
+            if(!isNaN(this.value) && this.value.length!=0) {
+                sum += parseFloat(this.value);
+            }
+ 
+        });
+        //.toFixed() method will roundoff the final sum to 2 decimal places
+        $("#sum").html(sum.toFixed(0));
+    }
+</script>
+</div>
+     
 <!-- Search Settings -->
      <div id="MESSAGE" class="panel">
           <h3>XBMC Instances for Message Widget</h3><img src="media/Programs/message.png">
@@ -702,38 +775,132 @@
      </div>
 
 <!-- CSS Modification Settings -->
-     <div id="MODS" class="panel">
+     <div id="THEMES" class="panel">
                <h3>CSS Modifications:</h3><img src="media/Programs/cssmod.png">
                          <table>
                               <tr>
-                                   <td align="center" colspan="4"><p align="justify" style="width: 500px;">These are 'user created' CSS modifications submitted by some of our users. These change mainly the look and colors of MediaFrontPage. If your confident enough with CSS and want to contribute your own modification, submit it to us on the <a href="http://forum.xbmc.org/showthread.php?t=83304" target="_blank">MediaFrontPage Support Thread</a>.</p></td>
+                                   <td align="center" colspan="3"><p align="justify" style="width: 500px;">These are 'user created' CSS modifications submitted by some of our users. These change mainly the look and colors of MediaFrontPage. If your confident enough with CSS and want to contribute your own modification, submit it to us on the <a href="http://forum.xbmc.org/showthread.php?t=83304" target="_blank">MediaFrontPage Support Thread</a>.</p></td>
                               </tr><tr>
                                    <td><img class="widget" src="media/examples/lightheme.jpg" height="120px" /></td>
                                    <td><img class="widget" src="media/examples/hernadito.jpg" height="120px" /></td>
                                    <td><img class="widget" src="media/examples/dpickles.jpg" height="120px" /></td>
+                              </tr><tr>
+                                   <td><p><input Title="Tick to Enable Light Theme" type="radio" name="ENABLED" value="lighttheme" <?php echo ($config->get('ENABLED','THEMES') == "lighttheme")?'CHECKED':'';?> />Light Theme</p></td>
+                                   <td><p><input Title="Tick to Enable Hernandito Theme" type="radio" name="ENABLED" value="hernandito" <?php echo ($config->get('ENABLED','THEMES') == "hernandito")?'CHECKED':''; ?> />Hernandito's Theme</p></td>
+                                   <td><p><input Title="Tick to Enable DPickles Theme" type="radio" name="ENABLED" value="dpickles" <?php echo ($config->get('ENABLED','THEMES') == "dpickles")?'CHECKED':'';?> />DPickles Theme</p></td>
+                              </tr><tr>
                                    <td><img src="media/examples/black_modern_glass.jpg" height="120" class="widget" /></td>
-                              </tr><tr>
-                                   <td><p><input Title="Tick to Enable Light Theme" type="radio" name="ENABLED" value="lighttheme" <?php echo ($config->get('ENABLED','MODS') == "lighttheme")?'CHECKED':'';?> />Light Theme</p></td>
-                                   <td><p><input Title="Tick to Enable Hernandito Theme" type="radio" name="ENABLED" value="hernandito" <?php echo ($config->get('ENABLED','MODS') == "hernandito")?'CHECKED':''; ?> />Hernandito's Theme</p></td>
-                                   <td><p><input Title="Tick to Enable DPickles Theme" type="radio" name="ENABLED" value="dpickles" <?php echo ($config->get('ENABLED','MODS') == "dpickles")?'CHECKED':'';?> />DPickles Theme</p></td>
-                                   <td><p><input Title="Tick to Enable Black Modern Glass Theme" type="radio" name="ENABLED" value="black_modern_glass" <?php echo ($config->get('ENABLED','MODS') == "black_modern_glass")?'CHECKED':'';?> />Black Modern Glass Theme</p></td>
-                              </tr><tr>
                                    <td><img src="media/examples/space6.jpg" height="120" class="widget" /></td>
-                                   <td><img class="widget" src="media/examples/minimal-posters.jpg" height="120px" /></td>
-                                   <td><img class="widget" src="media/examples/minimal-banners.jpg" height="120px" /></td>
                                    <td><img src="media/examples/original.jpg" height="120" class="widget" /></td>
                               </tr><tr>
-                                   <td><p><input Title="Tick to Enable Space 6 Theme" type="radio" name="ENABLED" value="space6" <?php echo ($config->get('ENABLED','MODS') == "space6")?'CHECKED':'';?> />Space 6 Theme</p></td>
-                                   <td><p><input Title="Tick to Enable Coming Episodes Minimal POSTER Theme" type="radio" name="ENABLED" value="comingepisodes-minimal-poster" <?php echo ($config->get('ENABLED','MODS') == "comingepisodes-minimal-poster")?'CHECKED':'';?> />Minimal Posters</p></td>
-                                   <td><p><input Title="Tick to Enable Coming Episodes Minimal BANNER Theme" type="radio" name="ENABLED" value="comingepisodes-minimal-banner" <?php echo ($config->get('ENABLED','MODS') == "comingepisodes-minimal-banner")?'CHECKED':'';?> />Minimal Banners</p></td>
-                                   <td><p><input Title="Tick to Disable all Themes" type="radio" name="ENABLED" value="" <?php echo ($config->get('ENABLED','MODS') == "")?'CHECKED':''; ?> />OFF</p></td>
+                                   <td><p><input Title="Tick to Enable Black Modern Glass Theme" type="radio" name="ENABLED" value="black_modern_glass" <?php echo ($config->get('ENABLED','THEMES') == "black_modern_glass")?'CHECKED':'';?> />Black Modern Glass Theme</p></td>
+                                   <td><p><input Title="Tick to Enable Space 6 Theme" type="radio" name="ENABLED" value="space6" <?php echo ($config->get('ENABLED','THEMES') == "space6")?'CHECKED':'';?> />Space 6 Theme</p></td>
+                                   <td><p><input Title="Tick to Disable all Themes" type="radio" name="ENABLED" value="" <?php echo ($config->get('ENABLED','THEMES') == "")?'CHECKED':''; ?> />OFF</p></td>                                   
                               </tr><tr>
-                                   <td>&nbsp;</td>
-                            <td colspan="2"><p><input type="button" value="Save" Title="Save these Settings" onClick="updateSettings('MODS');" /></p></td>
-                                   <td>&nbsp;</td>
+                          
+                          
+                            <td colspan="3"><input type="button" value="Coming Episode Mods" Title="Click here to Choose Coming Episodes Style" onClick="window.location.href='#WIDGET_MODS'" />
+                            <br><br><p><input type="button" value="Save" Title="Save these Settings" onClick="updateSettings('THEMES');" /></p></td>
                               </tr>
                          </table>
           </div>
+
+<!-- Coming Episodes Widget Mods -->
+
+<div id="WIDGET_MODS" class="panel">
+            <h3>Widget Modification</h3>
+              <p align="justify" style="width: 500px;">Use this to set what view you want for the Coming Episode Widget. One must be true and the other false or both false for default view.</p>
+            <table style="max-height:300px;">
+                 <tr align="center">
+                  <td><img class="widget" src="media/examples/minimal-posters.jpg" height="100px" /></td>
+                  <td><img class="widget" src="media/examples/minimal-banners.jpg" height="100px" /></td>
+              <td height="100px" width="100px"></td>
+              </tr>
+              <td align="center">
+                    <input type="radio" name="CEVIEW" value="1" <?php echo ($config->get('CEVIEW','WIDGET_MODS') == "1")?'CHECKED':'';?> />
+                    <p>Minimal Banner</p>
+                  </td>
+              <td align="center">
+                    <input type="radio" name="CEVIEW" value="2" <?php echo ($config->get('CEVIEW','WIDGET_MODS') == "2")?'CHECKED':'';?> />
+                    <p>Minimal Poster</p>
+                    </td>
+                    <td align="center">
+                    <input type="radio" name="CEVIEW" value="3" <?php echo ($config->get('CEVIEW','WIDGET_MODS') == "3")?'CHECKED':'';?> />
+                    <p>Off</p>
+                    </td>
+              </table>
+              <input type="button" Title="Save these Settings" value="Save" onclick="updateSettings('WIDGET_MODS');" />
+              </div>
+
+<!-- WIDGETS ON & OFF -->
+    <div id="WIDGETS_ON/OFF" class="panel">
+      <h3>Widget On/Off</h3>
+              <p align="justify" style="width: 500px;">Turn widgets on and off from here.</p>  
+<table cellspacing="5">
+  <tr>
+    <td>wComingEpisodes</td>
+    <td><input type="checkbox" name="wComingEpisodes" title="Tick to Enable" <?php echo ($config->get('wComingEpisodes','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wXBMCLibrary</td>
+    <td><input type="checkbox" name="wXBMCLibrary" title="Tick to Enable" <?php echo ($config->get('wXBMCLibrary','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wControl</td>
+    <td><input type="checkbox" name="wControl" title="Tick to Enable" <?php echo ($config->get('wControl','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wRecentTV</td>
+    <td><input type="checkbox" name="wRecentTV" title="Tick to Enable" <?php echo ($config->get('wRecentTV','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wRecentMovies</td>
+    <td><input type="checkbox" name="wRecentMovies" title="Tick to Enable" <?php echo ($config->get('wRecentMovies','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wSearch</td>
+    <td><input type="checkbox" name="wSearch" title="Tick to Enable" <?php echo ($config->get('wSearch','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wRSS</td>
+    <td><input type="checkbox" name="wRSS" title="Tick to Enable" <?php echo ($config->get('wRSS','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wHardDrives</td>
+    <td><input type="checkbox" name="wHardDrives" title="Tick to Enable" <?php echo ($config->get('wHardDrives','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wNowPlaying</td>
+    <td><input type="checkbox" name="wNowPlaying" title="Tick to Enable" <?php echo ($config->get('wNowPlaying','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wTransmission</td>
+    <td><input type="checkbox" name="wTransmission" title="Tick to Enable" <?php echo ($config->get('wTransmission','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wSabnzbd</td>
+    <td><input type="checkbox" name="wSabnzbd" title="Tick to Enable" <?php echo ($config->get('wSabnzbd','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wMessage</td>
+    <td><input type="checkbox" name="wMessage" title="Tick to Enable" <?php echo ($config->get('wMessage','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wTrakt</td>
+    <td><input type="checkbox" name="wTrakt" title="Tick to Enable" <?php echo ($config->get('wTrakt','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wSystem</td>
+    <td><input type="checkbox" name="wSystem" title="Tick to Enable" <?php echo ($config->get('wSystem','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+  <tr>
+    <td>wUPS</td>
+    <td><input type="checkbox" name="wUPS" title="Tick to Enable" <?php echo ($config->get('wUPS','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+  </tr>
+</table>
+              <input type="button" value="Back" onClick="history.go(-1)"><input type="button" Title="Save these Settings" value="Save" onclick="updateSettings('WIDGETS_ON/OFF');" />
+      </div>  
+
 
 <!-- RSS Settings -->
      <div id="RSS" class="panel">
