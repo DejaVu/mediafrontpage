@@ -219,7 +219,7 @@
 
 // Custom Stylesheet Section
 
-         $customStyleSheet = 'css/'.$Config->get('ENABLED','THEMES').'.css';
+         $customStyleSheet = 'css/customcss/'.$Config->get('ENABLED','THEMES').'.css';
 
 // Coming Episode Styles //
 
