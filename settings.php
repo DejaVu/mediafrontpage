@@ -131,13 +131,13 @@
                                         </form>by<br><img src="media/paypal.png">
                                    </td>
                               </tr><tr align="left">
-                                   <td>Homepage</td><td><a href="http://mediafrontpage.net/">http://mediafrontpage.net/</a></td>
+                                   <td>Homepage</td><td><a href="programs.php?p=http://mediafrontpage.net&title=MediaFrontPage">http://mediafrontpage.net/</a></td>
                               </tr><tr align="left">
-                                   <td>Forum</td><td><a href="http://forum.xbmc.org/showthread.php?t=83304">http://forum.xbmc.org/showthread.php?t=83304</a></td>
+                                   <td>Forum</td><td><a href="programs.php?p=http://forum.xbmc.org/showthread.php?t=83304&title=MFP Support">http://forum.xbmc.org/showthread.php?t=83304</a></td>
                               </tr><tr align="left">
-                                   <td>Source</td><td><a href="https://github.com/MediaFrontPage/mediafrontpage">https://github.com/MediaFrontPage/mediafrontpage</a></td>
+                                   <td>Source</td><td><a href="programs.php?p=https://github.com/MediaFrontPage/mediafrontpage&title=Official MediaFrontPage GitHub">https://github.com/MediaFrontPage/mediafrontpage</a></td>
                               </tr><tr align="left">
-                                   <td>Bug Tracker</td><td><a href="http://mediafrontpage.lighthouseapp.com">http://mediafrontpage.lighthouseapp.com</a></td>
+                                   <td>Bug Tracker</td><td><a href="programs.php?p=http://mediafrontpage.lighthouseapp.com">http://mediafrontpage.lighthouseapp.com&title=MediaFrontPage Development</a></td>
                               </tr><tr align="left">
                                                      <td>Last Updated</td>
                   <td>
@@ -146,7 +146,7 @@
                     $date   = $github->getInfo();
                     $currentVersion = $config->get('version','ADVANCED');
                     $updateddate = str_replace(array("T","Z"), " ", $date['pushed_at']);
-                    echo "<a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";                  ?>
+                    echo "<a href='programs.php?p=https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."&title=Current Commit Details'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";                  ?>
                   </td>
                 </tr>
                 <tr align="left">
@@ -154,7 +154,7 @@
                     <?php
                       $commit = $github->getCommits();
                       $commitNo = $commit['0']['sha'];
-                      echo "<td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank'>".$currentVersion."</a>";
+                      echo "<td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."&title=Current Commit Details' target='_blank'>".$currentVersion."</a>";
                     ?>
                   </td>
                 </tr>
