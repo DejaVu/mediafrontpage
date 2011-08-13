@@ -161,10 +161,10 @@
                   <td colspan="2">
                   <?php 
                     if($commitNo != $currentVersion){
-                          echo "<p>There is an <a href='https://github.com/DejaVu/mediafrontpage/compare/".$currentVersion."...master' Title='Compare the new changes' target='_blank'>new version available </a>(or else your ahead of the master)</p><br>";
+                          echo "<br><p>There is a <a href='https://github.com/DejaVu/mediafrontpage/compare/".$currentVersion."...master' Title='Compare the new changes' target='_blank'>new version available </a>(or else your ahead of the master)</p><br>";
                           echo "<input type='button' value='Update Now' Title='Click To Update' onclick=\"location.href='update.php'\" />";
                      }else{
-                          echo "Congratulations, your on the current version of MediaFrontPage.";
+                          echo "<br><p>You are on the <a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' Title='View the latest commit' target='_blank'>current version</a> of MediaFrontPage.";
                               } 
                               ?>
                               </td>
