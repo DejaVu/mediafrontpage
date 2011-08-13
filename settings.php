@@ -838,63 +838,63 @@
               <p align="justify" style="width: 500px;">Turn widgets on and off from here.</p>  
 <table cellspacing="5">
   <tr>
-    <td>wComingEpisodes</td>
+    <td>Coming Episodes</td>
     <td><input type="checkbox" name="wComingEpisodes" title="Tick to Enable" <?php echo ($config->get('wComingEpisodes','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wXBMCLibrary</td>
+    <td>XBMC Library</td>
     <td><input type="checkbox" name="wXBMCLibrary" title="Tick to Enable" <?php echo ($config->get('wXBMCLibrary','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wControl</td>
+    <td>Control XBMC</td>
     <td><input type="checkbox" name="wControl" title="Tick to Enable" <?php echo ($config->get('wControl','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wRecentTV</td>
+    <td>Recent TV</td>
     <td><input type="checkbox" name="wRecentTV" title="Tick to Enable" <?php echo ($config->get('wRecentTV','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wRecentMovies</td>
+    <td>Recent Movies</td>
     <td><input type="checkbox" name="wRecentMovies" title="Tick to Enable" <?php echo ($config->get('wRecentMovies','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wSearch</td>
+    <td>Search</td>
     <td><input type="checkbox" name="wSearch" title="Tick to Enable" <?php echo ($config->get('wSearch','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wRSS</td>
+    <td>RSS Feed</td>
     <td><input type="checkbox" name="wRSS" title="Tick to Enable" <?php echo ($config->get('wRSS','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wHardDrives</td>
+    <td>Hard Drives</td>
     <td><input type="checkbox" name="wHardDrives" title="Tick to Enable" <?php echo ($config->get('wHardDrives','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wNowPlaying</td>
+    <td>Now Playing</td>
     <td><input type="checkbox" name="wNowPlaying" title="Tick to Enable" <?php echo ($config->get('wNowPlaying','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wTransmission</td>
+    <td>Transmission</td>
     <td><input type="checkbox" name="wTransmission" title="Tick to Enable" <?php echo ($config->get('wTransmission','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wSabnzbd</td>
+    <td>Sabnzbd</td>
     <td><input type="checkbox" name="wSabnzbd" title="Tick to Enable" <?php echo ($config->get('wSabnzbd','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wMessage</td>
+    <td>Message</td>
     <td><input type="checkbox" name="wMessage" title="Tick to Enable" <?php echo ($config->get('wMessage','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wTrakt</td>
+    <td>Trakt</td>
     <td><input type="checkbox" name="wTrakt" title="Tick to Enable" <?php echo ($config->get('wTrakt','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wSystem</td>
+    <td>System</td>
     <td><input type="checkbox" name="wSystem" title="Tick to Enable" <?php echo ($config->get('wSystem','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
   <tr>
-    <td>wUPS</td>
+    <td>UPS</td>
     <td><input type="checkbox" name="wUPS" title="Tick to Enable" <?php echo ($config->get('wUPS','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
   </tr>
 </table>
