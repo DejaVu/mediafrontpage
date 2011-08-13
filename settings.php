@@ -119,9 +119,7 @@
                        <h3>About MediaFrontPage</h3>
                          <tr><img src="media/mfp.png" width="64" height="64"/></tr>
                               <tr>
-                                   <td colspan="2"><p align="justify" style="width: 500px;padding-bottom: 20px;">MediaFrontPage is a HTPC Web Program Organiser. Your HTPC utilises a number of different programs to do certain tasks. What MediaFrontPage does is creates a user specific web page that will be your nerve centre for everything you will need. It was originally created by <a href="http://forum.xbmc.org/member.php?u=24286">Nick8888</a> and has had a fair share of contributors. If you'd like to contribute please consider making a donation or come and join us developing this great tool.</p>
-
-<!-- At the time of writing this MFP is kept mainly by <a href="http://forum.xbmc.org/member.php?u=68433">DejaVu</a> and <a href="http://forum.xbmc.org/member.php?u=52241">DejaVu</a>. -->
+                                   <td colspan="2"><p align="justify" style="width: 500px;padding-bottom: 20px;">MediaFrontPage is a HTPC Web Program Organiser. Your HTPC utilises a number of different programs to do certain tasks. What MediaFrontPage does is creates a user specific web page that will be your nerve centre for everything you will need. It was originally created by <a href="programs.php?p=http://forum.xbmc.org/member.php?u=24286&title=Nick8888's XBMC Profile" title="Nick8888's XBMC Profile">Nick8888</a> and has had a fair share of contributors. If you'd like to contribute please consider making a donation or come and join us developing this great tool. <br><br>At the time of writing, MediaFrontPage is maintained mainly by <a href="programs.php?p=http://forum.xbmc.org/member.php?u=68433&title=DejaVu's XBMC Profile" title="DejaVu's XBMC Profile">DejaVu</a> and <a href="programs.php?p=http://forum.xbmc.org/member.php?u=52241&title=Gugahois's XBMC Profile" title="Gugahois's XBMC Profile">Gugahoi</a>.</p>
 
                                         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                                              <input type="hidden" name="cmd" value="_s-xclick">
@@ -137,7 +135,7 @@
                               </tr><tr align="left">
                                    <td>Source</td><td><a href="programs.php?p=https://github.com/MediaFrontPage/mediafrontpage&title=Official MediaFrontPage GitHub">https://github.com/MediaFrontPage/mediafrontpage</a></td>
                               </tr><tr align="left">
-                                   <td>Bug Tracker</td><td><a href="programs.php?p=http://mediafrontpage.lighthouseapp.com">http://mediafrontpage.lighthouseapp.com&title=MediaFrontPage Development</a></td>
+                                   <td>Bug Tracker</td><td><a href="programs.php?p=http://mediafrontpage.lighthouseapp.com&title=MediaFrontPage Development">http://mediafrontpage.lighthouseapp.com</a></td>
                               </tr><tr align="left">
                                                      <td>Last Updated</td>
                   <td>
@@ -154,7 +152,7 @@
                     <?php
                       $commit = $github->getCommits();
                       $commitNo = $commit['0']['sha'];
-                      echo "<td><a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."&title=Current Commit Details' target='_blank'>".$currentVersion."</a>";
+                      echo "<td><a href='programs.php?p=https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."&title=Current Commit Details' target='_blank'>".$currentVersion."</a>";
                     ?>
                   </td>
                 </tr>
@@ -162,7 +160,7 @@
                   <td colspan="2">
                   <?php 
                     if($commitNo != $currentVersion){
-                          echo "<br><p>There is a <a href='https://github.com/DejaVu/mediafrontpage/compare/".$currentVersion."...master' Title='Compare the new changes' target='_blank'>new version available </a>(or else your ahead of the master)</p><br>";
+                          echo "<br><p>There is a <a href='programs.php?p=https://github.com/DejaVu/mediafrontpage/compare/".$currentVersion."...master&title=Compare Current Commit with Master' Title='Display the new changes'>new version available </a>(or else your ahead of the master)</p><br>";
                           echo "<input type='button' value='Update Now' Title='Click To Update' onclick=\"location.href='update.php'\" />";
                      }else{
                           echo "<br><p>You are on the <a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' Title='View the latest commit' target='_blank'>current version</a> of MediaFrontPage.";
