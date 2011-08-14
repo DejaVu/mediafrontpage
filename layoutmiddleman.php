@@ -181,7 +181,7 @@ $wMessagesection = which_section($arrLayout, 'wMessage');
 $wTraktsection = which_section($arrLayout, 'wTrakt');
 $wSystemsection = which_section($arrLayout, 'wSystem');
 $wUPSsection = which_section($arrLayout, 'wUPS');
-$wjDownloadersection = which_section($arrLayout, 'jDownloader');
+$wjDownloadersection = which_section($arrLayout, 'wjDownloader');
 
 if ( $wComingEpisodes == "false" )
 	{ 
