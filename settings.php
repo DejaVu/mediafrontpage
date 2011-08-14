@@ -215,17 +215,63 @@
                     }
           </style>
           <h3>Program Settings</h3>
-               <table cellspacing="15px" cellpadding="15px">
+               <table cellspacing="0px" cellpadding="0px">
                     <tr>
-                         <td><div class="zoom"><a href="#XBMC"><img src="media/Programs/XBMC.png" Title="XBMC" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#SABNZBD"><img src="media/Programs/SabNZBd.png" Title="SabNZBd+" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#SUBSONIC"><img src="media/Programs/SubSonic.png" Title="Subsonic" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#SICKBEARD"><img src="media/Programs/SickBeard.png" Title="Sick Beard" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#COUCHPOTATO"><img src="media/Programs/CouchPotato.png" Title="Couch Potato" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#HEADPHONES"><img src="media/Programs/HeadPhones.png" Title="Headphones" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#TRANSMISSION"><img src="media/Programs/Transmission.png" Title="Transmission" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#UTORRENT"><img src="media/Programs/uTorrent.png" Title="uTorrent" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td><div class="zoom"><a href="#JDOWNLOADER"><img src="media/Programs/JDownloader.png" Title="jDownloader" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td width="80"><div class="zoom"><a href="#XBMC"><img src="media/Programs/XBMC.png" Title="XBMC" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td width="80"><div class="zoom"><a href="#SABNZBD"><img src="media/Programs/SabNZBd.png" Title="SabNZBd+" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td width="80"><div class="zoom"><a href="#SUBSONIC"><img src="media/Programs/SubSonic.png" Title="Subsonic" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td width="80"><div class="zoom"><a href="#SICKBEARD"><img src="media/Programs/SickBeard.png" Title="Sick Beard" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td width="80"><div class="zoom"><a href="#COUCHPOTATO"><img src="media/Programs/CouchPotato.png" Title="Couch Potato" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td width="80"><div class="zoom"><a href="#HEADPHONES"><img src="media/Programs/HeadPhones.png" Title="Headphones" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td width="80"><div class="zoom"><a href="#TRANSMISSION"><img src="media/Programs/Transmission.png" Title="Transmission" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td width="80"><div class="zoom"><a href="#UTORRENT"><img src="media/Programs/uTorrent.png" Title="uTorrent" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                         <td width="80"><div class="zoom"><a href="#JDOWNLOADER"><img src="media/Programs/JDownloader.png" Title="jDownloader" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                    </tr><tr>
+                         <td width="80" align="center"><?php 
+                          if( fopen('http://'.$XBMC_IP.':'.$XBMC_PORT.'/vfs/special://masterprofile/LCD.xml', 'r')) {
+                                echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
+                            } else {
+                                echo "<img src='media/red-cross.png' height='15px' Title='Unavailable''>"; } ?></td>
+                         <td width="80" align="center"><?php 
+                          if( fopen('http://'.$SABNZBD_IP.':'.$SABNZBD_PORT.'/static/stylesheets/colorschemes/gold/images/sprite-main.png', 'r')) {
+                                echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
+                            } else {
+                                echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
+                         <td width="80" align="center"><?php 
+                          if( fopen('http://'.$SUBSONIC_IP.':'.$SICKBEARD_PORT.'/images/sickbeard_small.png', 'r')) {
+                                echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
+                            } else {
+                                echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
+                         <td width="80" align="center"><?php 
+                          if( fopen('http://'.$SICKBEARD_IP.':'.$SICKBEARD_PORT.'/images/sickbeard_small.png', 'r')) {
+                                echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
+                            } else {
+                                echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
+                         <td width="80" align="center"><?php 
+                          if( fopen('http://'.$COUCHPOTATO_IP.':'.$COUCHPOTATO_PORT.'/media/images/userscriptPreview.png', 'r')) {
+                                echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
+                            } else {
+                                echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
+                         <td width="80" align="center"><?php 
+                          if( fopen('http://'.$HEADPHONES_IP.':'.$HEADPHONES_PORT.'/images/headphoneslogo.png', 'r')) {
+                                echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
+                            } else {
+                                echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
+                         <td width="80" align="center"><?php 
+                          if( fopen('http://'.$TRANSMISSION_IP.':'.$TRANSMISSION_PORT.'/images/buttons/toolbar_buttons.png', 'r')) {
+                                echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
+                            } else {
+                                echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
+                         <td width="80" align="center"><?php 
+                          if( fopen(''.$utorrent_url.'images/ut.png', 'r')) {
+                                echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
+                            } else {
+                                echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
+                         <td width="80" align="center"><?php 
+                          if( fopen('http://'.$SICKBEARD_IP.':'.$SICKBEARD_PORT.'/images/sickbeard_small.png', 'r')) {
+                                echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
+                            } else {
+                                echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                     </tr><tr>
                          <td align="center" colspan="9" ><p align="justify" style="width: 500px;">Here you can specify a Username / Password / IP Address / Ports for each program individually. These settings <i>will</i> overide the Global Setting.</p></td>
                     </tr><tr>
