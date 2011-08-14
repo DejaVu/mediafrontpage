@@ -45,7 +45,8 @@ function callNext(i){
     $("#commit").html('<img id="com" src="media/pwait.gif" height="15px" />');
     ajaxRequest('update=true','com');
   } else {
-    alert('Finished');
+    alert('Update Complete, click OK to return to MFP');
+    setTimeout("location.href = 'settings.php#ABOUT';",1500); 
   }
 }
 
