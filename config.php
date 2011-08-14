@@ -148,6 +148,7 @@
      $wMessage = $Config->get('wMessage','WIDGETS_ON/OFF');
      $wTrakt = $Config->get('wTrakt','WIDGETS_ON/OFF');
      $wSystem = $Config->get('wSystem','WIDGETS_ON/OFF');
+     $wjDownloader = $Config->get('wjDownloader','WIDGETS_ON/OFF');
      $wUPS = $Config->get('wUPS','WIDGETS_ON/OFF');
 
  // NavBar Section

@@ -303,7 +303,7 @@
                          <td align="left"><input name="SABNZBD" size="20" Title="Insert SabNZBd+'s Webroot" value="<?php echo $config->get('SABNZBD','WEBROOT')?>"></td>
                     </tr><tr>
                          <td align="right"><p>jDownloader:</p></td>
-                         <td align="left"><input name="JDOWNLOADER" size="20" Title="Insert jDownloaders's Webroot" value="<?php echo $config->get('JDOWNLOADER','WEBROOT')?>"></td>
+                         <td align="left"><input name="JDOWNLOADER" size="20" Title="Insert jDownloader's Webroot" value="<?php echo $config->get('JDOWNLOADER','WEBROOT')?>"></td>
                     </tr><tr>
                          <td align="right"><p>Transmission:</p></td>
                          <td align="left"><input name="TRANSMISSION" size="20" Title="Insert Transmission's Webroot" value="<?php echo $config->get('TRANSMISSION','WEBROOT')?>"></td>
@@ -922,6 +922,13 @@
                   <td align="right" style="white-space: nowrap">UPS</td>
                   <td><input type="checkbox" name="wUPS" title="Tick to Enable" <?php echo ($config->get('wUPS','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
                 </tr>
+                <tr>
+                  <td align="right" style="white-space: nowrap">jDownloader</td>
+                  <td><input type="checkbox" name="wjDownloader" title="Tick to Enable" <?php echo ($config->get('wjDownloader','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
+                  <td align="right" style="white-space: nowrap"></td>
+                  <td></td>
+                  <td align="right" style="white-space: nowrap"></td>
+                  <td></td>
               </table><br><br>
                 <input type="button" value="Back" onClick="history.go(-1)">
                 <input type="button" Title="Save these Settings" value="Save" onClick="updateSettings('WIDGETS_ON/OFF');" />

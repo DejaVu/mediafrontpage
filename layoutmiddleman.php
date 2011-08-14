@@ -148,6 +148,15 @@ if ($wSystem)
         $wSystemSection);
 }
 
+if ($wjDownloader)
+{
+    addUnique($arrLayout, 'wjDownloader', array(
+                                           "title" => "jDownloader",
+                                           "display" => ""
+                                      ),
+        $wjDownloaderSection);
+}
+
 if ($wUPS)
 {
     addUnique($arrLayout, 'wUPS', array(
@@ -172,6 +181,7 @@ $wMessagesection = which_section($arrLayout, 'wMessage');
 $wTraktsection = which_section($arrLayout, 'wTrakt');
 $wSystemsection = which_section($arrLayout, 'wSystem');
 $wUPSsection = which_section($arrLayout, 'wUPS');
+$wjDownloadersection = which_section($arrLayout, 'jDownloader');
 
 if ( $wComingEpisodes == "false" )
 	{ 
@@ -246,5 +256,10 @@ if ( $wSystem == "false" )
 if ( $wUPS == "false" )
 	{ 
 	unset($arrLayout[$wUPSsection]['wUPS']);
+	}
+	
+if ( $wjDownloader == "false" )
+	{ 
+	unset($arrLayout[$wjDownloadersection]['wjDownloader']);
 	}
 ?>
