@@ -419,8 +419,8 @@ if($REVERSE_PROXY){
    $utorrent_url           = "http://$uTorrentlogin"."$uTORRENT_IP:$uTORRENT_PORT/gui";
    $jd_url                 = "http://$JDOWNLOADERlogin"."$JDOWNLOADER_IP:$JDOWNLOADER_REMOTEPORT";
    $jd_weburl              = "http://$JDOWNLOADER_IP:$JDOWNLOADER_WEBPORT";
-   $transmission_url       = "http://$TRANSMISSION_IP:$TRANSMISSION_PORT/transmission/rpc";     
-   $transmission_web       = "http://$TRANSMISSIONlogin"."$TRANSMISSION_IP:$TRANSMISSION_PORT/transmission/web";     
+   $transmission_url       = "http://$TRANSMISSION_IP:$TRANSMISSION_PORT/transmission/rpc/";     
+   $transmission_web       = "http://$TRANSMISSIONlogin"."$TRANSMISSION_IP:$TRANSMISSION_PORT/transmission/web/";     
    $subsonic_url           = "http://$SUBSONIC_IP:$SUBSONIC_PORT/login.view?user=$SUBSONIC_USERNAME&password=$SUBSONIC_PASS";
    $subsonic_check         = "http://$SUBSONIC_IP:$SUBSONIC_PORT";
    $headphones_url         = "http://$HEADPHONESlogin"."$HEADPHONES_IP:$HEADPHONES_PORT";

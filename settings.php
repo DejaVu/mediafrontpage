@@ -261,7 +261,7 @@
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                          <td width="80" align="center"><?php 
-                          if( fopen(''.$transmission_web.'/images/graphics/logo.png', 'r')) {
+                          if( fopen(''.$transmission_web.'images/graphics/logo.png', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
