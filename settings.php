@@ -261,7 +261,7 @@
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                          <td width="80" align="center"><?php 
-                          if( fopen(''.$transmission_web.'images/graphics/logo.png', 'r')) {
+                          if( fopen(''.$transmission_web.'/images/graphics/logo.png', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
@@ -279,8 +279,6 @@
                     </tr>
                     <tr>
                          <td align="center" colspan="10" ><p align="justify" style="width: 500px;">Here you can specify a Username / Password / IP Address / Ports for each program individually. These settings <i>will</i> overide the Global Setting.<br>
-                           <br>
-                           <strong>NOTE</strong>: Program Check for Transmission, uTorrent and jDownloader will fail at the moment due to securtiy reasons.</p></td>
                     </tr><tr>
                          <td align="center" colspan="10"><input type="button" value="Reverse Proxies" Title="Click here to Setup Reverse Proxies" onClick="window.location.href='#WEBROOT'" /></td>
                     </tr>
