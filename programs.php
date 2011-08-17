@@ -40,8 +40,6 @@
 													echo str_replace("vfs/","",$xbmcimgpath);
 											}	elseif($qs == 'HeadPhones') {
 													echo $headphones_url;
-											}	elseif($qs == 'JDownloader') {
-													echo $jd_weburl;
 											}	elseif($qs == 'SubSonic') {
 													echo $subsonic_url;
 											}	elseif($qs == 'jDownloader') {
