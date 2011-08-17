@@ -251,7 +251,7 @@
               </tr>
                    <tr>
                 <td width="80" style="white-space: nowrap" align="center"><p><strong>Program Check</strong></p></td>
-                <td width="80" align="center"><?php if( fopen(''.$xbmcimgpath.'special://masterprofile/LCD.xml', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable''>"; } ?></td>
+                <td width="80" align="center"><?php if( fopen(''.$xbmcimgpath.'/special://masterprofile/LCD.xml', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable''>"; } ?></td>
                 <td width="80" align="center"><?php if( fopen(''.$saburl.'static/stylesheets/colorschemes/gold/images/sprite-main.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                 <td width="80" align="center"><?php if( fopen(''.$subsonic_check.'icons/donate_small.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                 <td width="80" align="center"><?php if( fopen(''.$sickbeardurl.'images/sickbeard_small.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
