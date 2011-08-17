@@ -1,7 +1,7 @@
 <?php
 
 //Check for config file and curl
-	if (file_exists('firstrun.php')){header('Location: servercheck.php');exit;}
+    if (file_exists('firstrun.php') && !file_exists('config.ini')){header('Location: servercheck.php');exit;}
 
 //Authentication check
 	require_once('config.php');
