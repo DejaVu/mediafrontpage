@@ -215,8 +215,8 @@
                     }
           </style>
           <h3>Program Settings</h3>
-               <table cellspacing="0px" cellpadding="0px">
-                    <tr>
+<table cellspacing="0px" cellpadding="0px">
+                    <tr>                         <td width="80">&nbsp;</td>
                          <td width="80"><div class="zoom"><a href="#XBMC"><img src="media/Programs/XBMC.png" Title="XBMC" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
                          <td width="80"><div class="zoom"><a href="#SABNZBD"><img src="media/Programs/SabNZBd.png" Title="SabNZBd+" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
                          <td width="80"><div class="zoom"><a href="#SUBSONIC"><img src="media/Programs/SubSonic.png" Title="Subsonic" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
@@ -225,57 +225,64 @@
                          <td width="80"><div class="zoom"><a href="#HEADPHONES"><img src="media/Programs/HeadPhones.png" Title="Headphones" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
                          <td width="80"><div class="zoom"><a href="#TRANSMISSION"><img src="media/Programs/Transmission.png" Title="Transmission" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
                          <td width="80"><div class="zoom"><a href="#UTORRENT"><img src="media/Programs/uTorrent.png" Title="uTorrent" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                         <td width="80"><div class="zoom"><a href="#JDOWNLOADER"><img src="media/Programs/JDownloader.png" Title="jDownloader" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                    </tr><tr>
+                         <td width="80"><div class="zoom"><a href="#JDOWNLOADER"><img src="media/Programs/jDownloader.png" Title="jDownloader" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+
+                    </tr>
+                    <tr>
+                                             <td width="80" style="white-space: nowrap" align="center"><p><strong>Program Check</strong></p></td>
                          <td width="80" align="center"><?php 
-                          if( fopen('http://'.$XBMC_IP.':'.$XBMC_PORT.'/vfs/special://masterprofile/LCD.xml', 'r')) {
+                          if( fopen(''.$xbmcimgpath.'/special://masterprofile/LCD.xml', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable''>"; } ?></td>
                          <td width="80" align="center"><?php 
-                          if( fopen('http://'.$SABNZBD_IP.':'.$SABNZBD_PORT.'/static/stylesheets/colorschemes/gold/images/sprite-main.png', 'r')) {
+                          if( fopen(''.$saburl.'/static/stylesheets/colorschemes/gold/images/sprite-main.png', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                          <td width="80" align="center"><?php 
-                          if( fopen('http://'.$SUBSONIC_IP.':'.$SICKBEARD_PORT.'/images/sickbeard_small.png', 'r')) {
+                          if( fopen(''.$subsonic_check.'/icons/donate_small.png', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                          <td width="80" align="center"><?php 
-                          if( fopen('http://'.$SICKBEARD_IP.':'.$SICKBEARD_PORT.'/images/sickbeard_small.png', 'r')) {
+                          if( fopen(''.$sickbeardurl.'/images/sickbeard_small.png', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                          <td width="80" align="center"><?php 
-                          if( fopen('http://'.$COUCHPOTATO_IP.':'.$COUCHPOTATO_PORT.'/media/images/userscriptPreview.png', 'r')) {
+                          if( fopen(''.$cp_url.'/media/images/userscriptPreview.png', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                          <td width="80" align="center"><?php 
-                          if( fopen('http://'.$HEADPHONES_IP.':'.$HEADPHONES_PORT.'/images/headphoneslogo.png', 'r')) {
+                          if( fopen(''.$headphones_url.'/images/headphoneslogo.png', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                          <td width="80" align="center"><?php 
-                          if( fopen('http://'.$TRANSMISSION_IP.':'.$TRANSMISSION_PORT.'/images/buttons/toolbar_buttons.png', 'r')) {
+                          if( fopen(''.$transmission_web.'/images/graphics/logo.png', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                          <td width="80" align="center"><?php 
-                          if( fopen(''.$utorrent_url.'images/ut.png', 'r')) {
+                          if( fopen(''.$utorrent_url.'/images/ut.png', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
                          <td width="80" align="center"><?php 
-                          if( fopen('http://'.$SICKBEARD_IP.':'.$SICKBEARD_PORT.'/images/sickbeard_small.png', 'r')) {
+                          if( fopen(''.$jd_weburl.'/img/jd_logo.png', 'r')) {
                                 echo "<img src='media/green-tick.png' height='15px' Title='Found.'>" ;
                             } else {
                                 echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
+
+                    </tr>
+                    <tr>
+                         <td align="center" colspan="10" ><p align="justify" style="width: 500px;">Here you can specify a Username / Password / IP Address / Ports for each program individually. These settings <i>will</i> overide the Global Setting.<br>
+                           <br>
+                           <strong>NOTE</strong>: Program Check for Transmission, uTorrent and jDownloader will fail at the moment due to securtiy reasons.</p></td>
                     </tr><tr>
-                         <td align="center" colspan="9" ><p align="justify" style="width: 500px;">Here you can specify a Username / Password / IP Address / Ports for each program individually. These settings <i>will</i> overide the Global Setting.</p></td>
-                    </tr><tr>
-                         <td align="center" colspan="9"><input type="button" value="Reverse Proxies" Title="Click here to Setup Reverse Proxies" onClick="window.location.href='#WEBROOT'" /></td>
+                         <td align="center" colspan="10"><input type="button" value="Reverse Proxies" Title="Click here to Setup Reverse Proxies" onClick="window.location.href='#WEBROOT'" /></td>
                     </tr>
                </table>
      </div>
@@ -472,7 +479,7 @@
      
 <!-- jDownloader Settings -->
      <div id="JDOWNLOADER" class="panel">
-          <h3>jDownloader Settings</h3><a href="http://jdownloader.org/home/index?s=lng_en" target="_blank"><img src="media/Programs/JDownloader.png" Title="Visit jDownloader"></a>
+          <h3>jDownloader Settings</h3><a href="http://jdownloader.org/home/index?s=lng_en" target="_blank"><img src="media/Programs/jDownloader.png" Title="Visit jDownloader"></a>
                <table>
                     <tr>
                          <td colspan="2"><p align="justify" style="width: 500px;">Enter the details where MediaFrontPage will find jDownloader.</p></td>
