@@ -3,7 +3,9 @@ $mobilelayout = array(
 					"Library" => "wXBMCLibrary",
 					//"Remote" => "wRemote",
 					"Playing" => "wNowPlaying",
-					"Upcoming" => "wComingEpisodes",
+
+//DEPRECEATED					"Upcoming" => "wComingEpisodes",
+
 					"Control" => "wControl",
 					"SABnzbd" => "wSabnzbd",
 					"RSS" => "wRSS",
@@ -11,7 +13,10 @@ $mobilelayout = array(
 				);
 $mobilefunction["wXBMCLibrary"] = "executeVideo(\"m\", \$action, \$breadcrumb, \$params);";
 $mobilefunction["wNowPlaying"] = "displayNowPlaying(\"index.php\");";
-$mobilefunction["wComingEpisodes"] = "displayComingSoon();";
+
+//DEPRECEATED
+//$mobilefunction["wComingEpisodes"] = "displayComingSoon();";
+
 $mobilefunction["wControl"] = "widgetControl(\"index.php\", true);";
 $mobilefunction["wSabnzbd"]	= "sabStatus();";
 $mobilefunction["wRSS"]	= "widgetRSS(\"index.php\");";
