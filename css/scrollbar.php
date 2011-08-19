@@ -1,0 +1,71 @@
+<?php
+require_once "../config.php";
+header("Content-type: text/css"); 
+?>
+
+#mcs3_container {
+	position:relative;
+	left:0px;
+	top:0px;
+	margin:0;
+	width:auto;
+	height:100%;
+	padding:1 1px;
+}
+#mcs3_container .customScrollBox {
+	position:relative;
+	height:100%;
+}
+#mcs3_container .customScrollBox .container {
+	position:relative;
+	width:95%;
+	top:0;
+	float:left;
+}
+#mcs3_container .customScrollBox .content {
+	clear:both;
+}
+#mcs3_container .customScrollBox img {
+	border:1px solid #FF9522;
+	margin:0 0 0 0;
+}
+#mcs3_container .dragger_container {
+	position:relative;
+	width:0px;
+	height:<?php echo $scrollbarlength?>%;
+	float:left;
+	margin:2px 0 0 8px;
+	border-left:1px solid #000000;
+	border-right:1px solid #666;
+	cursor:pointer;
+}
+#mcs3_container .dragger {
+	position:absolute;
+	width:8px;
+	height:20px;
+	background:#3D3D3D;
+	margin-left:-4px;
+	overflow:hidden;
+	cursor:pointer;
+	-moz-border-radius:6px;
+	-khtml-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border: 1px solid black;
+    box-shadow: 1px 1px 1px #000;
+}
+#mcs3_container .dragger_pressed {
+	position:absolute;
+	width:8px;
+	height:20px;
+	background:#FF9522;
+	margin-left:-4px;
+	overflow:hidden;
+	cursor:pointer;
+	-moz-border-radius:6px;
+	-khtml-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border: 1px solid black;
+    box-shadow: 3px 3px 3px #000;
+}

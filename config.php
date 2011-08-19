@@ -151,6 +151,10 @@
      $wjDownloader = $Config->get('wjDownloader','WIDGETS_ON/OFF');
      $wUPS = $Config->get('wUPS','WIDGETS_ON/OFF');
 
+/* ComingEpisodes Slider Length */
+
+     $scrollbarlength = $Config->get('SCROLLBARLENGTH','WIDGET_MODS').'%';
+
  // NavBar Section
 
           $navlink;

@@ -90,7 +90,7 @@
 		</style>
 		<script type="text/javascript">InitPopupBox();</script>
 		<!-- START: JQuery Scrollbar for Coming Episodes Widget, Javascript Entries -->
-		<link href="css/scrollbar.css" rel="stylesheet" type="text/css" />
+		<link href="css/scrollbar.php" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 		<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
 		<!-- END: JQuery Scrollbar for Coming Episodes Widget, Javascript Entries -->

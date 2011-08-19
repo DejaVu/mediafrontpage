@@ -978,6 +978,9 @@
                        <p>Minimal Poster</p></td>
                 <td align="center"><input type="radio" name="CEVIEW" value="3" <?php echo ($config->get('CEVIEW','WIDGET_MODS') == "3")?'CHECKED':'';?> />
                        <p>Off</p></td>
+              <tr>
+                <td colspan="3"><p>Coming Episodes ScrollBar Length<input class="txt" size="2" maxlength="2" name="SCROLLBARLENGTH" size="2" Title="Insert the desired Length" value="<?php echo $config->get('SCROLLBARLENGTH','WIDGET_MODS')?>" />%</p></td>
+              </tr>
             </table>
             <input type="button" value="Back" onClick="history.go(-1)">
             <input type="button" Title="Save these Settings" value="Save" onClick="updateSettings('WIDGET_MODS');" />
