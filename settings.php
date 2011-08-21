@@ -220,34 +220,19 @@
                
 <!-- Programs Settings -->
                <div id="PROGRAMS" class="panel">
-            <style type="text/css">
-               .zoom { 
-                    width: 32; padding: 0px; border: 0px; 
-                    -webkit-transition: all .2s ease-out; 
-                    -moz-transition: all .2s ease-out; 
-                    -o-transition: all .2s ease-out; 
-                    transition: all .2s ease-out; 
-                    }
-               .zoom:hover { 
-                    -moz-transform: scale(1.5);
-                    -webkit-transform: scale(1.5);
-                    -o-transform: scale(1.5);
-                    transform: scale(1.5);
-                    }
-          </style>
             <h3>Program Settings</h3>
             <table cellspacing="0px" cellpadding="0px">
                    <tr>
                 <td width="80">&nbsp;</td>
-                <td width="80"><div class="zoom"><a href="#XBMC"><img src="media/Programs/XBMC.png" Title="XBMC" style="-moz-transform :scale(0.5);opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                <td width="80"><div class="zoom"><a href="#SABNZBD"><img src="media/Programs/SabNZBd.png" Title="SabNZBd+" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                <td width="80"><div class="zoom"><a href="#SUBSONIC"><img src="media/Programs/SubSonic.png" Title="Subsonic" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                <td width="80"><div class="zoom"><a href="#SICKBEARD"><img src="media/Programs/SickBeard.png" Title="Sick Beard" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                <td width="80"><div class="zoom"><a href="#COUCHPOTATO"><img src="media/Programs/CouchPotato.png" Title="Couch Potato" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                <td width="80"><div class="zoom"><a href="#HEADPHONES"><img src="media/Programs/HeadPhones.png" Title="Headphones" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                <td width="80"><div class="zoom"><a href="#TRANSMISSION"><img src="media/Programs/Transmission.png" Title="Transmission" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                <td width="80"><div class="zoom"><a href="#UTORRENT"><img src="media/Programs/uTorrent.png" Title="uTorrent" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                <td width="80"><div class="zoom"><a href="#JDOWNLOADER"><img src="media/Programs/jDownloader.png" Title="jDownloader" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#XBMC"><img src="media/Programs/XBMC.png" Title="XBMC" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#SABNZBD"><img src="media/Programs/SabNZBd.png" Title="SabNZBd+" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#SUBSONIC"><img src="media/Programs/SubSonic.png" Title="Subsonic" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#SICKBEARD"><img src="media/Programs/SickBeard.png" Title="Sick Beard" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#COUCHPOTATO"><img src="media/Programs/CouchPotato.png" Title="Couch Potato" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#HEADPHONES"><img src="media/Programs/HeadPhones.png" Title="Headphones" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#TRANSMISSION"><img src="media/Programs/Transmission.png" Title="Transmission" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#UTORRENT"><img src="media/Programs/uTorrent.png" Title="uTorrent" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#JDOWNLOADER"><img src="media/Programs/jDownloader.png" Title="jDownloader" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
               </tr>
                    <tr>
                 <td width="80" style="white-space: nowrap" align="center"><p><strong>Program Check</strong></p></td>
