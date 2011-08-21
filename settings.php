@@ -236,15 +236,47 @@
               </tr>
                    <tr>
                 <td width="80" style="white-space: nowrap" align="center"><p><strong>Program Check</strong></p></td>
-                <td width="80" align="center"><?php if( fopen(''.$xbmcimgpath.'/special://masterprofile/LCD.xml', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable''>"; } ?></td>
-                <td width="80" align="center"><?php if( fopen(''.$saburl.'static/stylesheets/colorschemes/gold/images/sprite-main.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
-                <td width="80" align="center"><?php if( fopen(''.$subsonic_check.'icons/donate_small.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
-                <td width="80" align="center"><?php if( fopen(''.$sickbeardurl.'images/sickbeard_small.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
-                <td width="80" align="center"><?php if( fopen(''.$cp_url.'media/images/userscriptPreview.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
-                <td width="80" align="center"><?php if( fopen(''.$headphones_url.'images/headphoneslogo.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
-                <td width="80" align="center"><?php if( fopen(''.$transmission_web.'images/graphics/logo.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
-                <td width="80" align="center"><?php if( fopen(''.$utorrent_url.'images/ut.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ;} else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
-                <td width="80" align="center"><?php if( fopen(''.$jd_weburl.'img/jd_logo.png', 'r')) { echo "<img src='media/green-tick.png' height='15px' Title='Found'>" ; } else { echo "<img src='media/red-cross.png' height='15px' Title='Unavailable'>"; } ?></td>
+            <?php 
+                $info[0]["name"]= "XBMC";
+                $info[0]["address"]= $XBMC_IP;
+                $info[0]["port"]= $XBMC_PORT;
+                $info[1]["name"]= "SabNZBd+";
+                $info[1]["address"]= $SABNZBD_IP;
+                $info[1]["port"]= $SABNZBD_PORT;
+                $info[2]["name"]= "SubSonic";
+                $info[2]["address"]= $SUBSONIC_IP;
+                $info[2]["port"]= $SUBSONIC_PORT;
+                $info[3]["name"]= "SickBeard";
+                $info[3]["address"]= $SICKBEARD_IP;
+                $info[3]["port"]= $SICKBEARD_PORT;
+                $info[4]["name"]= "CouchPotato";
+                $info[4]["address"]= $COUCHPOTATO_IP;
+                $info[4]["port"]= $COUCHPOTATO_PORT;
+                $info[5]["name"]= "HeadPhones";
+                $info[5]["address"]= $HEADPHONES_IP;
+                $info[5]["port"]= $HEADPHONES_PORT;
+                $info[6]["name"]= "Transmission";
+                $info[6]["address"]= $TRANSMISSION_IP;
+                $info[6]["port"]= $TRANSMISSION_PORT;
+                $info[7]["name"]= "uTorrent";
+                $info[7]["address"]= $UTORRENT_IP;
+                $info[7]["port"]= $UTORRENT_PORT;
+                $info[8]["name"]= "jDownloader";
+                $info[8]["address"]= $JDOWNLOADER_IP;
+                $info[8]["port"]= $JDOWNLOADER_PORT;
+
+                $infocount = 8;
+                $timeout = 2;
+
+                for ($i=0; $i<=$infocount; $i++){
+                    $fp = @fsockopen ($info[$i]["address"], $info[$i]["port"], $errno, $errstr, $timeout);
+                if ($fp) {
+                    echo "<td width='80' align='center'><img src='media/green-tick.png' height='15' Title='".$info[$i]["name"]." Found'></td>";
+                }else{
+                    echo "<td width='80' align='center'><img src='media/red-cross.png' height='15' Title='".$info[$i]["name"]." Unavailable.'></td>";
+                    }
+                }
+            ?>
               </tr>
                    <tr>
                 <td align="center" colspan="10" ><p align="justify" style="width: 500px;">Here you can specify a Username / Password / IP Address / Ports for each program individually. These settings <i>will</i> overide the Global Setting.<br>
