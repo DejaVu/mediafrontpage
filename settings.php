@@ -126,7 +126,7 @@
                     At the time of writing, MediaFrontPage is maintained mainly by <a href="programs.php?p=http://forum.xbmc.org/member.php?u=68433&title=DejaVu's XBMC Profile" title="DejaVu's XBMC Profile">DejaVu</a> and <a href="programs.php?p=http://forum.xbmc.org/member.php?u=52241&title=Gugahois's XBMC Profile" title="Gugahois's XBMC Profile">Gugahoi</a>.</p>
                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                     <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="D2R8MBBL7EFRY">
+                    <input type="hidden" name="hosted_button_id" value="FGZD3NQT93KDE">
                     <input type="image" src="media/donate.png" value="Donate" border="0" name="submit" Title="You know you want to!" alt="PayPal - The safer, easier way to pay online.">
                     <img border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
                   </form>
