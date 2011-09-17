@@ -44,6 +44,8 @@
                           echo $subsonic_url;
                       }  elseif($qs == 'jDownloader') {
                           echo $jd_weburl;
+                      }  elseif($qs == 'AutoMovies') {
+                          echo $automovies_url;
                         } else {
                           echo $qs;
                       }?>'; frameborder='0' height='96%' width='98%' scrolling='auto' name='programs'></iframe>

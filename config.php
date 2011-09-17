@@ -36,6 +36,7 @@
      $TRANSMISSION_WEBROOT= $Config->get('TRANSMISSION','WEBROOT');
      $HEADPHONES_WEBROOT  = $Config->get('HEADPHONES','WEBROOT');
      $SUBSONIC_WEBROOT    = $Config->get('SUBSONIC','WEBROOT');
+     $AUTOMOVIES_WEBROOT  = $Config->get('AUTOMOVIES','WEBROOT');
 
 // XBMC Section
 
@@ -65,6 +66,13 @@
      $COUCHPOTATO_PORT    = $Config->get('PORT','COUCHPOTATO');
      $COUCHPOTATO_USERNAME= $Config->get('USERNAME','COUCHPOTATO');
      $COUCHPOTATO_PASS    = $Config->get('PASSWORD','COUCHPOTATO');
+
+// CouchPotato Section
+
+     $AUTOMOVIES_IP       = $Config->get('IP','AUTOMOVIES');
+     $AUTOMOVIES_PORT     = $Config->get('PORT','AUTOMOVIES');
+     $AUTOMOVIES_USERNAME = $Config->get('USERNAME','AUTOMOVIES');
+     $AUTOMOVIES_PASS     = $Config->get('PASSWORD','AUTOMOVIES');
 
 // uTorrent Section
 
@@ -289,6 +297,10 @@ if($GLOBAL_MACHINE)
      if(empty($COUCHPOTATO_IP) && !empty($COUCHPOTATO_PORT)){
           $COUCHPOTATO_IP = $GLOBAL_IP;
      }
+     //AutoMovies Global Settings//
+     if(empty($AUTOMOVIES_IP) && !empty($AUTOMOVIES_PORT)){
+          $AUTOMOVIES_IP = $GLOBAL_IP;
+     }
      //uTorrent Global Settings//
      if(empty($uTORRENT_IP) && !empty($uTORRENT_PORT)){
           $uTORRENT_IP = $GLOBAL_IP;
@@ -340,7 +352,10 @@ if($GLOBAL_USER_PASS){
     $COUCHPOTATO_USERNAME = $GLOBAL_USER;
     $COUCHPOTATO_PASS     = $GLOBAL_PASS;
   }
-
+  if(empty($AUTOMOVIES_USERNAME)||empty($AUTOMOVIES_PASS)){
+    $AUTOMOVIES_USERNAME = $GLOBAL_USER;
+    $AUTOMOVIES_PASS     = $GLOBAL_PASS;
+  }
   if(empty($SABNZBD_USERNAME) && empty($SABNZBD_PASS)){
     $SABNZBD_USERNAME = $GLOBAL_USER;
     $SABNZBD_PASS     = $GLOBAL_PASS;
@@ -363,6 +378,7 @@ $xbmclogin              = (!empty($XBMC_USERNAME)&&!empty($XBMC_PASS))?"$XBMC_US
 $sickbeardlogin         = (!empty($SICKBEARD_USERNAME)&&!empty($SICKBEARD_PASS))?"$SICKBEARD_USERNAME:$SICKBEARD_PASS@":"";
 $SABNZBDlogin           = (!empty($SABNZBD_USERNAME)&&!empty($SABNZBD_PASS))?"$SABNZBD_USERNAME:$SABNZBD_PASS@":"";
 $COUCHPOTATOlogin       = (!empty($COUCHPOTATO_USERNAME)&&!empty($COUCHPOTATO_PASS))?"$COUCHPOTATO_USERNAME:$COUCHPOTATO_PASS@":"";
+$AUTOMOVIESlogin       = (!empty($AUTOMOVIES_USERNAME)&&!empty($AUTOMOVIES_PASS))?"$AUTOMOVIES_USERNAME:$AUTOMOVIES_PASS@":"";
 $uTorrentlogin          = (!empty($uTORRENT_USERNAME)&&!empty($uTORRENT_PASS))?"$uTORRENT_USERNAME:$uTORRENT_PASS@":"";
 $TRANSMISSIONlogin      = (!empty($TRANSMISSION_USERNAME)&&!empty($TRANSMISSION_PASS))?"$TRANSMISSION_USERNAME:$TRANSMISSION_PASS@":"";
 $SUBSONIClogin          = (!empty($SUBSONIC_USERNAME)&&!empty($SUBSONIC_PASS))?"$SUBSONIC_USERNAME:$SUBSONIC_PASS@":"";
@@ -395,6 +411,9 @@ if($REVERSE_PROXY){
      if(!empty($COUCHPOTATO_WEBROOT)){
           $cp_url = 'http://'.$COUCHPOTATOlogin.$GLOBAL_IP.'/'.$COUCHPOTATO_WEBROOT.'/';
      }
+     if(!empty($AUTOMOVIES_WEBROOT)){
+          $automovies_url = 'http://'.$AUTOMOVIESlogin.$GLOBAL_IP.'/'.$AUTOMOVIES_WEBROOT.'/';
+     }
      if(!empty($UTORRENT_WEBROOT)){
           $utorrent_url = 'http://'.$uTorrentlogin.$GLOBAL_IP.'/'.$UTORRENT_WEBROOT.'/';
      }
@@ -421,6 +440,7 @@ if($REVERSE_PROXY){
    $sickbeardurl           = "http://$sickbeardlogin"."$SICKBEARD_IP:$SICKBEARD_PORT/";
    $saburl                 = "http://$SABNZBDlogin"."$SABNZBD_IP:$SABNZBD_PORT/";
    $cp_url                 = "http://$COUCHPOTATOlogin"."$COUCHPOTATO_IP:$COUCHPOTATO_PORT/";
+   $automovies_url        = "http://$AUTOMOVIESlogin"."$AUTOMOVIES_IP:$AUTOMOVIES_PORT/";
    $utorrent_url           = "http://$uTorrentlogin"."$uTORRENT_IP:$uTORRENT_PORT/gui/";
    $jd_url                 = "http://$JDOWNLOADERlogin"."$JDOWNLOADER_IP:$JDOWNLOADER_REMOTEPORT";
    $jd_weburl              = "http://$JDOWNLOADER_IP:$JDOWNLOADER_WEBPORT/";

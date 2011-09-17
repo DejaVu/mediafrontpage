@@ -228,7 +228,8 @@
                 <td width="80"><div><a href="#SABNZBD"><img src="media/Programs/SabNZBd.png" Title="SabNZBd+" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
                 <td width="80"><div><a href="#SUBSONIC"><img src="media/Programs/SubSonic.png" Title="Subsonic" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
                 <td width="80"><div><a href="#SICKBEARD"><img src="media/Programs/SickBeard.png" Title="Sick Beard" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
-                <td width="80"><div><a href="#COUCHPOTATO"><img src="media/Programs/CouchPotato.png" Title="Couch Potato" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#COUCHPOTATO"><img src="media/Programs/CouchPotato.png" Title="CouchPotato" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
+                <td width="80"><div><a href="#AUTOMOVIES"><img src="media/Programs/AutoMovies.png" Title="AutoMovies" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
                 <td width="80"><div><a href="#HEADPHONES"><img src="media/Programs/HeadPhones.png" Title="Headphones" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
                 <td width="80"><div><a href="#TRANSMISSION"><img src="media/Programs/Transmission.png" Title="Transmission" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
                 <td width="80"><div><a href="#UTORRENT"><img src="media/Programs/uTorrent.png" Title="uTorrent" style="opacity:0.4;filter:alpha(opacity=40)" onMouseOver="this.style.opacity=1;this.filters.alpha.opacity=100" onMouseOut="this.style.opacity=0.4;this.filters.alpha.opacity=40" /></a></div></td>
@@ -252,20 +253,23 @@
                 $info[4]["name"]= "CouchPotato";
                 $info[4]["address"]= $COUCHPOTATO_IP;
                 $info[4]["port"]= $COUCHPOTATO_PORT;
-                $info[5]["name"]= "HeadPhones";
-                $info[5]["address"]= $HEADPHONES_IP;
-                $info[5]["port"]= $HEADPHONES_PORT;
-                $info[6]["name"]= "Transmission";
-                $info[6]["address"]= $TRANSMISSION_IP;
-                $info[6]["port"]= $TRANSMISSION_PORT;
-                $info[7]["name"]= "uTorrent";
-                $info[7]["address"]= $UTORRENT_IP;
-                $info[7]["port"]= $UTORRENT_PORT;
-                $info[8]["name"]= "jDownloader";
-                $info[8]["address"]= $JDOWNLOADER_IP;
-                $info[8]["port"]= $JDOWNLOADER_PORT;
+                $info[5]["name"]= "AutoMovies";
+                $info[5]["address"]= $AUTOMOVIES_IP;
+                $info[5]["port"]= $AUTOMOVIES_PORT;
+                $info[6]["name"]= "HeadPhones";
+                $info[6]["address"]= $HEADPHONES_IP;
+                $info[6]["port"]= $HEADPHONES_PORT;
+                $info[7]["name"]= "Transmission";
+                $info[7]["address"]= $TRANSMISSION_IP;
+                $info[7]["port"]= $TRANSMISSION_PORT;
+                $info[8]["name"]= "uTorrent";
+                $info[8]["address"]= $UTORRENT_IP;
+                $info[8]["port"]= $UTORRENT_PORT;
+                $info[9]["name"]= "jDownloader";
+                $info[9]["address"]= $JDOWNLOADER_IP;
+                $info[9]["port"]= $JDOWNLOADER_PORT;
 
-                $infocount = 8;
+                $infocount = 9;
                 $timeout = 2;
 
                 for ($i=0; $i<=$infocount; $i++){
@@ -279,7 +283,7 @@
             ?>
               </tr>
                    <tr>
-                <td align="center" colspan="10" ><p align="justify" style="width: 500px;">Here you can specify a Username / Password / IP Address / Ports for each program individually. These settings <i>will</i> overide the Global Setting.<br>
+                <td align="center" colspan="10" ><a href="javascript:location.reload(true)">REFRESH</a><p align="justify" style="width: 500px;">Here you can specify a Username / Password / IP Address / Ports for each program individually. These settings <i>will</i> overide the Global Setting.<br>
               </tr>
                    <tr>
                 <td align="center" colspan="10"><input type="button" value="Reverse Proxies" Title="Click here to Setup Reverse Proxies" onClick="window.location.href='#WEBROOT'" /></td>
@@ -312,6 +316,10 @@
                    <tr>
                 <td align="right"><p>Couch Potato:</p></td>
                 <td align="left"><input name="COUCHPOTATO" size="20" Title="Insert CouchPotato's Webroot" value="<?php echo $config->get('COUCHPOTATO','WEBROOT')?>"></td>
+              </tr>
+                   <tr>
+                <td align="right"><p>AutoMovies:</p></td>
+                <td align="left"><input name="AUTOMOVIES" size="20" Title="Insert AutoMovies's Webroot" value="<?php echo $config->get('AUTOMOVIES','WEBROOT')?>"></td>
               </tr>
                    <tr>
                 <td align="right"><p>SabNZBd+:</p></td>
@@ -405,7 +413,7 @@
             <input type="button" value="Save" Title="Save these Settings" onClick="updateSettings('SICKBEARD');" />
           </div>
                
-<!-- Sickbeard Settings -->
+<!-- Couch Potato's Settings -->
                <div id="COUCHPOTATO" class="panel">
             <h3>Couch Potato Settings</h3>
             <a href="http://www.couchpotatoapp.com" target="_blank"><img src="media/Programs/CouchPotato.png" Title="Visit CouchPotato"></a>
@@ -433,7 +441,36 @@
             <input type="button"value="Back" onClick="history.go(-1)">
             <input type="button" Title="Save these Settings" value="Save" Title="Save these Settings" onClick="updateSettings('COUCHPOTATO');" />
           </div>
-               
+
+<!-- AutoMovies Settings -->
+               <div id="AUTOMOVIES" class="panel">
+            <h3>AutoMovies Settings</h3>
+            <a href="http://forum.xbmc.org/showthread.php?t=107388" target="_blank"><img src="media/Programs/AutoMovies.png" Title="Visit AutoMovies"></a>
+            <table>
+                   <tr>
+                <td colspan="2"><p align="justify" style="width: 500px;">Enter the details where MediaFrontPage will find AutoMovies.</p></td>
+              </tr>
+                   <tr>
+                <td align="right"><p>AutoMovies IP:</p></td>
+                <td align="left"><input name="IP" Title="Insert your AutoMovies IP Address" size="20" value="<?php echo $config->get('IP','AUTOMOVIES')?>" /></td>
+              </tr>
+                   <tr>
+                <td align="right"><p>Couch Potato Port:</p></td>
+                <td align="left"><input name="PORT" Title="Insert your AutoMovies Port" size="4" value="<?php echo $config->get('PORT','AUTOMOVIES')?>" /></td>
+              </tr>
+                   <tr>
+                <td align="right"><p>Couch Potato Username:</p></td>
+                <td align="left"><input name="USERNAME" Title="Insert your AutoMovies Username" size="20" value="<?php echo $config->get('USERNAME','AUTOMOVIES')?>" /></td>
+              </tr>
+                   <tr>
+                <td align="right"><p>Couch Potato Password:</p></td>
+                <td align="left"><input name="PASSWORD" Title="Insert your AutoMovies Password" size="20" type="password" value="<?php echo $config->get('PASSWORD','AUTOMOVIES')?>" /></td>
+              </tr>
+                 </table>
+            <input type="button"value="Back" onClick="history.go(-1)">
+            <input type="button" Title="Save these Settings" value="Save" Title="Save these Settings" onClick="updateSettings('AUTOMOVIES');" />
+          </div>
+
 <!-- SabNZBd+ Settings -->
                <div id="SABNZBD" class="panel">
             <h3>SabNZBd+ Settings</h3>
@@ -659,7 +696,7 @@
             <input type="button" value="Save" Title="Save these Settings" onClick="updateSettings('SEARCH');" />
           </div>
                
-<!-- Search Settings -->
+<!-- Trakt Settings -->
                <div id="TRAKT" class="panel">
             <h3>Trakt.tv Settings</h3>
             <a href="http://www.trakt.tv" target="_blank"><img src="media/Programs/Trakt.png" Title="Visit TrakT"></a>
@@ -860,7 +897,7 @@
 </script> 
           </div>
                
-<!-- Search Settings -->
+<!-- Message Settings -->
                <div id="MESSAGE" class="panel">
             <h3>XBMC Instances for Message Widget</h3>
             <img src="media/Programs/message.png">
