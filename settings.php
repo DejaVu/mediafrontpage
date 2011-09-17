@@ -1052,8 +1052,8 @@
                    <tr>
                 <td align="right" style="white-space: nowrap">jDownloader</td>
                 <td><input type="checkbox" name="wjDownloader" title="Tick to Enable" <?php echo ($config->get('wjDownloader','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
-                <td align="right" style="white-space: nowrap"></td>
-                <td></td>
+                <td align="right" style="white-space: nowrap">Site Widgets</td>
+                <td><input type="checkbox" name="wWatched" title="Tick to Enable" <?php echo ($config->get('wWatched','WIDGETS_ON/OFF') == "true")?'CHECKED':'';?> /></td>
                 <td align="right" style="white-space: nowrap"></td>
                 <td></td>
             </table>

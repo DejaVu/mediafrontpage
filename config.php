@@ -150,6 +150,7 @@
      $wSystem = $Config->get('wSystem','WIDGETS_ON/OFF');
      $wjDownloader = $Config->get('wjDownloader','WIDGETS_ON/OFF');
      $wUPS = $Config->get('wUPS','WIDGETS_ON/OFF');
+     $wWatched = $Config->get('wWatched','WIDGETS_ON/OFF');
 
 /* ComingEpisodes Slider Length */
 

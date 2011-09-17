@@ -166,6 +166,15 @@ if ($wUPS)
         $wUPSSection);
 }
 
+if ($wWatched)
+{
+    addUnique($arrLayout, 'wWatched', array(
+                                           "title" => "Site Widgets",
+                                           "display" => ""
+                                      ),
+        $wUPSSection);
+}
+
 $wComingEpisodessection = which_section($arrLayout, 'wComingEpisodes');
 $wXBMCLibrarysection = which_section($arrLayout, 'wXBMCLibrary');
 $wControlsection = which_section($arrLayout, 'wControl');
@@ -182,6 +191,7 @@ $wTraktsection = which_section($arrLayout, 'wTrakt');
 $wSystemsection = which_section($arrLayout, 'wSystem');
 $wUPSsection = which_section($arrLayout, 'wUPS');
 $wjDownloadersection = which_section($arrLayout, 'wjDownloader');
+$wWatchedsection = which_section($arrLayout, 'wWatched');
 
 if ( $wComingEpisodes == "false" )
 	{ 
@@ -261,5 +271,10 @@ if ( $wUPS == "false" )
 if ( $wjDownloader == "false" )
 	{ 
 	unset($arrLayout[$wjDownloadersection]['wjDownloader']);
+	}
+	
+if ( $wWatched == "false" )
+	{ 
+	unset($arrLayout[$wWatchedsection]['wWatched']);
 	}
 ?>
