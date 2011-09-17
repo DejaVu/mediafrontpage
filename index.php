@@ -11,11 +11,11 @@
 		}
 
 // Redirect if on a mobile browser
-	require_once "m/mobile_device_detect.php";
-		if(mobile_device_detect(true,true,true,true,true,true,true,false,false) ) {
-			echo "<script>window.location = 'm/';</script>";
-		exit();
-		}
+//    require_once "m/mobile_device_detect.php";
+//        if(mobile_device_detect(true,true,true,true,true,true,true,false,false) ) {
+//           echo "<script>window.location = 'm/';</script>";
+//        exit();
+//        }
 
 	$submenu = false;
 	require_once "config.php";
