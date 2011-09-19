@@ -680,17 +680,17 @@
                    <tr>
                 <td align="right"><p>NZB Matrix API:</p></td>
                 <td align="left"><input name="NZBMATRIX_API" Title="Insert your NZBMatrix API" type="password" size="40" value="<?php echo $config->get('NZBMATRIX_API','SEARCH')?>" />
-                       <a href="http://nzbmatrix.com/account.php"><img src="media/question.png" Title="Get your NZBMatrix API" height="20px"></a></td>
+                       <a href="http://nzbmatrix.com/account.php" target="_blank"><img src="media/question.png" Title="Get your NZBMatrix API" height="20px"></a></td>
               </tr>
                    <tr>
                 <td align="right"><p>NZB.SU API:</p></td>
                 <td align="left"><Input name="NZBSU_API" Title="Insert your NZB.SU API" type="password" size="40" value="<?php echo $config->get('NZBSU_API','SEARCH')?>" />
-                       <a href="http://nzb.su/profile"><img src="media/question.png" Title="Get your NZB.su API" height="20px"></a></td>
+                       <a href="http://nzb.su/profile" target="_blank"><img src="media/question.png" Title="Get your NZB.su API" height="20px"></a></td>
               </tr>
                    <tr>
                 <td align="right"><p>NZB.SU Download Code:</p></td>
                 <td align="left"><input name="NZB_DL" Title="Insert your NZB.SU Download Code" type="password" size="40" value="<?php echo $config->get('NZB_DL','SEARCH')?>" />
-                       <a href="http://nzb.su/rss"><img src="media/question.png" Title="Get your NZB.su Download Code" height="20px"></a></td>
+                       <a href="http://nzb.su/rss" target="_blank"><img src="media/question.png" Title="Get your NZB.su Download Code" height="20px"></a></td>
               </tr>
                  </table>
             <input type="button" value="Save" Title="Save these Settings" onClick="updateSettings('SEARCH');" />
@@ -715,7 +715,7 @@
                    <tr>
                 <td align="right"><p>trakt API:</p></td>
                 <td align="left"><input name="TRAKT_API" type="password" Title="Insert your trakt.tv API"  ize="40" value="<?php echo $config->get('TRAKT_API','TRAKT')?>" />
-                       <a href="http://trakt.tv/settings/api"><img src="media/question.png" Title="Get your trakt API" height="20px"></a></td>
+                       <a href="http://trakt.tv/settings/api" target="_blank"><img src="media/question.png" Title="Get your trakt API" height="20px"></a></td>
               </tr>
                  </table>
             <input type="button" value="Save" Title="Save these Settings" onClick="updateSettings('TRAKT');" />
