@@ -120,6 +120,7 @@ echo '<td>';
 if($redirect){
   echo "<br><br><p>Congratulations! <br> Everything seems to be in working order.</p>";
   echo "<p><input type='button' onclick=\"window.location = 'settings.php';\" value='Continue' /></p>";
+  echo "<iframe style='display:none;' src='update.php?update=true' height='0' width='0'></iframe>";
   if (file_exists('firstrun.php')){
     unlink('firstrun.php');
   }
