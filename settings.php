@@ -239,45 +239,42 @@
                 <td width="80" style="white-space: nowrap" align="center"><p><strong>Program Check</strong></p></td>
             <?php 
                 $info[0]["name"]= "XBMC";
-                $info[0]["address"]= $XBMC_IP;
-                $info[0]["port"]= $XBMC_PORT;
+                $info[0]["address"]= $xbmcimgpath;
                 $info[1]["name"]= "SabNZBd+";
-                $info[1]["address"]= $SABNZBD_IP;
-                $info[1]["port"]= $SABNZBD_PORT;
+                $info[1]["address"]= $saburl;
                 $info[2]["name"]= "SubSonic";
-                $info[2]["address"]= $SUBSONIC_IP;
-                $info[2]["port"]= $SUBSONIC_PORT;
+                $info[2]["address"]= $subsonic_url;
                 $info[3]["name"]= "SickBeard";
-                $info[3]["address"]= $SICKBEARD_IP;
-                $info[3]["port"]= $SICKBEARD_PORT;
+                $info[3]["address"]= $sickbeardurl;
                 $info[4]["name"]= "CouchPotato";
-                $info[4]["address"]= $COUCHPOTATO_IP;
-                $info[4]["port"]= $COUCHPOTATO_PORT;
+                $info[4]["address"]= $cp_url;
                 $info[5]["name"]= "AutoMovies";
-                $info[5]["address"]= $AUTOMOVIES_IP;
-                $info[5]["port"]= $AUTOMOVIES_PORT;
+                $info[5]["address"]= $automovies_url;
                 $info[6]["name"]= "HeadPhones";
-                $info[6]["address"]= $HEADPHONES_IP;
-                $info[6]["port"]= $HEADPHONES_PORT;
+                $info[6]["address"]= $headphones_url;
                 $info[7]["name"]= "Transmission";
-                $info[7]["address"]= $TRANSMISSION_IP;
-                $info[7]["port"]= $TRANSMISSION_PORT;
+                $info[7]["address"]= $transmission_web;
                 $info[8]["name"]= "uTorrent";
-                $info[8]["address"]= $UTORRENT_IP;
-                $info[8]["port"]= $UTORRENT_PORT;
+                $info[8]["address"]= $utorrent_url;
                 $info[9]["name"]= "jDownloader";
-                $info[9]["address"]= $JDOWNLOADER_IP;
-                $info[9]["port"]= $JDOWNLOADER_PORT;
+                $info[9]["address"]= $jd_weburl;
 
                 $infocount = 9;
                 $timeout = 2;
 
                 for ($i=0; $i<=$infocount; $i++){
-                    $fp = @fsockopen ($info[$i]["address"], $info[$i]["port"], $errno, $errstr, $timeout);
-                if ($fp) {
-                    echo "<td width='80' align='center'><img src='media/green-tick.png' height='15' Title='".$info[$i]["name"]." Found'></td>";
-                }else{
-                    echo "<td width='80' align='center'><img src='media/red-cross.png' height='15' Title='".$info[$i]["name"]." Unavailable.'></td>";
+     			    
+					$ch = curl_init(); 
+					curl_setopt($ch, CURLOPT_URL, $info[$i]['address']); 
+					curl_setopt($ch, CURLOPT_POST, 0); 
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+					curl_setopt($ch, CURLOPT_TIMEOUT, 0); 
+					$status = curl_exec($ch); 
+					curl_close($ch); 
+					if ($status) { 
+						echo "<td width='80' align='center'><img src='media/green-tick.png' height='15' Title='".$info[$i]["name"]." Found'></td>";
+					}else{
+						echo "<td width='80' align='center'><img src='media/red-cross.png' height='15' Title='".$info[$i]["name"]." Unavailable.'></td>";
                     }
                 }
             ?>
