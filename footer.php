@@ -1,4 +1,4 @@
-<link href="/css/footer.css" rel="stylesheet" type="text/css">
+<link href="css/footer.css" rel="stylesheet" type="text/css">
 <?php 
 	include "config.php";
 		if(!empty($subnavlink)||!empty($subnavlink_blank)||!empty($subnavselect)){
