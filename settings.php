@@ -135,45 +135,49 @@
               </tr>
                    <tr align="left">
                 <td>Homepage</td>
-                <td><a href="programs.php?p=http://mediafrontpage.net&title=MediaFrontPage">http://mediafrontpage.net/</a></td>
+                <td><a href="programs.php?p=http://mediafrontpage.net&title=MediaFrontPage">MediaFrontPage.net</a></td>
               </tr>
                    <tr align="left">
                 <td>Forum</td>
-                <td><a href="programs.php?p=http://forum.xbmc.org/showthread.php?t=83304&title=MFP Support">http://forum.xbmc.org/showthread.php?t=83304</a></td>
-              </tr>
-                   <tr align="left">
-                <td>Source</td>
-                <td><a href="programs.php?p=https://github.com/MediaFrontPage/mediafrontpage&title=Official MediaFrontPage GitHub">https://github.com/MediaFrontPage/mediafrontpage</a></td>
+                <td><a href="programs.php?p=http://forum.xbmc.org/showthread.php?t=83304&title=MFP Support">XBMC Forums</a></td>
               </tr>
                    <tr align="left">
                 <td>Bug Tracker</td>
-                <td><a href="programs.php?p=http://mediafrontpage.lighthouseapp.com&title=MediaFrontPage Development">http://mediafrontpage.lighthouseapp.com</a></td>
+                <td><a href="programs.php?p=http://mediafrontpage.lighthouseapp.com&title=MediaFrontPage Development">Lighthouseapp.com</a></td>
               </tr>
                    <tr align="left">
+                <td>Source</td>
+                <td><a href="http://github.com/MediaFrontPage/mediafrontpage" target="_blank">Official Github Repo</a></td>
+              </tr>
+                   <tr align="left">
+                <td>Alternative</td>
+                <td><a href="http://github.com/DejaVu/mediafrontpage" target="_blank">DejaVu' Github Repo</a></td>
+              </tr>                   
+			       <tr align="left">
                 <td>Last Updated</td>
                 <td><?php
                     $github = new GitHub('DejaVu','mediafrontpage');
                     $date   = $github->getInfo();
                     $currentVersion = $config->get('version','ADVANCED');
                     $updateddate = str_replace(array("T","Z"), " ", $date['pushed_at']);
-                    echo "<a href='programs.php?p=https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."&title=Current Commit Details'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";                  ?></td>
+                    echo "<a href='http://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank'>Time: ".substr($updateddate,11,20)." Date: ".substr($updateddate,0,10)."</a>";?></td>
               </tr>
                    <tr align="left">
                 <td>Version</td>
                 <?php
                       $commit = $github->getCommits();
                       $commitNo = $commit['0']['sha'];
-                      echo "<td><a href='programs.php?p=https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."&title=Current Commit Details' target='_blank'>".$currentVersion."</a>";
+                      echo "<td><a href='http://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' target='_blank'>".$currentVersion."</a>";
                     ?>
                   </td>
               </tr>
                    <tr>
                 <td colspan="2"><?php 
                     if($commitNo != $currentVersion){
-                          echo "<br><p>There is a <a href='programs.php?p=https://github.com/DejaVu/mediafrontpage/compare/".$currentVersion."...master&title=Compare Current Commit with Master' Title='Display the new changes'>new version available </a>(or else your ahead of the master)</p><br>";
+                          echo "<br><p>There is a <a href='http://github.com/DejaVu/mediafrontpage/compare/".$currentVersion."...master' target='_blank' Title='Display the new changes'>new version available </a>(or else your ahead of the master)</p><br>";
                           echo "<input type='button' value='Update Now' Title='Click To Update' onclick=\"location.href='update.php'\" />";
                      }else{
-                          echo "<br><p>You are on the <a href='https://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' Title='View the latest commit' target='_blank'>current version</a> of MediaFrontPage.";
+                          echo "<br><p>You are on the <a href='http://github.com/DejaVu/mediafrontpage/commit/".$currentVersion."' Title='View the latest commit' target='_blank'>current version</a> of MediaFrontPage.";
                               } 
                               ?></td>
               </tr>
