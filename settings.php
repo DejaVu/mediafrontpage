@@ -1101,7 +1101,7 @@
                <div id="RSS" class="panel">
             <h3>RSS Feeds</h3>
             <img src="media/Programs/RSS.png">
-            <div style="width:600px;height:400px;overflow:auto;"><table id="table_rss">
+            <div style="width:700px;height:400px;overflow:auto;"><table id="table_rss">
                    <tr>
                 <td align="center" colspan="2"><p align="justify" style="width: 500px;">We also added an RSS Feed from the most popular NZB Sites so you can instantly grab an NZB from their Feeds and load it straight to SabNZBd+ with no other user intervention. The default/shown RSS is the Repository of MediaFrontPage so End Users can keep up with new commits as they happen.</p></td>
               </tr>
