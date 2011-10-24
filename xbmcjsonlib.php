@@ -1,8 +1,8 @@
 <?php
 require_once "config.php";
 
-$COMM_ERROR = "\n<p><strong>XBMC could not be reached.</strong></p>\n<p>Check your <a href='http://xbmclive/settings.php#XBMC'>XBMC Settings</a> are correct.</p>\n";
-$JSON_ERROR = "\n<p><strong>XBMC could not be reached.</strong></p>\n<p>Check your <a href='http://xbmclive/settings.php#XBMC'>XBMC Settings</a> are correct.</p>\n";
+$COMM_ERROR = "\n<p><strong>XBMC could not be reached.</strong></p>\n<p>Check your <a href='settings.php#XBMC'>XBMC Settings</a> are correct.</p>\n";
+$JSON_ERROR = "\n<p><strong>XBMC could not be reached.</strong></p>\n<p>Check your <a href='settings.php#XBMC'>XBMC Settings</a> are correct.</p>\n";
 $videodetailfields = '"genre", "director", "trailer", "tagline", "plot", "plotoutline", "title", "originaltitle", "lastplayed", "showtitle", "firstaired", "duration", "season", "episode", "runtime", "year", "playcount", "rating", "writer", "studio", "mpaa", "premiered", "album"';
 
 $xbmcJsonMethods = array(
