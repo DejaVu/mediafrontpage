@@ -185,7 +185,7 @@ if(!empty($_GET)){
   ?>
 <html>
   <head>
-    <title>UPDATING</title>
+    <title>MediaFrontPage Auto Update</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="js/update.js"></script>
     <link href="css/front.css" rel="stylesheet" type="text/css">
@@ -200,7 +200,7 @@ if(!empty($_GET)){
         <div class="widget-head">
           <h3>MediaFrontPage Auto-Update</h3>
         </div>
-        
+  	<div style="width:300px; height:300px; overflow: auto;">
         <table align="left" style="padding-top: 30px;" cellspacing="7">
           <tr>
             <td align="left">Downloading latest version</td>
@@ -232,7 +232,7 @@ if(!empty($_GET)){
           </tr>
         </table>
         <div id="result"></div>
-      </div>
+      </div></div>
     </center>
   </body>
 </html>
