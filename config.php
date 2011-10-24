@@ -428,7 +428,7 @@ if($REVERSE_PROXY){
           $jd_weburl = 'http://'.$JDOWNLOADERlogin.$GLOBAL_IP.'/'.$JDOWNLOADER_WEBROOT.'/';
      }
      if(!empty($HEADPHONES_WEBROOT)){
-          $headphones_url = 'http://'.$GLOBAL_IP.'/'.$HEADPHONES_WEBROOT.'/home/';
+          $headphones_url = 'http://'.$GLOBAL_IP.'/'.$HEADPHONES_WEBROOT.'/';
      }
      if(!empty($SUBSONIC_WEBROOT)){
           $subsonic_url = 'http://'.$GLOBAL_IP.'/'.$SUBSONIC_WEBROOT.'/login.view?user=$SUBSONIC_USERNAME&password=$SUBSONIC_PASS';
