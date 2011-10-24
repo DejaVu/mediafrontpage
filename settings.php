@@ -743,7 +743,7 @@
                <div id="NAVBAR" class="panel">
             <h3>Navigation Links</h3>
             <img src="media/Programs/navigation.png">
-            <table id='table_nav'>
+            <div style="width:600px;height:400px;overflow:auto;"><table id='table_nav'>
                    <tr>
                 <td colspan="2"><p align="justify" style="width: 500px;">Here are the Navigation Links you see at the top of your page. You can add or remove them depending on the programs you use. All the programs MFP supports are loaded by default, unfortunately, no new programs can be added manually. To request a program to be supported by MediaFrontPage, make a request at <a href="http://forum.xbmc.org/showthread.php?t=83304" target="_blank">MediaFrontPage's Support Forum</a>.</p></td>
               </tr>
@@ -760,7 +760,7 @@
                 </tr>";
           }
 ?>
-                 </table>
+                 </table></div>
             <input type="button" value="+" Title="Add a new Row" onClick="addRowToTable('nav', 13, 30);" />
             <input type="button" value="-" Title="Remove the Last Row" onClick="removeRowToTable('nav');" />
             <br />
@@ -772,7 +772,7 @@
                <div id="SUBNAV" class="panel">
             <h3>Sub Navigation Links</h3>
             <img src="media/Programs/subnav.png">
-            <table id='table_subnav'>
+            <div style="width:600px;height:400px;overflow:auto;"><table id='table_subnav'>
                    <tr>
                 <td colspan="2"><p align="justify" style="width: 500px;">Here are the Sub Navigation Links you see at the bottom of your page. You can add or remove any site you like. Simply give it a Title and a URL and it will show up on the Footer at the bottom of MediaFrontPage. At the moment, you cannot remove them at will, you can only remove the last entry.</p></td>
               </tr>
@@ -789,7 +789,7 @@
                 </tr>";
            }
 ?>
-                 </table>
+                 </table></div>
             <input type="button" value="+" Title="Add a new Row" onClick="addRowToTable('subnav', 13, 30);" />
             <input type="button" value="-" Title="Remove the Last Row" onClick="removeRowToTable('subnav');" />
             <br />
@@ -801,7 +801,7 @@
                <div id="HDD" class="panel">
             <h3>Hard Drives Settings</h3>
             <img src="media/Programs/hdd.png">
-            <table id='table_hdd'>
+               <div style="width:600px;height:400px;overflow:auto;"><table id='table_hdd'>
                    <tr>
                 <td colspan="2"><p align="justify" style="width: 500px;">This is the part of MediaFrontPage that finds your Hard Drives. It does not matter what system it is running on, but you need to know where your media is stored on your HDD's. Examples have been added to show you how to add your own. Remove them all and add your own.</p></td>
               </tr>
@@ -809,7 +809,7 @@
                 <td>Title</td>
                 <td>Path</td>
               </tr>
-                   <?php
+			<?php
           $x = $config->get('HDD');
      foreach ($x as $title=>$url){
           echo "<tr>
@@ -818,7 +818,7 @@
                </tr>";
           }
 ?>
-                 </table>
+                 </table></div>
             <input type="button" value="+" Title="Add a new Row" onClick="addRowToTable('hdd', 20, 20);" />
             <input type="button" value="-" Title="Remove the Last Row" onClick="removeRowToTable('hdd');" />
             <br />
@@ -1101,7 +1101,7 @@
                <div id="RSS" class="panel">
             <h3>RSS Feeds</h3>
             <img src="media/Programs/RSS.png">
-            <table id="table_rss">
+            <div style="width:600px;height:400px;overflow:auto;"><table id="table_rss">
                    <tr>
                 <td align="center" colspan="2"><p align="justify" style="width: 500px;">We also added an RSS Feed from the most popular NZB Sites so you can instantly grab an NZB from their Feeds and load it straight to SabNZBd+ with no other user intervention. The default/shown RSS is the Repository of MediaFrontPage so End Users can keep up with new commits as they happen.</p></td>
               </tr>
@@ -1118,7 +1118,7 @@
                </tr>";
                }
 ?>
-                 </table>
+                 </table></div>
             <input type="button" value="+" Title="Add a new Row" onClick="addRowToTable('rss', 30, 60);" />
             <input type="button" value="-" Title="Remove the Last Row" onClick="removeRowToTable('rss');" />
             <br />
@@ -1130,7 +1130,7 @@
                <div id="CONTROL" class="panel">
             <h3>Control XBMC Settings</h3>
             <img src="media/Programs/control.png">
-            <table id="table_control">
+            <div style="width:600px;height:400px;overflow:auto;"><table id="table_control">
                    <tr>
                 <td align="center" colspan="2"><p align="justify" style="width: 500px;">These commands are JSON API controls that directly communicate with the computer that MediaFrontPage is installed on. They can be removed, but as of yet, no more exist to add.</p></td>
               </tr>
@@ -1147,7 +1147,7 @@
                </tr>";
                }
 ?>
-                 </table>
+                 </table></div>
             <input type="button" value="+" Title="Add a new Row" onClick="addRowToTable('control', 20, 20);" />
             <input type="button" value="-" Title="Remove the Last Row" onClick="removeRowToTable('control');" />
             <br />
