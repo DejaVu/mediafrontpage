@@ -247,7 +247,7 @@
                 $info[1]["name"]= "SabNZBd+";
                 $info[1]["address"]= $saburl;
                 $info[2]["name"]= "SubSonic";
-                $info[2]["address"]= $subsonic_url;
+                $info[2]["address"]= $subsonic_check;
                 $info[3]["name"]= "SickBeard";
                 $info[3]["address"]= $sickbeardurl;
                 $info[4]["name"]= "CouchPotato";
