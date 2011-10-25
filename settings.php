@@ -456,15 +456,15 @@
                 <td align="left"><input name="IP" Title="Insert your AutoMovies IP Address" size="20" value="<?php echo $config->get('IP','AUTOMOVIES')?>" /></td>
               </tr>
                    <tr>
-                <td align="right"><p>Couch Potato Port:</p></td>
+                <td align="right"><p>AutoMovies Port:</p></td>
                 <td align="left"><input name="PORT" Title="Insert your AutoMovies Port" size="4" value="<?php echo $config->get('PORT','AUTOMOVIES')?>" /></td>
               </tr>
                    <tr>
-                <td align="right"><p>Couch Potato Username:</p></td>
+                <td align="right"><p>AutoMovies Username:</p></td>
                 <td align="left"><input name="USERNAME" Title="Insert your AutoMovies Username" size="20" value="<?php echo $config->get('USERNAME','AUTOMOVIES')?>" /></td>
               </tr>
                    <tr>
-                <td align="right"><p>Couch Potato Password:</p></td>
+                <td align="right"><p>AutoMovies Password:</p></td>
                 <td align="left"><input name="PASSWORD" Title="Insert your AutoMovies Password" size="20" type="password" value="<?php echo $config->get('PASSWORD','AUTOMOVIES')?>" /></td>
               </tr>
                  </table>
