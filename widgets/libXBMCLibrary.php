@@ -81,7 +81,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 						displayVideoFromList($videos, $style, $action, $breadcrumb, $params);
 					} else {
 						echo $COMM_ERROR;
-//						echo "<pre>$request</pre>";
+						echo "<pre>$request</pre>";
 					}
 					break;
 				case "re": // Recent Episodes
@@ -93,7 +93,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 						displayVideoFromList($videos, $style, $action, $breadcrumb, $params);
 					} else {
 						echo $COMM_ERROR;
-//						echo "<pre>$request</pre>";
+						echo "<pre>$request</pre>";
 					}
 					break;
 				case "m":  // Movies
@@ -105,7 +105,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 						displayVideoFromList($videos, $style, $action, $breadcrumb, $params);
 					} else {
 						echo $COMM_ERROR;
-//						echo "<pre>$request</pre>";
+						echo "<pre>$request</pre>";
 					}
 					break;
 				case "rm": // Recent Movies
@@ -117,7 +117,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 						displayVideoFromList($videos, $style, $action, $breadcrumb, $params);
 					} else {
 						echo $COMM_ERROR;
-//						echo "<pre>$request</pre>";
+						echo "<pre>$request</pre>";
 					}
 					break;
 				case "d":
@@ -129,7 +129,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 						displayFilesFromList($result, $style, $action, $breadcrumb, $params);
 					} else {
 						echo $COMM_ERROR;
-//						echo "<pre>$request</pre>";
+						echo "<pre>$request</pre>";
 					}
 					break;
 			}
@@ -141,7 +141,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 				displayVideoListTVShows($videos, $style, $action, $breadcrumb, $params);
 			} else {
 				echo $COMM_ERROR;
-//				echo "<pre>$request</pre>";
+				echo "<pre>$request</pre>";
 			}
 			break;
 		case "s":  // Seasons
@@ -153,7 +153,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 				displayVideoListSeasons($videos, $style, $action, $breadcrumb, $params);
 			} else {
 				echo $COMM_ERROR;
-//				echo "<pre>".jsonstring("VideoLibrary.GetSeasons", array('tvshowid' => $showid))."</pre>";
+				echo "<pre>".jsonstring("VideoLibrary.GetSeasons", array('tvshowid' => $showid))."</pre>";
 			}
 			break;
 		case "e":  // Episodes
@@ -166,7 +166,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 				displayVideoListEpisodes($videos, $style, $action, $breadcrumb, $params);
 			} else {
 				echo $COMM_ERROR;
-//				echo "<pre>".jsonstring("VideoLibrary.GetEpisodes", array('tvshowid' => $showid, 'season' => $season))."</pre>";
+				echo "<pre>".jsonstring("VideoLibrary.GetEpisodes", array('tvshowid' => $showid, 'season' => $season))."</pre>";
 			}
 			break;
 		case "re": // Recent Episodes
@@ -182,7 +182,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 				displayVideoListEpisodes($videos, $style, $action, $breadcrumb, $params);
 			} else {
 				echo $COMM_ERROR;
-//				echo "<pre>".jsonstring("VideoLibrary.GetRecentlyAddedEpisodes", $count)."</pre>";
+				echo "<pre>".jsonstring("VideoLibrary.GetRecentlyAddedEpisodes", $count)."</pre>";
 			}
 			break;
 		case "m":  // Movies
@@ -193,7 +193,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 				displayVideoListMovie($videos, $style, $action, $breadcrumb, $params);
 			} else {
 				echo $COMM_ERROR;
-//				echo "<pre>".jsonstring("VideoLibrary.GetMovies")."</pre>";
+				echo "<pre>".jsonstring("VideoLibrary.GetMovies")."</pre>";
 			}
 			break;
 		case "rm": // Recent Movies
@@ -209,7 +209,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 				displayVideoListMovie($videos, $style, $action, $breadcrumb, $params);
 			} else {
 				echo $COMM_ERROR;
-//				echo "<pre>".jsonstring("VideoLibrary.GetRecentlyAddedMovies")."</pre>";
+				echo "<pre>".jsonstring("VideoLibrary.GetRecentlyAddedMovies")."</pre>";
 			}
 			break;
 		case "mv": // Music Videos
@@ -217,23 +217,25 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 			echo "<div class=\"widget-control\">".$anchor."</div>\n";
 			break;
 		case "ar":  // Artists
-			echo "<ul class=\"widget-list\"><li>Under Construction</li></ul>";
-			$results = jsonmethodcall("AudioLibrary.GetArtists");
+			if($jsonVersion['result']['version'] == '2') { $results = jsonmethodcall("AudioLibrary.GetArtists"); }
+			if($jsonVersion['result']['version'] == '3') { $results = jsonmethodcall("AudioLibraryV3.GetArtists"); }
 			if (!empty($results['result'])) {
 				$artists = $results['result']['artists'];
 				displayMusicListArtist($artists, $style, $action, $breadcrumb, $params);
 			} else {
 				echo $COMM_ERROR;
-//				echo "<pre>".jsonstring("AudioLibrary.GetArtists")."</pre>";
+				echo "<pre>".jsonstring("AudioLibrary.GetArtists")."</pre>";
 			}
 			break;
 		case "al": // Albums
 			if (!empty($params['artistid'])) {
 				$artistid = $params['artistid'];
-				$request = jsonstring("AudioLibrary.GetAlbums", '"artistid": '.$artistid.',');
+				if($jsonVersion['result']['version'] == '2') { $request = jsonstring("AudioLibrary.GetAlbums", '"artistid": '.$artistid.','); }
+				if($jsonVersion['result']['version'] == '3') { $request = jsonstring("AudioLibraryV3.GetAlbums", $artistid); }
 			} else {
 				$artistid = "";
-				$request = jsonstring("AudioLibrary.GetAlbums");
+				if($jsonVersion['result']['version'] == '2') { $request = jsonstring("AudioLibrary.GetAlbums"); }
+				if($jsonVersion['result']['version'] == '3') { $request = jsonstring("AudioLibraryV3NoArtist.GetAlbums"); }
 			}
 			$results = jsoncall($request);
 			if (!empty($results['result'])) {
@@ -241,17 +243,19 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 				displayMusicListAlbum($albums, $style, $action, $breadcrumb, $params);
 			} else {
 				echo $COMM_ERROR;
-//				echo "<pre>$request</pre>";
+				echo "<pre>$request</pre>";
 			}
 			break;
 		case "so": // Songs
 			if (!empty($params['artistid']) && !empty($params['albumid'])) {
-				$request = jsonstring("AudioLibrary.GetSongs", array("artistid" => '"artistid": '.$params['artistid'].',', "albumid" => '"albumid": '.$params['albumid'].','));
+				if($jsonVersion['result']['version'] == '2') { $request = jsonstring("AudioLibrary.GetSongs", array("artistid" => '"artistid": '.$params['artistid'].',', "albumid" => '"albumid": '.$params['albumid'].',')); }
+				if($jsonVersion['result']['version'] == '3') { $request = jsonstring("AudioLibraryV3.GetSongs", $params['albumid']); }
 			} elseif (!empty($params['albumid'])) {
-				$request = jsonstring("AudioLibrary.GetSongs", array("artistid" => '"artistid": "" ,', "albumid" => '"albumid": '.$params['albumid'].','));
+				if($jsonVersion['result']['version'] == '2') { $request = jsonstring("AudioLibrary.GetSongs", $params['albumid']); }
+				if($jsonVersion['result']['version'] == '3') { $request = jsonstring("AudioLibraryV3.GetSongs", $params['albumid']); }
 			} else {
 				if($jsonVersion['result']['version'] == '2') { $request = jsonstring("AudioLibrary.GetSongs", array("artistid" => '', "albumid" => '')); }
-				if($jsonVersion['result']['version'] == '3') { $request = jsonstring("AudioLibraryV3.GetSongs", array("artistid" => '', "albumid" => '')); }
+				if($jsonVersion['result']['version'] == '3') { $request = jsonstring("AudioLibraryV3NoAlbumID.GetSongs"); }
 				
 			} 
 			$results = jsoncall($request);
@@ -260,7 +264,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 				displayMusicListSong($songs, $style, $action, $breadcrumb, $params);
 			} else {
 				echo $COMM_ERROR;
-//				echo "<pre>$request</pre>";
+				echo "<pre>$request</pre>";
 			}
 			break;
 		case "ms": // Music Source
@@ -270,7 +274,7 @@ function executeVideo($style = "w", $action, $breadcrumb, $params = array()) {
 				displayMusicListSource($sources, $style, $action, $breadcrumb, $params);
 			} else {
 				echo $COMM_ERROR;
-//				echo "<pre>".jsonstring("Files.GetSources", "music")."</pre>";
+				echo "<pre>".jsonstring("Files.GetSources", "music")."</pre>";
 			}
 			break;
 	}
@@ -408,14 +412,16 @@ function getTVShowId($showtitle) {
 
 function playVideoFromList($videoList, $idType = "episodeid", $videoId = -1) {
 	foreach ($videoList as $videoInfo) {
-		if(!empty($videoInfo[$idType]) && ($videoInfo[$idType] == $videoId) && !empty($videoInfo['file'])) {
-			jsonmethodcall("XBMC.Play", '"file": "'.$videoInfo['file'].'"');
+		if(!empty($videoInfo[$idType]) && ($videoInfo[$idType] == $videoId) && !empty($videoInfo['file']))
+		{
+			$jsonVersion = jsonmethodcall("JSONRPC.Version"); //pull the JSON version # from XBMC
+			if($jsonVersion['result']['version'] == '2') { echo "test message 4"; jsonmethodcall("XBMC.Play", '"file": "'.$videoInfo['file'].'"'); }
+			if($jsonVersion['result']['version'] == '3') { echo "test message 1";}
 		}
 	}
 }
 
 function playSongFromList($songid) {
-	echo "1";
 	$jsonVersion = jsonmethodcall("JSONRPC.Version"); //pull the JSON version # from XBMC
 	$results = jsonmethodcall("Player.GetActivePlayers");
 	if (!empty($results)) {
@@ -434,7 +440,7 @@ function playSongFromList($songid) {
 		$results = jsoncall($request);
 		if (empty($results)) {
 			echo $COMM_ERROR;
-//			echo "<pre>$request</pre>";
+			echo "<pre>$request</pre>";
 		}
 	} else {
 		echo $COMM_ERROR;
@@ -834,4 +840,3 @@ function buildBackAnchor($style, $breadcrumb, $params, $query = "") {
 	}
 }
 ?>
-
