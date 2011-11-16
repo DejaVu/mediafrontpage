@@ -234,7 +234,7 @@ function wTraktComingShows()
 				$epurl 		= $episodes->episode->url;
 				$firstaired = $episodes->episode->first_aired;
 				$screen  	= $episodes->episode->images->screen;
-
+				
 				if(!empty($season) && !empty($episode)){
 					$epTitle = '<a href="'.$epurl.'">S'.$season.'E'.$episode.' - '.$name.'</a>';
 				}
